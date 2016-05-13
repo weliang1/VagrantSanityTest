@@ -9,7 +9,7 @@
       "kind": "Pod",
       "apiVersion": "v1",
       "metadata": {
-        "name": "hello-openshift1-2",
+        "name": "hello-openshift1",
         "creationTimestamp": null,
         "labels": {
           "name": "hello-openshift1"
