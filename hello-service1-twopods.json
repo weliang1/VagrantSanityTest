@@ -19,7 +19,7 @@
         "containers": [
           {
             "name": "hello-openshift1",
-            "image": "openshift/hello-openshift:v1.0.6",
+            "image": "openshift/hello-openshift",
             "ports": [
               {
                 "containerPort": 8080,
@@ -61,7 +61,7 @@
         "containers": [
           {
             "name": "hello-openshift1",
-            "image": "openshift/hello-openshift:v1.0.6",
+            "image": "openshift/hello-openshift",
             "ports": [
               {
                 "containerPort": 8080,
