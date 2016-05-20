@@ -7,7 +7,7 @@
     "spec": {
         "ports": [
             {
-                "name": "http",
+                "name": "https",
                 "port": 27443,
                 "targetPort": 443
             }
