@@ -13,7 +13,7 @@
   "spec": {
       "containers": [{
         "name": "hello-openshift-pod-container",
-        "image": "openshift/hello-openshift",
+        "image": "pweil/hello-nginx-docker",
         "ports": [
           {
             "containerPort": 80
