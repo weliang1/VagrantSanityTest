@@ -1,0 +1,19 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1beta3",
+    "metadata": {
+            "name": "hello-service-https"
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "http",
+                "port": 27443,
+                "targetPort": 443
+            }
+        ],
+        "selector": {
+            "name": "hello-openshift"
+        }
+    }
+}
