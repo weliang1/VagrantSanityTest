@@ -79,6 +79,7 @@ items:
       endpoints: router
     ports:
     - port: 443
+      targetPort: 443
 # a pod that serves a response
 - apiVersion: v1
   kind: Pod
