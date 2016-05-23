@@ -79,6 +79,7 @@ items:
       name: endpoints
     ports:
     - targetPort: 8443
+    - targetPort: 8080
 - apiVersion: v1
   kind: Route
   metadata:
