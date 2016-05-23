@@ -78,7 +78,7 @@ items:
       test: router
       endpoints: router
     ports:
-    - port: 8080
+    - port: 8443
       targetPort: 8080
       protocol: TCP
 # a pod that serves a response
