@@ -117,7 +117,7 @@ items:
   spec:
     containers:
     - name: test
-      image: pweil/hello-nginx-docker
+      image: openshift/hello-openshift
       # image: openshift/deployment-example:v1
       ports:
       - containerPort: 80
