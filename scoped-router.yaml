@@ -121,6 +121,6 @@ items:
       # image: openshift/deployment-example:v1
       ports:
       - containerPort: 8443
-        name: http
+        name: https
       - containerPort: 100
         protocol: UDP
