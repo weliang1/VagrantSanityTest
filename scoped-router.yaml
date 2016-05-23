@@ -106,7 +106,9 @@ items:
       endpoints: router
     ports:
     - port: 8443
+      name: https
     - port: 8080
+      name: http
 # a pod that serves a response
 - apiVersion: v1
   kind: Pod
