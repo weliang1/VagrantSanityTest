@@ -78,8 +78,8 @@ items:
       test: router
       endpoints: router
     ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 80
+      targetPort: 80
 # a pod that serves a response
 - apiVersion: v1
   kind: Pod
@@ -94,6 +94,6 @@ items:
       image: openshift/hello-openshift
       # image: openshift/deployment-example:v1
       ports:
-      - containerPort: 8080
+      - containerPort: 80
       - containerPort: 443
       - containerPort: 100
