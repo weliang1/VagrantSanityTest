@@ -79,7 +79,6 @@ items:
       name: endpoints
     ports:
     - targetPort: 443
-    - targetPort: 80
 - apiVersion: v1
   kind: Route
   metadata:
@@ -107,9 +106,6 @@ items:
       endpoints: router
     ports:
     - port: 443
-      name: https
-    - port: 80
-      name: http
 # a pod that serves a response
 - apiVersion: v1
   kind: Pod
