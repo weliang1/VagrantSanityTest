@@ -65,33 +65,6 @@ items:
   roleRef:
     name: system:router
 
-# two routes that differ only by their labels and names
-- apiVersion: v1
-  kind: Route
-  metadata:
-    name: route-1
-    labels:
-      test: router
-      select: first
-  spec:
-    host: first.example.com
-    to:
-      name: endpoints
-    ports:
-    - targetPort: 443
-- apiVersion: v1
-  kind: Route
-  metadata:
-    name: route-2
-    labels:
-      test: router
-      select: second
-  spec:
-    host: second.example.com
-    to:
-      name: endpoints
-    ports:
-    - targetPort: http
 
 # a service to be routed to
 - apiVersion: v1
