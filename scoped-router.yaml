@@ -1,6 +1,4 @@
 
-
-# a service to be routed to
 - apiVersion: v1
   kind: Service
   metadata:
