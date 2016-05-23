@@ -106,6 +106,7 @@ items:
       endpoints: router
     ports:
     - port: 8443
+    - targetPort: 8443
 # a pod that serves a response
 - apiVersion: v1
   kind: Pod
