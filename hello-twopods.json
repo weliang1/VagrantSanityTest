@@ -1,0 +1,54 @@
+
+{
+  "kind": "Pod",
+  "apiVersion":"v1beta3",
+
+  "metadata": {
+  	"name": "hello-pod-1",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
+
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-1",
+        "image": "openshift/hello-openshift",
+        "ports": [
+          {
+            "containerPort": 80
+          },
+          {
+            "containerPort": 443
+          }
+        ]
+      }]
+  }
+}
+
+{
+  "kind": "Pod",
+  "apiVersion":"v1beta3",
+
+  "metadata": {
+  	"name": "hello-pod-2",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
+
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-2",
+        "image": "openshift/hello-openshift",
+        "ports": [
+          {
+            "containerPort": 80
+          },
+          {
+            "containerPort": 443
+          }
+        ]
+      }]
+  }
+}
