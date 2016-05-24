@@ -12,6 +12,6 @@
         "to": {
             "kind": "Service",
             "name": "hello-service"
-        }
+        },
     },
 }
