@@ -5,13 +5,13 @@
         "name": "hello-route",
         "labels": {
             "name": "hello-route-1"
-        },
+        }
     },
     "spec": {
         "host": "hello-service.com",
         "to": {
             "kind": "Service",
             "name": "hello-service"
-        },
-    },
+        }
+    }
 }
