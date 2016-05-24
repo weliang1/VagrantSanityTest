@@ -58,7 +58,7 @@
             "containerPort": 8080
           },
           {
-            "containerPort": 443
+            "containerPort": 8443
           }
         ]
       }]
@@ -85,7 +85,7 @@
             "containerPort": 8080
           },
           {
-            "containerPort": 443
+            "containerPort": 8443
           }
         ]
       }]
