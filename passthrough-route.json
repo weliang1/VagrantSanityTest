@@ -32,8 +32,8 @@
     "ports": [
       {
         "protocol": "TCP",
-        "port": 443,
-        "targetPort": 443
+        "port": 8443,
+        "targetPort": 8443
       }
     ]
   }
@@ -57,10 +57,10 @@
         "image": "openshift/hello-openshift",
         "ports": [
           {
-            "containerPort": 80
+            "containerPort": 8080
           },
           {
-            "containerPort": 443
+            "containerPort": 8443
           }
         ]
       }]
@@ -84,10 +84,10 @@
         "image": "openshift/hello-openshift",
         "ports": [
           {
-            "containerPort": 80
+            "containerPort": 8080
           },
           {
-            "containerPort": 443
+            "containerPort": 8443
           }
         ]
       }]
