@@ -37,9 +37,8 @@
         "ports": [
           {
             "containerPort": 8080
-          },
-          {
-            "containerPort": 8443
+            "protocol": "TCP"
+
           }
         ]
       }]
@@ -64,9 +63,9 @@
         "ports": [
           {
             "containerPort": 8080
-          },
-          {
-            "containerPort": 8443
+            "protocol": "TCP"
+
+          }
           }
         ]
       }]
