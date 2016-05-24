@@ -1,23 +1,4 @@
 {
-    "kind": "Route",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "hello-route",
-        "labels": {
-            "name": "hello-route-1"
-        }
-    },
-    "spec": {
-        "host": "hello-openshift.com",
-        "to": {
-            "kind": "Service",
-            "name": "hello-service"
-        }
-    }
-}
-
-
-{
   "kind": "Service",
   "apiVersion": "v1",
   "metadata": {
@@ -30,8 +11,8 @@
     "ports": [
       {
         "protocol": "TCP",
-        "port": 8443,
-        "targetPort": 8443
+        "port": 8080,
+        "targetPort": 8080
       }
     ]
   }
