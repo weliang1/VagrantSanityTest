@@ -1,4 +1,23 @@
 {
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-route",
+        "labels": {
+            "name": "hello-route-1"
+        }
+    },
+    "spec": {
+        "host": "hello-openshift.com",
+        "to": {
+            "kind": "Service",
+            "name": "hello-service"
+        }
+    }
+}
+
+
+{
   "kind": "Service",
   "apiVersion": "v1",
   "metadata": {
@@ -10,8 +29,9 @@
     },
     "ports": [
       {
-        "port": 8080,
-        "targetPort": 8080
+        "protocol": "TCP",
+        "port": 443,
+        "targetPort": 443
       }
     ]
   }
@@ -35,7 +55,10 @@
         "image": "openshift/hello-openshift",
         "ports": [
           {
-            "containerPort": 8080
+            "containerPort": 80
+          },
+          {
+            "containerPort": 443
           }
         ]
       }]
@@ -59,7 +82,10 @@
         "image": "openshift/hello-openshift",
         "ports": [
           {
-            "containerPort": 8080
+            "containerPort": 80
+          },
+          {
+            "containerPort": 443
           }
         ]
       }]
