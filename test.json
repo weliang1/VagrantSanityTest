@@ -1,78 +1,10 @@
-{
-    "kind": "Route",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "route-secure"
-    },
-    "spec": {
-        "host": "www.example.com",
-        "to": {
-            "kind": "Service",
-            "name": "hello-nginx-https"
-        },
-        "tls": {
-            "termination": "passthrough"
-        }
-    }
-}
 
-
-
-{
-    "kind": "Service",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "hello-nginx-https"
-    },
-    "spec": {
-        "ports": [
-            {
-                "name": "http",
-                "protocol": "TCP",
-                "port": 27443,
-                "targetPort": 443
-            }
-        ],
-        "selector": {
-            "name": "hello-nginx-docker"
-        }
-    }
-}
-
-
-    "kind": "Pod",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "hello-nginx-docker",
-        "labels": {
-            "name": "hello-nginx-docker"
-        }
-    },
-    "spec": {
-        "containers": [
-            {
-                "name": "hello-nginx-docker-pod",
-                "image": "pweil/hello-nginx-docker",
-                "ports": [
-                    {
-                        "containerPort": 80,
-                        "protocol": "TCP"
-                    },
-                    {
-                        "containerPort": 443,
-                        "protocol": "TCP"
-                    }
-                ]
-            }        
-        ]
-    }
-}
 
 {
     "kind": "Pod",
     "apiVersion": "v1",
     "metadata": {
-        "name": "hello-nginx-docker-1",
+        "name": "hello-nginx-docker",
         "labels": {
             "name": "hello-nginx-docker"
         }
