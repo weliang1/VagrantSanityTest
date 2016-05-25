@@ -2,7 +2,7 @@
     "kind": "Route",
     "apiVersion": "v1",
     "metadata": {
-        "name": "route-secure",
+        "name": "route-secure"
     },
     "spec": {
         "host": "www.example.com",
