@@ -2,94 +2,98 @@
     "kind": "Route",
     "apiVersion": "v1",
     "metadata": {
-        "name": "hello-route",
-        "labels": {
-            "name": "hello-route-1"
-        }
+        "name": "route-secure"
     },
     "spec": {
-        "host": "hello-openshift.com",
+        "host": "www.example.com",
         "to": {
             "kind": "Service",
-            "name": "hello-service"
+            "name": "hello-nginx-https"
         },
-        "tls": { "termination": "passthrough"}
+        "tls": {
+            "termination": "passthrough"
+        }
+    }
+}
+
+
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-nginx-https"
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "http",
+                "protocol": "TCP",
+                "port": 27443,
+                "targetPort": 443
+            }
+        ],
+        "selector": {
+            "name": "hello-nginx-docker"
+        }
     }
 }
 
 
 
 {
-  "kind": "Service",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "hello-service"
-  },
-  "spec": {
-    "selector": {
-      "name":"hello-openshift"
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-nginx-docker",
+        "labels": {
+            "name": "hello-nginx-docker"
+        }
     },
-    "ports": [
-      {
-        "protocol": "TCP",
-        "port": 443,
-        "targetPort": 443
-      }
-    ]
-  }
-}
-
-
-{
-  "kind": "Pod",
-  "apiVersion":"v1beta3",
-
-  "metadata": {
-  	"name": "hello-pod-1",
-  	"labels": {
-    		"name": "hello-openshift"
-  	}
-  },
-
-  "spec": {
-      "containers": [{
-        "name": "hello-pod-container-1",
-        "image": "openshift/hello-openshift",
-        "ports": [
-          {
-            "containerPort": 80
-          },
-          {
-            "containerPort": 443
-          }
+    "spec": {
+        "containers": [
+            {
+                "name": "hello-nginx-docker-pod",
+                "image": "pweil/hello-nginx-docker",
+                "ports": [
+                    {
+                        "containerPort": 80,
+                        "protocol": "TCP"
+                    },
+                    {
+                        "containerPort": 443,
+                        "protocol": "TCP"
+                    }
+                ]
+            }        
         ]
-      }]
-  }
+    }
 }
 
 {
-  "kind": "Pod",
-  "apiVersion":"v1beta3",
-
-  "metadata": {
-  	"name": "hello-pod-2",
-  	"labels": {
-    		"name": "hello-openshift"
-  	}
-  },
-
-  "spec": {
-      "containers": [{
-        "name": "hello-pod-container-2",
-        "image": "openshift/hello-openshift",
-        "ports": [
-          {
-            "containerPort": 80
-          },
-          {
-            "containerPort": 443
-          }
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-nginx-docker-1",
+        "labels": {
+            "name": "hello-nginx-docker"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "hello-nginx-docker-pod",
+                "image": "pweil/hello-nginx-docker",
+                "ports": [
+                    {
+                        "containerPort": 80,
+                        "protocol": "TCP"
+                    },
+                    {
+                        "containerPort": 443,
+                        "protocol": "TCP"
+                    }
+                ]
+            }        
         ]
-      }]
-  }
+    }
 }
