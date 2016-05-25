@@ -50,7 +50,7 @@
     "kind": "Pod",
     "apiVersion": "v1",
     "metadata": {
-        "name": "caddy-docker-1"
+        "name": "caddy-docker-1",
         "labels": {
             "name": "caddy-docker"
         }
@@ -80,7 +80,7 @@
     "kind": "Pod",
     "apiVersion": "v1",
     "metadata": {
-        "name": "caddy-docker-2"
+        "name": "caddy-docker-2",
         "labels": {
             "name": "caddy-docker"
         }
