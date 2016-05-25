@@ -59,7 +59,7 @@
         "containers": [
             {
                 "name": "caddy-docker-pod",
-                "image": "bmeng/caddy-docker",
+                "image": "openshift/hello-openshift",
                 "ports": [
                     {
                         "containerPort": 8080,
@@ -89,7 +89,7 @@
         "containers": [
             {
                 "name": "caddy-docker-pod",
-                "image": "bmeng/caddy-docker",
+                "image": "openshift/hello-openshift",
                 "ports": [
                     {
                         "containerPort": 8080,
