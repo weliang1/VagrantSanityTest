@@ -5,7 +5,7 @@
         "name": "route-secure"
     },
     "spec": {
-        "host": "www.passthrough.com",
+        "host": "www.example.com",
         "to": {
             "kind": "Service",
             "name": "hello-nginx-https"
