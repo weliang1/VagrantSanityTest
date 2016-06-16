@@ -1,0 +1,28 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-nginx-docker-1",
+        "labels": {
+            "name": "hello-nginx-docker"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "hello-nginx-docker-pod",
+                "image": "pweil/hello-nginx-docker",
+                "ports": [
+                    {
+                        "containerPort": 80,
+                        "protocol": "TCP"
+                    },
+                    {
+                        "containerPort": 443,
+                        "protocol": "TCP"
+                    }
+                ]
+            }        
+        ]
+    }
+}
