@@ -43,7 +43,7 @@
   "apiVersion":"v1beta3",
 
   "metadata": {
-  	"name": "hello-pod",
+  	"name": "hello-pod-1",
   	"labels": {
     		"name": "hello-openshift"
   	}
@@ -70,7 +70,7 @@
   "apiVersion":"v1beta3",
 
   "metadata": {
-  	"name": "hello-pod",
+  	"name": "hello-pod-2",
   	"labels": {
     		"name": "hello-openshift"
   	}
