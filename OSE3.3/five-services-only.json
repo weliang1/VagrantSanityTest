@@ -1,12 +1,31 @@
 {
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-route",
+        "labels": {
+            "name": "hello-route-1"
+        }
+    },
+    "spec": {
+        "host": "hello-openshift.com",
+        "to": {
+            "kind": "Service",
+            "name": "hello-service"
+        }
+    }
+}
+
+
+{
   "kind": "Service",
   "apiVersion": "v1",
   "metadata": {
-    "name": "hello-service1"
+    "name": "hello-service"
   },
   "spec": {
     "selector": {
-      "name":"primary"
+      "name":"hello-openshift"
     },
     "ports": [
       {
@@ -37,7 +56,7 @@
   },
   "spec": {
     "selector": {
-      "name":"primary"
+      "name":"hello-openshift"
     },
     "ports": [
       {
@@ -68,7 +87,7 @@
   },
   "spec": {
     "selector": {
-      "name":"primary"
+      "name":"hello-openshift"
     },
     "ports": [
       {
@@ -99,7 +118,7 @@
   },
   "spec": {
     "selector": {
-      "name":"primary"
+      "name":"hello-openshift"
     },
     "ports": [
       {
@@ -130,7 +149,7 @@
   },
   "spec": {
     "selector": {
-      "name":"primary"
+      "name":"hello-openshift"
     },
     "ports": [
       {
@@ -152,3 +171,63 @@
         }
     }
 }
+
+
+
+{
+  "kind": "Pod",
+  "apiVersion":"v1",
+
+  "metadata": {
+  	"name": "hello-pod-1",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
+
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-1",
+        "image": "openshift/hello-openshift",
+        "ports": [
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 443
+          }
+        ]
+      }]
+  }
+}
+
+{
+  "kind": "Pod",
+  "apiVersion":"v1",
+
+  "metadata": {
+  	"name": "hello-pod-2",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
+
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-2",
+        "image": "openshift/hello-openshift",
+        "ports": [
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 443
+          }
+        ]
+      }]
+  }
+}
+
+
+
+
