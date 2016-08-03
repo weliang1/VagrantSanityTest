@@ -6,7 +6,7 @@
   },
   "spec": {
     "selector": {
-      "name":"ha-router=primary"
+      "name":"primary"
     },
     "ports": [
       {
@@ -38,7 +38,7 @@
   },
   "spec": {
     "selector": {
-      "name":"ha-router=primary"
+      "name":"primary"
     },
     "ports": [
       {
@@ -70,7 +70,7 @@
   },
   "spec": {
     "selector": {
-      "name":"ha-router=primary"
+      "name":"primary"
     },
     "ports": [
       {
@@ -102,7 +102,7 @@
   },
   "spec": {
     "selector": {
-      "name":"ha-router=primary"
+      "name":"primary"
     },
     "ports": [
       {
@@ -134,7 +134,7 @@
   },
   "spec": {
     "selector": {
-      "name":"ha-router=primary"
+      "name":"primary"
     },
     "ports": [
       {
