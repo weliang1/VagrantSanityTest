@@ -1,0 +1,159 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service1"
+  },
+  "spec": {
+    "selector": {
+      "name":"ha-router=primary"
+    },
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ],
+    "clusterIP": "10.0.171.239",
+    "loadBalancerIP": "78.11.24.19",
+    "type": "LoadBalancer"
+  },
+  "status": {
+        "loadBalancer": {
+            "ingress": [
+                {
+                    "ip": "146.148.47.155"
+                }
+            ]
+        }
+    }
+}
+
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service2"
+  },
+  "spec": {
+    "selector": {
+      "name":"ha-router=primary"
+    },
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ],
+    "clusterIP": "10.0.171.239",
+    "loadBalancerIP": "78.11.24.19",
+    "type": "LoadBalancer"
+  },
+  "status": {
+        "loadBalancer": {
+            "ingress": [
+                {
+                    "ip": "146.148.47.155"
+                }
+            ]
+        }
+    }
+}
+
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service3"
+  },
+  "spec": {
+    "selector": {
+      "name":"ha-router=primary"
+    },
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ],
+    "clusterIP": "10.0.171.239",
+    "loadBalancerIP": "78.11.24.19",
+    "type": "LoadBalancer"
+  },
+  "status": {
+        "loadBalancer": {
+            "ingress": [
+                {
+                    "ip": "146.148.47.155"
+                }
+            ]
+        }
+    }
+}
+
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service4"
+  },
+  "spec": {
+    "selector": {
+      "name":"ha-router=primary"
+    },
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ],
+    "clusterIP": "10.0.171.239",
+    "loadBalancerIP": "78.11.24.19",
+    "type": "LoadBalancer"
+  },
+  "status": {
+        "loadBalancer": {
+            "ingress": [
+                {
+                    "ip": "146.148.47.155"
+                }
+            ]
+        }
+    }
+}
+
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service5"
+  },
+  "spec": {
+    "selector": {
+      "name":"ha-router=primary"
+    },
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ],
+    "clusterIP": "10.0.171.239",
+    "loadBalancerIP": "78.11.24.19",
+    "type": "LoadBalancer"
+  },
+  "status": {
+        "loadBalancer": {
+            "ingress": [
+                {
+                    "ip": "146.148.47.155"
+                }
+            ]
+        }
+    }
+}
