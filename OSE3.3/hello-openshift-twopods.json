@@ -1,0 +1,110 @@
+{
+  "kind": "Template",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "ruby-helloworld-sample",
+    "creationTimestamp": null,
+    "annotations": {
+      "description": "This example shows how to create a simple ruby application in openshift origin v3",
+      "iconClass": "icon-ruby",
+      "tags": "instant-app,ruby,mysql"
+    }
+  },
+  "objects": [
+    
+ {
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-route",
+        "labels": {
+            "name": "hello-route-1"
+        }
+    },
+    "spec": {
+        "host": "hello-openshift.com",
+        "to": {
+            "kind": "Service",
+            "name": "hello-service"
+        }
+    }
+},
+
+
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service"
+  },
+  "spec": {
+    "selector": {
+      "name":"hello-openshift"
+    },
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ]
+  }
+},
+
+
+{
+  "kind": "Pod",
+  "apiVersion":"v1",
+
+  "metadata": {
+  	"name": "hello-pod-1",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
+
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-1",
+        "image": "openshift/hello-openshift",
+        "ports": [
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 443
+          }
+        ]
+      }]
+  }
+},
+
+{
+  "kind": "Pod",
+  "apiVersion":"v1",
+
+  "metadata": {
+  	"name": "hello-pod-2",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
+
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-2",
+        "image": "openshift/hello-openshift",
+        "ports": [
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 443
+          }
+        ]
+      }]
+  }
+}
+  
+  ]
+}
