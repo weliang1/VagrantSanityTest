@@ -1,11 +1,10 @@
 {
-  "kind": "Template",
+  "kind": "List",
   "apiVersion": "v1",
   "metadata": {
-    "name": "hello-openshift.com",
-    "creationTimestamp": null
+    "name": "hello-service-complete-example"
   },
-  "objects": [
+  "items": [
     {
       "kind": "Route",
       "apiVersion": "v1",
