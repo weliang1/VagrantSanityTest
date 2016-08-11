@@ -3,7 +3,7 @@
   "apiVersion": "v1",
   "metadata": {
     "name": "hello-openshift.com",
-    "creationTimestamp": null,
+    "creationTimestamp": null
   },
   "objects": [
  {
