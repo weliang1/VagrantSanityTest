@@ -2,16 +2,10 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "ruby-helloworld-sample",
+    "name": "hello-openshift.com",
     "creationTimestamp": null,
-    "annotations": {
-      "description": "This example shows how to create a simple ruby application in openshift origin v3",
-      "iconClass": "icon-ruby",
-      "tags": "instant-app,ruby,mysql"
-    }
   },
   "objects": [
-    
  {
     "kind": "Route",
     "apiVersion": "v1",
