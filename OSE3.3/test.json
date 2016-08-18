@@ -6,7 +6,7 @@
             "name": "registry"
          },
          "spec": {
-            "host": "hello-openshift.com",
+            "host": "hello-openshift",
             "to": {
                "kind": "Service",
                "name": "docker-registry"
