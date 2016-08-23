@@ -1,0 +1,176 @@
+{
+   "kind": "List",
+   "apiVersion": "v1",
+   "metadata": {
+      "name": "hello-service-complete-example"
+   },
+   "items": [
+      {
+         "kind": "Route",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-route",
+            "labels": {
+               "name": "hello-route-1"
+            }
+         },
+         "spec": {
+            "host": "hello-openshift.com",
+            "to": {
+               "kind": "Service",
+               "name": "hello-service"
+            }
+         }
+      },
+      {
+         "kind": "Service",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-service"
+         },
+         "spec": {
+            "selector": {
+               "name": "hello-openshift"
+            },
+            "ports": [
+               {
+                  "protocol": "TCP",
+                  "port": 8080,
+                  "targetPort": 8080
+               }
+            ],
+            "type": "NodePort"
+         }
+      },
+      {
+         "kind": "Pod",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-pod-1",
+            "labels": {
+               "name": "hello-openshift"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "hello-pod-container-1",
+                  "image": "openshift/hello-openshift",
+                  "ports": [
+                     {
+                        "containerPort": 8080
+                     },
+                     {
+                        "containerPort": 443
+                     }
+                  ]
+               }
+            ]
+         }
+      },
+      {
+         "kind": "Pod",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-pod-2",
+            "labels": {
+               "name": "hello-openshift"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "hello-pod-container-2",
+                  "image": "openshift/hello-openshift",
+                  "ports": [
+                     {
+                        "containerPort": 8080
+                     },
+                     {
+                        "containerPort": 443
+                     }
+                  ]
+               }
+            ]
+         }
+      },
+      {
+         "kind": "Pod",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-pod-3",
+            "labels": {
+               "name": "hello-openshift"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "hello-pod-container-3",
+                  "image": "openshift/hello-openshift",
+                  "ports": [
+                     {
+                        "containerPort": 8080
+                     },
+                     {
+                        "containerPort": 443
+                     }
+                  ]
+               }
+            ]
+         }
+      },
+      {
+         "kind": "Pod",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-pod-4",
+            "labels": {
+               "name": "hello-openshift"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "hello-pod-container-4",
+                  "image": "openshift/hello-openshift",
+                  "ports": [
+                     {
+                        "containerPort": 8080
+                     },
+                     {
+                        "containerPort": 443
+                     }
+                  ]
+               }
+            ]
+         }
+      },
+      {
+         "kind": "Pod",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-pod-5",
+            "labels": {
+               "name": "hello-openshift"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "hello-pod-container-5",
+                  "image": "openshift/hello-openshift",
+                  "ports": [
+                     {
+                        "containerPort": 8080
+                     },
+                     {
+                        "containerPort": 443
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   ]
+}
