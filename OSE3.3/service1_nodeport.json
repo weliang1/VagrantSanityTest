@@ -43,26 +43,6 @@
          }
       },
       {
-         "kind": "Service",
-         "apiVersion": "v1",
-         "metadata": {
-            "name": "hello-service2"
-         },
-         "spec": {
-            "selector": {
-               "name": "hello-openshift"
-            },
-            "ports": [
-               {
-                  "protocol": "TCP",
-                  "port": 8080,
-                  "targetPort": 8080
-               }
-            ],
-            "type": "NodePort"
-         }
-      },
-      {
          "kind": "Pod",
          "apiVersion": "v1",
          "metadata": {
