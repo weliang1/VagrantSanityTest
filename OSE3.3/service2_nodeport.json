@@ -18,7 +18,7 @@
                "name":"service-secure"
             },
             "port":{  
-               "targetPort":"https"
+               "targetPort":"http"
             }
          }
       },
