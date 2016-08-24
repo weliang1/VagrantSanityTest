@@ -27,8 +27,8 @@
             {
                 "name": "https",
                 "protocol": "TCP",
-                "port": 27443,
-                "targetPort": 8443
+                "port": 8080,
+                "targetPort": 8080
             }
         ],
         "selector": {
