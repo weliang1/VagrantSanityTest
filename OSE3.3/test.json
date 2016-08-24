@@ -1,16 +1,99 @@
+{
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "route-reen"
+    },
+    "spec": {
+        "host": "reen.example.com",
+        "to": {
+            "kind": "Service",
+            "name": "service-secure"
+        },
+        "port": {
+            "targetPort": "https"
+        }
+    }
+}
 
-      {
-         "kind": "Route",
-         "apiVersion": "v1",
-         "metadata": {
-            "name": "registry"
-         },
-         "spec": {
-            "host": "hello-openshift.com",
-            "to": {
-               "kind": "Service",
-               "name": "docker-registry"
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "service-secure"
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "https",
+                "protocol": "TCP",
+                "port": 27443,
+                "targetPort": 8443
             }
-         }
-      }
-      
+        ],
+        "selector": {
+            "name": "caddy-docker"
+        }
+    }
+}
+
+
+
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "caddy-docker-1",
+        "labels": {
+            "name": "caddy-docker"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "caddy-docker-pod",
+                "image": "bmeng/caddy-docker",
+                "ports": [
+                    {
+                        "containerPort": 8080,
+                        "protocol": "TCP"
+                    },
+                    {
+                        "containerPort": 8443,
+                        "protocol": "TCP"
+                    }
+                ]
+            }        
+        ]
+    }
+}
+
+
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "caddy-docker-2",
+        "labels": {
+            "name": "caddy-docker"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "caddy-docker-pod",
+                "image": "bmeng/caddy-docker",
+                "ports": [
+                    {
+                        "containerPort": 8080,
+                        "protocol": "TCP"
+                    },
+                    {
+                        "containerPort": 8443,
+                        "protocol": "TCP"
+                    }
+                ]
+            }        
+        ]
+    }
+}
