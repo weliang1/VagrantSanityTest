@@ -1,99 +1,81 @@
-{
-    "kind": "Route",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "route-reen"
-    },
-    "spec": {
-        "host": "reen.example.com",
-        "to": {
-            "kind": "Service",
-            "name": "service-secure"
-        },
-        "port": {
-            "targetPort": "https"
-        }
-    }
-}
-
-{
-    "kind": "Service",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "service-secure"
-    },
-    "spec": {
-        "ports": [
-            {
-                "name": "https",
-                "protocol": "TCP",
-                "port": 8080,
-                "targetPort": 8080
+{  
+   "kind":"List",
+   "apiVersion":"v1",
+   "metadata":{  
+      "name":"hello-service-complete-example"
+   },
+   "items":[  
+      {  
+         "kind":"Route",
+         "apiVersion":"v1",
+         "metadata":{  
+            "name":"hello-route",
+            "labels":{  
+               "name":"hello-route-1"
             }
-        ],
-        "selector": {
-            "name": "caddy-docker"
-        }
-    }
-}
-
-
-
-{
-    "kind": "Pod",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "caddy-docker-1",
-        "labels": {
-            "name": "caddy-docker"
-        }
-    },
-    "spec": {
-        "containers": [
-            {
-                "name": "caddy-docker-pod",
-                "image": "bmeng/caddy-docker",
-                "ports": [
-                    {
-                        "containerPort": 8080,
-                        "protocol": "TCP"
-                    },
-                    {
-                        "containerPort": 8443,
-                        "protocol": "TCP"
-                    }
-                ]
-            }        
-        ]
-    }
-}
-
-
-{
-    "kind": "Pod",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "caddy-docker-2",
-        "labels": {
-            "name": "caddy-docker"
-        }
-    },
-    "spec": {
-        "containers": [
-            {
-                "name": "caddy-docker-pod",
-                "image": "bmeng/caddy-docker",
-                "ports": [
-                    {
-                        "containerPort": 8080,
-                        "protocol": "TCP"
-                    },
-                    {
-                        "containerPort": 8443,
-                        "protocol": "TCP"
-                    }
-                ]
-            }        
-        ]
-    }
+         },
+         "spec":{  
+            "host":"hello-openshift.com",
+            "to":{  
+               "kind":"Service",
+               "name":"hello-service"
+            }
+         }
+      },
+      {  
+         "kind":"Service",
+         "apiVersion":"v1",
+         "metadata":{  
+            "name":"hello-service"
+         },
+         "spec":{  
+            "selector":{  
+               "name":"hello-openshift"
+            },
+            "ports":[  
+               {  
+                  "protocol":"TCP",
+                  "port":8080,
+                  "targetPort":8080
+               }
+            ]
+         }
+      },
+      {  
+         "apiVersion":"v1",
+         "kind":"ReplicationController",
+         "metadata":{  
+            "labels":{  
+               "name":"hello-openshift"
+            },
+            "name":"hello-test"
+         },
+         "spec":{  
+            "replicas":2,
+            "template":{  
+               "metadata":{  
+                  "labels":{  
+                     "name":"hello-pods"
+                  }
+               },
+               "spec":{  
+                  "containers":[  
+                     {  
+                        "image":"openshift/hello-openshift",
+                        "name":"hello-pods",
+                        "ports":[  
+                           {  
+                              "containerPort":8080
+                           },
+                           {  
+                              "containerPort":443
+                           }
+                        ]
+                     }
+                  ]
+               }
+            }
+         }
+      }
+   ]
 }
