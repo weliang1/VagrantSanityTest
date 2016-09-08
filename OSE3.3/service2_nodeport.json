@@ -6,23 +6,6 @@
    },
    "items":[  
       {  
-         "kind":"Route",
-         "apiVersion":"v1",
-         "metadata":{  
-            "name":"route-reen"
-         },
-         "spec":{  
-            "host":"reen.example.com",
-            "to":{  
-               "kind":"Service",
-               "name":"service-secure"
-            },
-            "port":{  
-               "targetPort":"http"
-            }
-         }
-      },
-      {  
          "kind":"Service",
          "apiVersion":"v1",
          "metadata":{  
