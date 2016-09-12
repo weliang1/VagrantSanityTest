@@ -9,25 +9,31 @@
          "kind":"Service",
          "apiVersion":"v1",
          "metadata":{  
-            "name":"service-secure"
+            "name":"service-unsecure2",
+            "labels":{  
+               "name":"service-unsecure"
+            }
          },
          "spec":{  
             "ports":[  
                {  
-                  "name":"https",
+                  "name":"http",
                   "protocol":"TCP",
-                  "port": 27017,
+                  "port":27017,
                   "targetPort":8080
                }
             ],
-            "type": "LoadBalancer"
+            "selector":{  
+               "name":"caddy-docker"
+            },
+            "type":"LoadBalancer"
          }
       },
       {  
          "kind":"Pod",
          "apiVersion":"v1",
          "metadata":{  
-            "name":"caddy-docker-1",
+            "name":"caddy-docker",
             "labels":{  
                "name":"caddy-docker"
             }
@@ -35,16 +41,14 @@
          "spec":{  
             "containers":[  
                {  
-                  "name":"caddy-docker-pod-1",
+                  "name":"caddy-docker-pod",
                   "image":"bmeng/caddy-docker",
                   "ports":[  
                      {  
-                        "containerPort":8080,
-                        "protocol":"TCP"
+                        "containerPort":8080
                      },
                      {  
-                        "containerPort":8443,
-                        "protocol":"TCP"
+                        "containerPort":8443
                      }
                   ]
                }
@@ -55,7 +59,7 @@
          "kind":"Pod",
          "apiVersion":"v1",
          "metadata":{  
-            "name":"caddy-docker-2",
+            "name":"caddy-docker1",
             "labels":{  
                "name":"caddy-docker"
             }
@@ -63,16 +67,14 @@
          "spec":{  
             "containers":[  
                {  
-                  "name":"caddy-docker-pod-2",
+                  "name":"caddy-docker-pod1",
                   "image":"bmeng/caddy-docker",
                   "ports":[  
                      {  
-                        "containerPort":8080,
-                        "protocol":"TCP"
+                        "containerPort":8080
                      },
                      {  
-                        "containerPort":8443,
-                        "protocol":"TCP"
+                        "containerPort":8443
                      }
                   ]
                }
