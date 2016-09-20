@@ -1,0 +1,15 @@
+
+{
+	"kind": "Route",
+	"apiVersion": "v1",
+	"metadata": {
+		"name": "registry-route"
+	},
+	"spec": {
+		"host": "hello-openshift.com",
+		"to": {
+			"kind": "Service",
+			"name": "docker-registry"
+		}
+	}
+}
