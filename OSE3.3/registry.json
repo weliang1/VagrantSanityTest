@@ -2,7 +2,7 @@
 	"kind": "Route",
 	"apiVersion": "v1",
 	"metadata": {
-		"name": "registry-route"
+		"name": "Registry-route"
 	},
 	"spec": {
 		"host": "hello-openshift.com",
