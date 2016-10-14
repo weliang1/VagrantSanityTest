@@ -2,98 +2,92 @@
     "kind": "Route",
     "apiVersion": "v1",
     "metadata": {
-        "name": "route-reen"
+        "name": "hello-route",
+        "labels": {
+            "name": "hello-route-1"
+        }
     },
     "spec": {
-        "host": "reen.example.com",
+        "host": "hello-openshift.com",
         "to": {
             "kind": "Service",
-            "name": "service-secure"
-        },
-        "port": {
-            "targetPort": "https"
+            "name": "hello-service"
         }
     }
 }
 
+
 {
-    "kind": "Service",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "service-secure"
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service"
+  },
+  "spec": {
+    "selector": {
+      "name":"hello-openshift"
     },
-    "spec": {
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ]
+  }
+}
+
+
+{
+  "kind": "Pod",
+  "apiVersion":"v1beta3",
+
+  "metadata": {
+  	"name": "hello-pod-1",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
+
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-1",
+        "image": "openshift/hello-openshift",
         "ports": [
-            {
-                "name": "https",
-                "protocol": "TCP",
-                "port": 27443,
-                "targetPort": 8443
-            }
-        ],
-        "selector": {
-            "name": "caddy-docker"
-        }
-    }
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 443
+          }
+        ]
+      }]
+  }
 }
 
-
-
 {
-    "kind": "Pod",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "caddy-docker-1",
-        "labels": {
-            "name": "caddy-docker"
-        }
-    },
-    "spec": {
-        "containers": [
-            {
-                "name": "caddy-docker-pod",
-                "image": "bmeng/caddy-docker",
-                "ports": [
-                    {
-                        "containerPort": 8080,
-                        "protocol": "TCP"
-                    },
-                    {
-                        "containerPort": 8443,
-                        "protocol": "TCP"
-                    }
-                ]
-            }        
-        ]
-    }
-}
+  "kind": "Pod",
+  "apiVersion":"v1beta3",
 
+  "metadata": {
+  	"name": "hello-pod-2",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
 
-{
-    "kind": "Pod",
-    "apiVersion": "v1",
-    "metadata": {
-        "name": "caddy-docker-2",
-        "labels": {
-            "name": "caddy-docker"
-        }
-    },
-    "spec": {
-        "containers": [
-            {
-                "name": "caddy-docker-pod",
-                "image": "bmeng/caddy-docker",
-                "ports": [
-                    {
-                        "containerPort": 8080,
-                        "protocol": "TCP"
-                    },
-                    {
-                        "containerPort": 8443,
-                        "protocol": "TCP"
-                    }
-                ]
-            }        
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-2",
+        "image": "openshift/hello-openshift",
+        "ports": [
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 443
+          }
         ]
-    }
+      }]
+  }
 }
