@@ -1,57 +1,71 @@
-apiVersion: v1
-kind: List
-items:
+{
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-route",
+        "labels": {
+            "name": "hello-route-1"
+        }
+    },
+    "spec": {
+        "host": "hello-openshift.com",
+        "to": {
+            "kind": "Service",
+            "name": "hello-service"
+        },
+        "tls": {
+            "termination": "edge",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIDVDCCAjwCCQDenfbjF48d7zANBgkqhkiG9w0BAQUFADBsMQswCQYDVQQGEwJV\nUzELMAkGA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDDAKBgNVBAoM\nA09TMzEMMAoGA1UECwwDRW5nMRwwGgYDVQQDDBNoZWxsby1vcGVuc2hpZnQuY29t\nMB4XDTE2MDUyNDE3NTg1N1oXDTE3MDUyNTE3NTg1N1owbDELMAkGA1UEBhMCVVMx\nCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1Nb3VudGFpbiBWaWV3MQwwCgYDVQQKDANP\nUzMxDDAKBgNVBAsMA0VuZzEcMBoGA1UEAwwTaGVsbG8tb3BlbnNoaWZ0LmNvbTCC\nASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANImUA2wzC6CWn/dVJQagsvb\nLEe32EuG8cuLye+GVkDnoCPkre8s/cUjMC5F447IpLuJc/3paKXr+zM5pXh0rjra\nRD1N0WOghw+Kp6T06xQsm3VFTG6Sg7IX7ScqLnIKp5LgNXNkc58DMEx30qwu60FI\nFXZb6LhPtsOQbE3j+x07XIqrAVIUrXYuHo5zawtcwm7EG7lZ65tQJxuYNAz/0I2o\nENSfpZzbMqMtTYaAzO59Y5ehN6NrB0tEtNyAb8ZrmG2JCkZ5T6UFpLv6p46lKO01\nAACqHqeu4vk1/UE+dAOvgS4e/M2rMHa3khd2mpiGKLqOXYRdHEX9d05jKARpoPUC\nAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAWrOQqbMv0Rc8M99H53CTWEj1EXkpHNlF\nUISFHyLh4ZR15Q4tQvjs8U2fz8d65ei+zAv9tgAod2wC8SqoTkK5YZ5/rNa+UxGW\ngE2CTdqUWpxZIUDCwE6E8S4tsgkr7x7X5jGZ7npSLGWb4/JZ8QjqdQz/a47KUg3a\ns0Do4FIQMdwK2MXYfFHc3Wpnb5+ggzuaNIfeIgUvyhddnC8MiAVi8SXWnj7qC301\nn4dEbt4TZ2AbAGWOounCvZZiTi3aqjXsDvtex7w+Te1CijhiMXISUs0gR2+G6hHu\nQmmJElX6YtFzHVLQPPSBARS8DInhA11le3jZUHy9ZjO2y3v9FP9sIw==\n-----END CERTIFICATE-----\n",
+            "key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA0iZQDbDMLoJaf91UlBqCy9ssR7fYS4bxy4vJ74ZWQOegI+St\n7yz9xSMwLkXjjsiku4lz/elopev7MzmleHSuOtpEPU3RY6CHD4qnpPTrFCybdUVM\nbpKDshftJyoucgqnkuA1c2RznwMwTHfSrC7rQUgVdlvouE+2w5BsTeP7HTtciqsB\nUhStdi4ejnNrC1zCbsQbuVnrm1AnG5g0DP/QjagQ1J+lnNsyoy1NhoDM7n1jl6E3\no2sHS0S03IBvxmuYbYkKRnlPpQWku/qnjqUo7TUAAKoep67i+TX9QT50A6+BLh78\nzaswdreSF3aamIYouo5dhF0cRf13TmMoBGmg9QIDAQABAoIBAQC9krJEp2iJzC23\niwHxWLkFDQI08DO+bk1RQRk5agYFJu3fczs0t3F1lPixxXoyI+32/1gThatRgj9p\nRmdu8lL55EwKwVhSd01fR8VTmV03JcZXU9xPIvyKe+sDmZmsZtAkPv34ynVCzK2V\nTcJOcUTn7w7tZpvZKI/Ge1I4MaEmC/OQms1Gota6e5gn9AHvKDetxFdooT9VAPxZ\nOWgs9KNV+YbqmkJPyzAWkzC1WC259p7tcKu4OEoEno76KBmXlILQtmXuc6/TPsFW\nOzfiSZVUUUu4w1rMRs47g2A29lm8vbhumbcY/ZsFb3ApS7NThFQm2aPTRZDCDhXX\nY4GD0J9BAoGBAPXW28zMBsTIB64zXsfvNXCxwB29q9KOPDTAdiLZ6Sv+ACpSXBM9\nXuM9W3gmMdHx8c1Bj6DIyvDBzdJQySEQR5KQtGunsam/Gk4oJrIXdU3nRY8ITfrw\ndbLynDwGuK7+9WRAOlKXG/rWSxfYFepMUj5hKEPQQAt9G6XbAkLZnrqnAoGBANrV\n1ZafNBhbw0ikMMrdVuMRWZpv1HIw5VBCX8rH2joYx7b2g/Lo4l0/JUmqQ5rQC//E\nXmJeUIqrGUSuiN8q4/XnqwVqOMtZoLNlE7ULGXG47vTFlGG5teuiM+10n1T5ikkU\nDwqS5J4pSAKyZ7NrNVZQDiJglksEv1m0z26XsicDAoGAaM2vKJC2Nf/cnlwSBQQq\ncR+l+kfYz0uJySdfdZ4WdIW1RlWUITOhlxiaPQ9zX8BYSBuyAmZ3dcn5V7bO98R7\n7rS35ck4yVfJ/BXL4VJ01MBKfB6bN+Z5Fs+s4T4wT5IrxRBIjNsUt4vRuZmKRjdB\nPIyo4LgQBZXRSpSiUyN5MrMCgYBZCLcl2RAw+OSzIVpYr0UyjVSPaQBelVY3GUow\nDq/TA1H+Nr3ojqfKmG5rUkK/MfYv0Y01KHpMcOCO+RPm+GRXIDKMuXLyCT1Av9cM\nyb9IbZ2LKPf96rkBbbUC33gT8pM4uFiGTM2HK/SIZF2cufmxbFDT28hKLVxM+yuK\nK13oUQKBgBszHuUiftUTZhNbS3lK3lzte2xMFts1swza27qDlQkQZnVDVdsyOaiu\nPaxmoB5b0fnHKeBOS18BakDurlFPiYYcjw0zr7ZejPy95LEDBa5uQ7DFfN67im0Q\nwNHI7AeXK2Itywzq1btY9FE/KFoC1bc6zZ/ikyql/0blMdmP1rFK\n-----END RSA PRIVATE KEY-----\n"
+
+        }
+    }
+}
 
 
-# two routes that differ only by their labels and names
-- apiVersion: v1
-  kind: Route
-  metadata:
-    name: route-1
-    labels:
-      test: router
-      select: first
-  spec:
-    host: hello-openshift.com
-    to:
-      name: endpoints
-    ports:
-    - targetPort: 8080
-    tls:
-      termination: edge
-      certificate: "-----BEGIN CERTIFICATE-----\nMIIDVDCCAjwCCQDDxczFLVd73TANBgkqhkiG9w0BAQUFADBsMQswCQYDVQQGEwJV\nUzELMAkGA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDDAKBgNVBAoM\nA09TMzEMMAoGA1UECwwDRW5nMRwwGgYDVQQDDBNoZWxsby1vcGVuc2hpZnQuY29t\nMB4XDTE2MDcwNTE4Mjc0NFoXDTE3MDcwNjE4Mjc0NFowbDELMAkGA1UEBhMCVVMx\nCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1Nb3VudGFpbiBWaWV3MQwwCgYDVQQKDANP\nUzMxDDAKBgNVBAsMA0VuZzEcMBoGA1UEAwwTaGVsbG8tb3BlbnNoaWZ0LmNvbTCC\nASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK/7hfPJcDuV8bH/b0YB3/Pz\no0gx7uM9MMo8b3ulDtKaP8AH7jiKdxJKbf16pwCkX/1PeVgN1lsrFBEjnbHvLG9S\nmyxZ6w5+nYqjZQLohf60YIK0pWzoDJ7QrLKUm2KtPNbrfSp4RzhpK6qaYoreJjCZ\nj6aTazQWj7G8g0BnGudmel2HfmT32MccaDR6nkUAGO1SwOyxsijICcT2avuyHjxe\nCfPu6kos8btwghN6mBgAsKaL/cBx+ircnL+IdvPdq3ZLHamaFUgNJQHN+WyYBvKU\nhsPY+MHcFEciQbRlG8L1aDUgG/B4XtUVnhZ/bOorivVhaNW96s5HfKv5qdX+qyUC\nAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAdbOOZirQvgeQ4K4AIPuzyMzV1bZcFY78\nkfuMW0ZYf73yDYqou1eL7n37DS9p/YvRM8Wg8a6Z8i35/8e38yWUH+Pzmr/0Kftp\n4M24SIZ5t2UCK5ExvdXhInxJ8PlYBm8UNUanz/Awe913Iw1qsoLPKPBbWcozsRjJ\n78LGsKSBH0jj6hszsmbZScfo7rp21YIw25WUt9jr5t0nfxNHFmHJ04fOCWMy2auN\nDUJcO2epBlOSLkBrI4/XjWxyAhel2/C/I95Cd841x7dQdu3CCy82RWTr6/aMG5k1\n4c8pGugoRRytRI/0I5G6A5DStPVZqA/e9jxOlQWJbTEe6lUa3PAxgg==\n-----END CERTIFICATE-----\n"
-      key: "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAr/uF88lwO5Xxsf9vRgHf8/OjSDHu4z0wyjxve6UO0po/wAfu\nOIp3Ekpt/XqnAKRf/U95WA3WWysUESOdse8sb1KbLFnrDn6diqNlAuiF/rRggrSl\nbOgMntCsspSbYq081ut9KnhHOGkrqppiit4mMJmPppNrNBaPsbyDQGca52Z6XYd+\nZPfYxxxoNHqeRQAY7VLA7LGyKMgJxPZq+7IePF4J8+7qSizxu3CCE3qYGACwpov9\nwHH6Ktycv4h2892rdksdqZoVSA0lAc35bJgG8pSGw9j4wdwURyJBtGUbwvVoNSAb\n8Hhe1RWeFn9s6iuK9WFo1b3qzkd8q/mp1f6rJQIDAQABAoIBAQCm0grH72NJyLkF\n37rupSZTzdgxvsvSc5YFj8aqcewcLgZSlfH3fSKknxOm3pbi3+7yZF0F4JAbejma\niaWaH7yChs77+vz8j3/uBTfiyuMCcKCwJmhOVaZpAi1DV+X4Y3oxzaeoE76HtgKj\nxZe2RiHzng3zfPl5tg1fEfFlopd5VDLB1h4yA64N2aszxW4750KjloFDviOdIUFY\nt5uNefP69SzUozECs6atFrWGN+bhq6ZJBDCuO6HDmHLZ1fo63XRwswf2tbqsyt4h\n9G9tBImAIxSyunkwPUPAMILmLV/tpDWrc/kv2rhe5D1gKoRsndVaRZdGDN+dTtQi\nVrkP4cF9AoGBAObnH45/yyKu87Wn+mc45LBXvd6xk9hDHxqUbiPhEXN4fXqI6Jgz\nYFbYHVZsmV6s3KqlYINbTsgIg7PcYjEXo/+wad/y2CGnYJ906prgbbDvA/DKd0aa\nI2MmdAySkaz10OCEmMLNo4CAFUEzFYz6xBwQpcLwJz65uGcvl1xT0XgXAoGBAMMc\nPa7chHyQEKDKcv7nuSCEgCYaM+VD3DXuH3haxMqjqjNUMh8M2muWVwVXgCGhn2w/\n1fp7XyLKscq5/x0GR1A+KGDm3kvqhwTvXfSHFJ8rpQmkx0BjI/NFix12xxMHU6Y0\ndZO1cGRV4Xf6/RoHUdUcmyucl+wR/ncdBuMQRsAjAoGBAJapM/P8+oSU9zwOcNqt\nSrqtZZxK7hbsJP1o4DzU/FgFxIoRjwLQcwn3VZ0wmxolXI6T/dd32n224IiZQhCa\nRk3txAd2IwRCfE9PME0CJ1CNhFq3IQCWToTBcHNLp3Xdpv74RdzF5OtRp4y1Ulh8\nvz04t4/stw68i8/4Q6DgqArdAoGAG2wNs1Tk/gjVfXPWw8LXvx1AUZqfLpriCWZl\nX+oJ/J0SH9K2lKyeyj5ADs0kghWQLYuvTFwom+A3KtIHbBHk1f9Wd4AbQDo/Lc9i\nuip+GHzu3jMdmgwVEmz0x3hZNHB0LkjzOYZnvIJhhRZumkjrFHPHz1Jb+97vj9gx\njppMB1cCgYBq8lTtQxXz6bRuQTcqLuO2bpQqaRI6YKXCC5iNcG6O+S3lATqup6ep\nFGKQ2OpEVWu6WjcN4ZMPgLkQBnP8UQvY7l2Z1ZHBWNrGpxEH1xblqf0N+cQ8TihB\n2x6B/0/DjabXJBPP+GOlQtuaFzXU90BXOqPpycz4RsqytZV6ZPyH0Q==\n-----END RSA PRIVATE KEY-----\n"
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service"
+  },
+  "spec": {
+    "selector": {
+      "name":"hello-openshift"
+    },
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080
+      }
+    ]
+  }
+}
 
+{
+  "kind": "Pod",
+  "apiVersion":"v1",
 
-# a service to be routed to
-- apiVersion: v1
-  kind: Service
-  metadata:
-    name: endpoints
-    labels:
-      test: router
-  spec:
-    selector:
-      test: router
-      endpoints: router
-    ports:
-    - port: 8080
+  "metadata": {
+  	"name": "hello-pod-2",
+  	"labels": {
+    		"name": "hello-openshift"
+  	}
+  },
 
-# a pod that serves a response
-- apiVersion: v1
-  kind: Pod
-  metadata:
-    name: endpoint-1
-    labels:
-      test: router
-      endpoints: router
-  spec:
-    containers:
-    - name: test
-      image: openshift/hello-openshift
-      # image: openshift/deployment-example:v1
-      ports:
-      - containerPort: 8080
-        name: http
-      - containerPort: 100
-        protocol: UDP
+  "spec": {
+      "containers": [{
+        "name": "hello-pod-container-2",
+        "image": "openshift/hello-openshift",
+        "ports": [
+          {
+            "containerPort": 8080
+          },
+          {
+            "containerPort": 443
+          }
+        ]
+      }]
+  }
+}
