@@ -27,7 +27,7 @@
     "selector": {
       "name":"hello-openshift"
     },
-    "sessionAffinity":"172.30.120.114",
+    "sessionAffinity": "ClientIP",
     "ports": [
       {
         "protocol": "TCP",
