@@ -56,7 +56,8 @@
         "env": [
           { "name": "RESPONSE",
             "value": "Hello World1!"
-          },
+          }
+            ],
         "ports": [
           {
             "containerPort": 8080
@@ -87,7 +88,8 @@
         "env": [
           { "name": "RESPONSE",
             "value": "Hello World2!"
-          },
+          }
+        ],
         "ports": [
           {
             "containerPort": 8080
@@ -117,7 +119,8 @@
         "env": [
           { "name": "RESPONSE",
             "value": "Hello World3!"
-          },
+          }
+         ],
         "ports": [
           {
             "containerPort": 8080
