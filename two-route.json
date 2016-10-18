@@ -9,13 +9,13 @@
          "kind": "Route",
          "apiVersion": "v1",
          "metadata": {
-            "name": "hello-route1",
+            "name": "hello-route-1",
             "labels": {
                "name": "hello-route-1"
             }
          },
          "spec": {
-            "host": "hello-openshif1t.com",
+            "host": "hello-openshift-1.com",
             "to": {
                "kind": "Service",
                "name": "hello-service"
@@ -27,13 +27,13 @@
          "kind": "Route",
          "apiVersion": "v1",
          "metadata": {
-            "name": "hello-route2",
+            "name": "hello-route-2",
             "labels": {
                "name": "hello-route-2"
             }
          },
          "spec": {
-            "host": "hello-openshift2.com",
+            "host": "hello-openshift-2.com",
             "to": {
                "kind": "Service",
                "name": "hello-service"
