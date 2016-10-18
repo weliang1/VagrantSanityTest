@@ -15,7 +15,7 @@
             }
          },
          "spec": {
-            "host": "web1.hello-openshift.com",
+            "host": "hello-openshift.com",
             "to": {
                "kind": "Service",
                "name": "hello-service"
