@@ -1,4 +1,13 @@
 {
+   "kind": "List",
+   "apiVersion": "v1",
+   "metadata": {
+      "name": "hello-service-complete-example"
+   },
+   "items": [
+      
+      
+      {
          "kind": "Route",
          "apiVersion": "v1",
          "metadata": {
@@ -17,4 +26,51 @@
               "termination": "edge"
             }
          }        
+      },
+      {
+         "kind": "Service",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-service"
+         },
+         "spec": {
+            "selector": {
+               "name": "hello-openshift"
+            },
+            "ports": [
+               {
+                  "protocol": "TCP",
+                  "port": 8080,
+                  "targetPort": 8080
+               }
+            ]
+         }
+      },
+      {
+         "kind": "Pod",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-pod-1",
+            "labels": {
+               "name": "hello-openshift"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "hello-pod-container-1",
+                  "image": "openshift/hello-openshift",
+                  "ports": [
+                     {
+                        "containerPort": 8080
+                     },
+                     {
+                        "containerPort": 443
+                      }
+                  ]
+               }
+            ]
+         }
       }
+   ]
+}
