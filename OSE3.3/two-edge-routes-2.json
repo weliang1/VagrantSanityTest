@@ -43,7 +43,6 @@
                "kind": "Service",
                "name": "hello-service"
             },
-             },
             "tls": {
               "termination": "edge"
             }
