@@ -1,0 +1,20 @@
+{
+         "kind": "Route",
+         "apiVersion": "v1",
+         "metadata": {
+            "name": "hello-route-2",
+            "labels": {
+               "name": "hello-route-2"
+            }
+         },
+         "spec": {
+            "host": "hello-openshift-2.com",
+            "to": {
+               "kind": "Service",
+               "name": "hello-service"
+            },
+            "tls": {
+              "termination": "edge"
+            }
+         }        
+      }
