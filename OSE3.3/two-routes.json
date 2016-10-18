@@ -20,8 +20,7 @@
                "kind": "Service",
                "name": "hello-service"
             }
-         },
-          
+         }       
       },
       
       {
@@ -39,8 +38,7 @@
                "kind": "Service",
                "name": "hello-service"
             }
-         },
-          
+         }        
       },
       {
          "kind": "Service",
