@@ -15,7 +15,7 @@
         }
       },
       "spec": {
-        "host": "red.example.com",
+        "host": "blue.example.com",
         "to": {
           "kind": "Service",
           "name": "hello-service"
