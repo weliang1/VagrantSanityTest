@@ -1,0 +1,77 @@
+{
+  "kind": "List",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service-complete-example"
+  },
+  "items": [
+    {
+      "kind": "Route",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-route",
+        "labels": {
+          "name": "hello-route-1"
+        }
+      },
+      "spec": {
+        "host": "hello-openshift.com",
+        "to": {
+          "kind": "Service",
+          "name": "hello-service"
+        },
+         "tls": {
+            "termination": "edge",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIDTDCCAjQCCQCa1dnifvXrtTANBgkqhkiG9w0BAQUFADBoMQswCQYDVQQGEwJV\nUzELMAkGA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDDAKBgNVBAoM\nA09TMzEMMAoGA1UECwwDRW5nMRgwFgYDVQQDDA9yZWQuZXhhbXBsZS5jb20wHhcN\nMTYxMDI0MTUxNDI0WhcNMTcxMDI1MTUxNDI0WjBoMQswCQYDVQQGEwJVUzELMAkG\nA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDDAKBgNVBAoMA09TMzEM\nMAoGA1UECwwDRW5nMRgwFgYDVQQDDA9yZWQuZXhhbXBsZS5jb20wggEiMA0GCSqG\nSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDVGcJS1b2zGqIND6UWGEWznN1fLp/ieONr\n8FyusbHA+zPpQcscCIl68Y7jwywqPChS1vTw2+ULEJwxprtrCZ72a8718v9B6m9y\nuHGlODKE1aH/T4iuNMqiAkzbPwoh1tEfjwSA8+NQsYtaX9A5WSbyA0Vyb8C69M5p\nN+PIDJcMTRVpYx9QLFu9HSW/TMREPdW1XAakzf2BuGe1qzoe71WYk5xqSAJS9riO\nc3HiU/HAguH/kZ9h/KgsGKmVO2//VqbzvxZeU42+6SmOYPPbsIrnQhzjCQccuBTi\nwcXI/H6ZKtk7J1fxbUApd9WXayWu4ksuGZxChtYLcgK61ZjiBRchAgMBAAEwDQYJ\nKoZIhvcNAQEFBQADggEBAHZRZKkbR3ccjpuaR5GTIE/Qq8jayWjXdxmVislAgWGK\n+kJECwGEJauWH5QBgcMyyvA24ST9Dc5+K6O3ANByGeoc02r2PCu7u+WiYz5kgNwN\nXby8k8pNiPOMIOccFZ+REp/wg5DBWudNHtnVI3Sz9Tu9sojbJVvXFc+46iHTY5Qy\ndZLVohFa0f2sJrpzJzc5MtXeHqUVJIXFKfrmd08IyFYl+dtBUyjcO6vNjQWmPrip\nH9t60jHfQpkrUH4kdHlD8Wcs9gRMKEr43DN0zV46iwglfvRd4MOYR3g8IaejvuCm\nJIpGezvm1LPed8akCdm54l6gTDSgfySRGMmye/szlhc=\n-----END CERTIFICATE-----\n",
+            "key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIBAAKCAQEA1RnCUtW9sxqiDQ+lFhhFs5zdXy6f4njja/BcrrGxwPsz6UHL\nHAiJevGO48MsKjwoUtb08NvlCxCcMaa7awme9mvO9fL/QepvcrhxpTgyhNWh/0+I\nrjTKogJM2z8KIdbRH48EgPPjULGLWl/QOVkm8gNFcm/AuvTOaTfjyAyXDE0VaWMf\nUCxbvR0lv0zERD3VtVwGpM39gbhntas6Hu9VmJOcakgCUva4jnNx4lPxwILh/5Gf\nYfyoLBiplTtv/1am878WXlONvukpjmDz27CK50Ic4wkHHLgU4sHFyPx+mSrZOydX\n8W1AKXfVl2slruJLLhmcQobWC3ICutWY4gUXIQIDAQABAoIBAFMHoVZjH3Gse914\n7grI1EeiZAKVCQjVr068LXCHncmiVtyYnQnELcTwX4tQ3WFrZQ654GAEXZ7NDv6t\nhzKyYfSDlvTvhBNrw5bAVM9aMRzenCr9EzVFLnqnSMjYLBt5NqwELm4MGNK1CqXg\n1SGzIeCD88gd0MtHXTFT7HViqmvI2vuMzfTqH1Nfk/kzludcfG6y/77DBBA1fQYj\nJaPDP07DTcDiJOWQgpHqtLNvsMvRE6k7UPu7F+Vw1s+9g9dGQ0awQhbIB9AT1z3P\nnCkGPbKom+WkqkzeoWb8/pBta2CWP1q9EnIDP6JdRwI7fMp2RsRCyX/xIuQOtSaF\n2razuAECgYEA7Gxh8G4jTcQfkEBeZN/A5dSQSqCdqKk7twE1qJl/zw2Nu9OkVOu9\nZ0JPa8iaGpkeGiWN2b9rFsLSENOvVB1t+mOC1ks3/KKGGfhfWtC9wt/XhuLL4G6G\nlQOH7J/5mYdljKL8rO9Ozx9uOAAQXUXSKoJcWPbXdVAuHDXlnPR4CmECgYEA5r79\nQhMRryB4xfYJtgNRQhhSj/T2Z/ZB1BaoKLxvubFdO+Ns4/RjZJ9KAQvWNcyTCIhj\nQJY02zkqkCDbJM6mIS4UrprZ5OcOFPkej8hs6gvdVOxVLDL4n1Nd7KKrnXpCf2dO\n8DFunmDRnBKAmUBMf6WJvAPOY2V2HarA30JzxMECgYEAmuxWrVduuOnYiQ01DcL1\nw2Ur/EsNpNTotX4MbGPRtZs7EiaYm7EylvSD2KxGF0HY0Odk8ZgWk36saqxcSrFS\nPO5ycPwvPtQ9Lc1sprT8dDN8Jv58/J9Qf1sl+a/Gvo1TxPmUu7nBGcaN0hJwpr42\n/vYXj5CJFW2qGYBT6yrjcmECgYEA0de+2egdnPYa32zxR+WccE9ORjywGbuKAibY\nprM3p9f0whIBZQ1LlqaF1o29MQ/qZ0ghewse5n8GhixbHw4PZv1RMbkBj3nRBKHJ\neVj8M5y2nBSRILD6CWr3b8w/5ebZsqNw1l8eCkpiVV0+NiCTcUJKEAImH56V3ET9\nQgxc3AECgYEA31/zx/LRzI9fKloTIaA70kYbHoasiJx+1rITqqUCZ1g+LgRs6GTo\neoqF11PGW+OEwp700h9zhhaUTMJln+KlhoTArHAe4KjL2HnEuqsh94bPo/hWX86s\niigYu6Tzd3ShjjILrlvmf63C6RzV9NnmUcRsyYgZhh9fAktuHA0pLB4=\n-----END RSA PRIVATE KEY-----\n"
+        }
+      }
+    },
+    
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-service"
+      },
+      "spec": {
+        "selector": {
+          "name": "hello-openshift"
+        },
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8080,
+            "targetPort": 8080
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-pod-1",
+        "labels": {
+          "name": "hello-openshift"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-pod-container-1",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080
+              },
+              {
+                "containerPort": 443
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
