@@ -61,6 +61,11 @@
           {
             "name": "hello-pod-container-1",
             "image": "openshift/hello-openshift",
+            "env": [
+            { "name": "RESPONSE",
+               "value": "Hello Red Example"
+          }
+        ],
             "ports": [
               {
                 "containerPort": 8080
