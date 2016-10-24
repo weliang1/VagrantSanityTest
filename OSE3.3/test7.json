@@ -20,7 +20,9 @@
           "kind": "Service",
           "name": "blue-service"
         },
-        
+        "tls": {
+            "termination": "edge"
+        }
       }
     },
     
