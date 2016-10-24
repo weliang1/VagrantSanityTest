@@ -21,7 +21,7 @@
           "name": "blue-service"
         },
         "tls": {
-            "termination": "edge"
+            "termination": "passthrough"
         }
       }
     },
