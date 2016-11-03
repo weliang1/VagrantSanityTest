@@ -25,7 +25,7 @@ aos_ansible_vars:
   #qe_openshift_kerberos_user: jialiu@redhat.com
   #qe_openshift_token: Zge_lIA9xRUzgqILwtRJx0Kce6OH5qkLQndNEo0i1nI
   #qe_repo_image_versions: 
-  aos_repo: https://mirror.openshift.com/enterprise/enterprise-3.4/latest/RH7-RHAOS-3.4/x86_64/os
+  aos_repo: https://mirror.openshift.com/enterprise/enterprise-3.4/2016-10-20.2/x86_64/os
   qe_repo_image_prepull: false
   prerelease_rhel7_repo_enable: false
   prerelease_docker_repo_enable: false
