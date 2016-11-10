@@ -36,7 +36,8 @@
                {
                   "protocol": "TCP",
                   "port": 9736,
-                  "targetPort": 8080
+                  "targetPort": 0,
+                  "nodePort": 0
                }
             ]
          }
@@ -57,12 +58,9 @@
                   "image": "openshift/hello-openshift",
                   "ports": [
                      {
-                        "containerPort": 8080,
-                        "protocol": "TCP",
-                        "hostPort": 9736
-                     },
-                     {
-                        "containerPort": 443
+                       "hostPort": 9736,
+                       "containerPort": 9736,
+                       "protocol": "TCP"
                      }
                   ]
                }
@@ -85,12 +83,9 @@
                   "image": "openshift/hello-openshift",
                   "ports": [
                      {
-                        "containerPort": 8080,
-                         "protocol": "TCP",
-                         "hostPort": 9736
-                     },
-                     {
-                        "containerPort": 443
+                        "hostPort": 9736,
+                        "containerPort": 9736,
+                        "protocol": "TCP"
                      }
                   ]
                }
@@ -113,12 +108,9 @@
                   "image": "openshift/hello-openshift",
                   "ports": [
                      {
-                        "containerPort": 8080,
-                        "protocol": "TCP",
-                         "hostPort": 9736
-                     },
-                     {
-                        "containerPort": 443
+                       "hostPort": 9736,
+                       "containerPort": 9736,
+                       "protocol": "TCP"
                      }
                   ]
                }
@@ -141,12 +133,9 @@
                   "image": "openshift/hello-openshift",
                   "ports": [
                      {
-                        "containerPort": 8080,
-                        "protocol": "TCP",
-                         "hostPort": 9736
-                     },
-                     {
-                        "containerPort": 443
+                       "hostPort": 9736,
+                       "containerPort": 9736,
+                       "protocol": "TCP"
                      }
                   ]
                }
