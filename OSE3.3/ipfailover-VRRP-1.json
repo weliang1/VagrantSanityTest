@@ -34,10 +34,10 @@
             },
             "ports": [
                {
-                  "protocol": "TCP",
-                  "port": 9736,
-                  "targetPort": 0,
-                  "nodePort": 0
+                 "protocol": "TCP",
+            "port": 9736,
+            "targetPort": 0,
+            "nodePort": 0
                }
             ]
          }
@@ -58,9 +58,9 @@
                   "image": "openshift/hello-openshift",
                   "ports": [
                      {
-                       "hostPort": 9736,
-                       "containerPort": 9736,
-                       "protocol": "TCP"
+                       "containerPort": 8080,
+                    "protocol": "TCP",
+                    "hostPort": 9736
                      }
                   ]
                }
@@ -83,9 +83,9 @@
                   "image": "openshift/hello-openshift",
                   "ports": [
                      {
-                        "hostPort": 9736,
-                        "containerPort": 9736,
-                        "protocol": "TCP"
+                        "containerPort": 8080,
+                    "protocol": "TCP",
+                    "hostPort": 9736
                      }
                   ]
                }
@@ -108,9 +108,9 @@
                   "image": "openshift/hello-openshift",
                   "ports": [
                      {
-                       "hostPort": 9736,
-                       "containerPort": 9736,
-                       "protocol": "TCP"
+                       "containerPort": 8080,
+                    "protocol": "TCP",
+                    "hostPort": 9736
                      }
                   ]
                }
@@ -133,9 +133,9 @@
                   "image": "openshift/hello-openshift",
                   "ports": [
                      {
-                       "hostPort": 9736,
-                       "containerPort": 9736,
-                       "protocol": "TCP"
+                       "containerPort": 8080,
+                    "protocol": "TCP",
+                    "hostPort": 9736
                      }
                   ]
                }
