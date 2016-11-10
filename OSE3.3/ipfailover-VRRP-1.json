@@ -32,6 +32,8 @@
             "selector": {
                "name": "hello-openshift"
             },
+            type": "ClusterIP",
+            "sessionAffinity": "None",
             "ports": [
                {
                  "protocol": "TCP",
