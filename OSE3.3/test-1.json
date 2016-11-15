@@ -22,7 +22,7 @@
                   "targetPort": 8080
                }
             ],
-            "loadBalancerIP": 172.46.0.1,
+            "loadBalancerIP": 172.31.0.1,
             "type": "LoadBalancer"
          }
       },
