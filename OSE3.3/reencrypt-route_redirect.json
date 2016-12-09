@@ -6,7 +6,6 @@
     },
     "spec": {
         "host": "reen.example.com",
-        "path": "/test/",
         "to": {
             "kind": "Service",
             "name": "service-secure"
