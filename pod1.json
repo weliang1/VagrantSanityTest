@@ -14,7 +14,7 @@
             "image":"openshift/hello-openshift",
             "env": [
                { "name": "RESPONSE",
-                 "value": "Hello World1!"
+                 "value": "Hello World-1!"
                }
             ],
             "ports":[  
