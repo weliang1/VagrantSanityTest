@@ -45,7 +45,7 @@ items:
   spec:
     containers:
     - name: test
-      image: openshift/hello-openshift
+      image: weliang/fedora-multicast
       # image: openshift/deployment-example:v1
       ports:
       - containerPort: 8080
