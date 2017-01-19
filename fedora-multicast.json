@@ -55,7 +55,7 @@
         "containers": [
           {
             "name": "hello-pod-container-1",
-            "image": "centos",
+            "image": "weliang/fedora-multicast",
             "ports": [
               {
                 "containerPort": 8080
