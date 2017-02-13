@@ -16,7 +16,7 @@ install_update_docker: true
 docker_storage_driver: devicemapper
 os_update: false
 use_rpm_playbook: true
-qe_additional_repos: "[{'id': 'aos', 'name': 'Prerelease-OCP', 'baseurl': 'https://mirror.openshift.com/enterprise/enterprise-3.5/2017-02-06.7/RH7-RHAOS-3.5/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
+#qe_additional_repos: "[{'id': 'aos', 'name': 'Prerelease-OCP', 'baseurl': 'https://mirror.openshift.com/enterprise/enterprise-3.5/2017-02-07.1/RH7-RHAOS-3.5/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
 auth_type: htpasswd
 openshift_playbook_rpm_repos: "[{'id': 'aos35-devel-install', 'name': 'aos35-devel-install', 'baseurl': 'http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.5/2017-02-06.7/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
 #os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
