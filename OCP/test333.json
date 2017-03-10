@@ -1,0 +1,75 @@
+{
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "route-1",
+        "labels": {
+            "select": "first",
+            "test": "router"
+        }
+    },
+    "spec": {
+        "host": "hello-openshift.com",
+        "to": {
+            "kind": "Service",
+            "name": "endpoints",
+            "weight": 100
+        },
+        "tls": {
+            "termination": "edge",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIDVDCCAjwCCQDDxczFLVd73TANBgkqhkiG9w0BAQUFADBsMQswCQYDVQQGEwJV\nUzELMAkGA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDDAKBgNVBAoM\nA09TMzEMMAoGA1UECwwDRW5nMRwwGgYDVQQDDBNoZWxsby1vcGVuc2hpZnQuY29t\nMB4XDTE2MDcwNTE4Mjc0NFoXDTE3MDcwNjE4Mjc0NFowbDELMAkGA1UEBhMCVVMx\nCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1Nb3VudGFpbiBWaWV3MQwwCgYDVQQKDANP\nUzMxDDAKBgNVBAsMA0VuZzEcMBoGA1UEAwwTaGVsbG8tb3BlbnNoaWZ0LmNvbTCC\nASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK/7hfPJcDuV8bH/b0YB3/Pz\no0gx7uM9MMo8b3ulDtKaP8AH7jiKdxJKbf16pwCkX/1PeVgN1lsrFBEjnbHvLG9S\nmyxZ6w5+nYqjZQLohf60YIK0pWzoDJ7QrLKUm2KtPNbrfSp4RzhpK6qaYoreJjCZ\nj6aTazQWj7G8g0BnGudmel2HfmT32MccaDR6nkUAGO1SwOyxsijICcT2avuyHjxe\nCfPu6kos8btwghN6mBgAsKaL/cBx+ircnL+IdvPdq3ZLHamaFUgNJQHN+WyYBvKU\nhsPY+MHcFEciQbRlG8L1aDUgG/B4XtUVnhZ/bOorivVhaNW96s5HfKv5qdX+qyUC\nAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAdbOOZirQvgeQ4K4AIPuzyMzV1bZcFY78\nkfuMW0ZYf73yDYqou1eL7n37DS9p/YvRM8Wg8a6Z8i35/8e38yWUH+Pzmr/0Kftp\n4M24SIZ5t2UCK5ExvdXhInxJ8PlYBm8UNUanz/Awe913Iw1qsoLPKPBbWcozsRjJ\n78LGsKSBH0jj6hszsmbZScfo7rp21YIw25WUt9jr5t0nfxNHFmHJ04fOCWMy2auN\nDUJcO2epBlOSLkBrI4/XjWxyAhel2/C/I95Cd841x7dQdu3CCy82RWTr6/aMG5k1\n4c8pGugoRRytRI/0I5G6A5DStPVZqA/e9jxOlQWJbTEe6lUa3PAxgg==\n-----END CERTIFICATE-----\n",
+            "key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAr/uF88lwO5Xxsf9vRgHf8/OjSDHu4z0wyjxve6UO0po/wAfu\nOIp3Ekpt/XqnAKRf/U95WA3WWysUESOdse8sb1KbLFnrDn6diqNlAuiF/rRggrSl\nbOgMntCsspSbYq081ut9KnhHOGkrqppiit4mMJmPppNrNBaPsbyDQGca52Z6XYd+\nZPfYxxxoNHqeRQAY7VLA7LGyKMgJxPZq+7IePF4J8+7qSizxu3CCE3qYGACwpov9\nwHH6Ktycv4h2892rdksdqZoVSA0lAc35bJgG8pSGw9j4wdwURyJBtGUbwvVoNSAb\n8Hhe1RWeFn9s6iuK9WFo1b3qzkd8q/mp1f6rJQIDAQABAoIBAQCm0grH72NJyLkF\n37rupSZTzdgxvsvSc5YFj8aqcewcLgZSlfH3fSKknxOm3pbi3+7yZF0F4JAbejma\niaWaH7yChs77+vz8j3/uBTfiyuMCcKCwJmhOVaZpAi1DV+X4Y3oxzaeoE76HtgKj\nxZe2RiHzng3zfPl5tg1fEfFlopd5VDLB1h4yA64N2aszxW4750KjloFDviOdIUFY\nt5uNefP69SzUozECs6atFrWGN+bhq6ZJBDCuO6HDmHLZ1fo63XRwswf2tbqsyt4h\n9G9tBImAIxSyunkwPUPAMILmLV/tpDWrc/kv2rhe5D1gKoRsndVaRZdGDN+dTtQi\nVrkP4cF9AoGBAObnH45/yyKu87Wn+mc45LBXvd6xk9hDHxqUbiPhEXN4fXqI6Jgz\nYFbYHVZsmV6s3KqlYINbTsgIg7PcYjEXo/+wad/y2CGnYJ906prgbbDvA/DKd0aa\nI2MmdAySkaz10OCEmMLNo4CAFUEzFYz6xBwQpcLwJz65uGcvl1xT0XgXAoGBAMMc\nPa7chHyQEKDKcv7nuSCEgCYaM+VD3DXuH3haxMqjqjNUMh8M2muWVwVXgCGhn2w/\n1fp7XyLKscq5/x0GR1A+KGDm3kvqhwTvXfSHFJ8rpQmkx0BjI/NFix12xxMHU6Y0\ndZO1cGRV4Xf6/RoHUdUcmyucl+wR/ncdBuMQRsAjAoGBAJapM/P8+oSU9zwOcNqt\nSrqtZZxK7hbsJP1o4DzU/FgFxIoRjwLQcwn3VZ0wmxolXI6T/dd32n224IiZQhCa\nRk3txAd2IwRCfE9PME0CJ1CNhFq3IQCWToTBcHNLp3Xdpv74RdzF5OtRp4y1Ulh8\nvz04t4/stw68i8/4Q6DgqArdAoGAG2wNs1Tk/gjVfXPWw8LXvx1AUZqfLpriCWZl\nX+oJ/J0SH9K2lKyeyj5ADs0kghWQLYuvTFwom+A3KtIHbBHk1f9Wd4AbQDo/Lc9i\nuip+GHzu3jMdmgwVEmz0x3hZNHB0LkjzOYZnvIJhhRZumkjrFHPHz1Jb+97vj9gx\njppMB1cCgYBq8lTtQxXz6bRuQTcqLuO2bpQqaRI6YKXCC5iNcG6O+S3lATqup6ep\nFGKQ2OpEVWu6WjcN4ZMPgLkQBnP8UQvY7l2Z1ZHBWNrGpxEH1xblqf0N+cQ8TihB\n2x6B/0/DjabXJBPP+GOlQtuaFzXU90BXOqPpycz4RsqytZV6ZPyH0Q==\n-----END RSA PRIVATE KEY-----\n"
+       }
+    }
+}
+
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "endpoints",
+        "labels": {
+            "test": "router"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "protocol": "TCP",
+                "port": 27443,
+                "targetPort": 8080
+            }
+        ],
+        "selector": {
+            "endpoints": "router",
+            "test": "router"
+        }
+    }
+}
+{
+   "kind":"Pod",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"endpoint-1",
+      "labels":{
+         "endpoints": "router",
+         "test": "router"
+      }
+   },
+   "spec":{
+      "containers":[
+         {
+            "name":"test",
+            "image":"openshift/hello-openshift",
+            "ports":[
+               {
+                  "containerPort":8080
+               },
+               {
+                  "containerPort":443
+               }
+            ]
+         }
+      ]
+   }
+}
