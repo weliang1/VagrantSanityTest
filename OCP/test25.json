@@ -28,7 +28,7 @@
             {
                 "name": "http",
                 "port": 27443,
-                "protocol": "TCP",
+               # "protocol": "TCP",
                 "targetPort": 443
 
             }
