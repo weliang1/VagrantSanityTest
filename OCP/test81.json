@@ -63,11 +63,12 @@
             "image":"openshift/hello-openshift",
             "ports":[
                {
-                  "name":"portname",
+
                    "containerPort":8080
                
                },
                {
+                  "name":"portname",
                   "containerPort":443
                }
             ]
