@@ -37,7 +37,7 @@
             {
                 "protocol": "TCP",
                 "port": 443,
-                "targetPort": 443
+                "targetPort": 8080
             }
         ],
         "selector": {
