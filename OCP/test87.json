@@ -63,7 +63,7 @@
             "image":"openshift/hello-openshift",
             "ports":[
                {
-                  "containerPort":"portname"
+                  "name":"portname"
                },
                {
                   "containerPort":443
