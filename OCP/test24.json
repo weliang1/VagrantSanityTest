@@ -1,0 +1,71 @@
+{
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "route-secure"
+    },
+    "spec": {
+        "host": "www.example.com",
+        "to": {
+            "kind": "Service",
+            "name": "hello-nginx-https",
+            "weight": 100
+        },
+        "tls": {
+            "termination": "passthrough" 
+       }
+    }
+}
+
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "hello-nginx-https"
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "http",
+                "port": 27443,
+                "protocol": "TCP",
+                "targetPort": 443
+
+            }
+        ],
+        "selector": {
+            "name": "hello-nginx-docker"
+
+        }
+    }
+}
+
+
+{
+   "kind":"Pod",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"hello-nginx-docker-1",
+      "labels":{
+          "name": "hello-nginx-docker"
+      }
+   },
+   "spec":{
+      "containers":[
+         {
+            "name":"hello-nginx-docker-pod",
+            "image":"pweil/hello-nginx-docker",
+            "ports": [
+                    {
+                        "containerPort": 80,
+                        "protocol": "TCP"
+                    },
+                    {
+                        "containerPort": 443,
+                        "protocol": "TCP"
+                    }
+                ]
+         }
+      ]
+   }
+}
