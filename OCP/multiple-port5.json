@@ -66,6 +66,7 @@
    "spec":{
       "containers":[
           {
+             "name":"test",
             "image":"openshift/hello-openshift",
             "ports":[
                {
