@@ -70,11 +70,11 @@
             "image":"openshift/hello-openshift",
             "ports":[
                {
-                   "containerPort":80
+                   "containerPort":8081
                
                },
                {
-                  "containerPort":443
+                  "containerPort":8443
                }
             ]
          },
@@ -84,11 +84,11 @@
             "ports":[
                {
           
-                   "containerPort":80
+                   "containerPort":8081
                
                },
                {
-                  "containerPort":443
+                  "containerPort":8443
                }
             ]
          }
