@@ -65,21 +65,7 @@
    },
    "spec":{
       "containers":[
-         {
-            "name":"p1",
-            "image":"openshift/hello-openshift",
-            "ports":[
-               {
-                   "containerPort":8081
-               
-               },
-               {
-                  "containerPort":8443
-               }
-            ]
-         },
           {
-            "name":"p2",
             "image":"openshift/hello-openshift",
             "ports":[
                {
