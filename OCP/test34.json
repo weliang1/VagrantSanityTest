@@ -38,7 +38,7 @@
             {
                 "protocol": "TCP",
                 "port": 8080,
-                "targetPort": 80
+                "targetPort": 5000
             }
         ],
         "selector": {
@@ -64,7 +64,7 @@
             "image":"openshift/hello-openshift",
             "ports":[
                {
-                   "containerPort":80
+                   "containerPort":8080
                
                },
                {
