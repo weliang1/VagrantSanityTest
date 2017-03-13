@@ -35,12 +35,12 @@
     },
     "spec": {
         "ports": [
-            {   "name": "p1"
+            {   "name": "p1",
                 "protocol": "TCP",
                 "port": 80,
                 "targetPort": "8081"
             },
-            {   "name": "p2"
+            {   "name": "p2",
                 "protocol": "TCP",
                 "port": 443,
                 "targetPort": "8443"
