@@ -1,0 +1,17 @@
+{
+    "kind": "Endpoints",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "mysvc"
+    },
+    "subsets": [
+        {
+            "addresses": [
+                { "ip": "172.217.7.142" }
+            ],
+            "ports": [
+                { "port": 80 }
+            ]
+        }
+    ]
+}
