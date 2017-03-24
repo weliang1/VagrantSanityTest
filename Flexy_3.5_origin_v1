@@ -27,7 +27,7 @@ openshift_master_default_subdomain_enable: true
 openshift_ansible_vars:
   deployment_type: origin
   openshift_cockpit_deployer_prefix: registry.ops.openshift.com/openshift3/
-  oreg_url: registry.ops.openshift.com/openshift3/ose-${component}:${version}
+  oreg_url: registry.ops.openshift.com/openshift3/origin-${component}:${version}
   openshift_docker_additional_registries: registry.ops.openshift.com
   openshift_docker_insecure_registries: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888,virt-openshift-05.lab.eng.nay.redhat.com:5000,virt-openshift-05.lab.eng.nay.redhat.com:5001,registry.ops.openshift.com
   openshift_docker_blocked_registries: registry.hacker.com
@@ -36,7 +36,7 @@ openshift_ansible_vars:
   openshift_node_kubelet_args: '{"enable-controller-attach-detach": ["true"], "pods-per-core": ["0"], "minimum-container-ttl-duration": ["10s"], "maximum-dead-containers-per-container": ["1"], "maximum-dead-containers": ["20"], "image-gc-high-threshold": ["80"], "image-gc-low-threshold": ["70"]}'
   openshift_hosted_registry_selector: '"role=node,registry=enabled"'
   openshift_hosted_router_selector: '"role=node,router=enabled"'
-  openshift_hosted_router_registryurl: 'registry.ops.openshift.com/openshift3/ose-${component}:${version}'
+  openshift_hosted_router_registryurl: 'registry.ops.openshift.com/openshift3/origin-${component}:${version}'
   debug_level: 5
   openshift_set_hostname: true
   openshift_override_hostname_check: true
