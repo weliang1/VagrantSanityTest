@@ -1,4 +1,4 @@
-template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-33/hosts/hosts.1master+Nnode+1nfs
+template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-34/hosts/hosts.1master_nfs+Nnode
 
 
 rhel_roles:
@@ -11,15 +11,14 @@ rhel_roles:
 
 iaas_name: AWS
 node_number: 1
-image: qe-rhel-727_2
+image: qe-rhel-733_1
 install_update_docker: true
 docker_storage_driver: devicemapper
 os_update: false
 use_rpm_playbook: true
-openshift_playbook_rpm_repos: "[{'id': 'aos34-devel-install', 'name': 'aos34-devel-install', 'baseurl': 'http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-errata/3.4/latest/RH7-RHAOS-3.4/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
-qe_additional_repos: "[{'id': 'aos', 'name': 'Prerelease-OCP', 'baseurl': 'https://mirror.openshift.com/enterprise/enterprise-3.4/latest/RH7-RHAOS-3.4/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
-#qe_additional_repos: "[{'id': 'prerelease-rhel7', 'name': 'prerelease-rhel7', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'prerelease-extra', 'name': 'prerelease-extra', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/extras', 'enabled': 0, 'gpgcheck': 0},{'id': 'dockernext', 'name': 'dockernext', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra/x86_64/os/', 'enabled': 0, 'gpgcheck': 0},{'id': 'aos', 'name': 'Prerelease OCP', 'baseurl': 'https://mirror.openshift.com/enterprise/enterprise-3.4/latest/RH7-RHAOS-3.4/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
+qe_additional_repos: "[{'id': 'prerelease-rhel7', 'name': 'prerelease-rhel7', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'prerelease-extra', 'name': 'prerelease-extra', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/extras', 'enabled': 1, 'gpgcheck': 0},{'id': 'dockernext', 'name': 'dockernext', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra/x86_64/os/', 'enabled': 1, 'gpgcheck': 0},{'id': 'docker_previous', 'name': 'docker_previous', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra.previous/x86_64/os/', 'enabled': 1, 'gpgcheck': 0},{'id': 'aos', 'name': 'Prerelease OCP', 'baseurl': 'https://mirror.openshift.com/enterprise/enterprise-3.4/latest/RH7-RHAOS-3.4/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
 auth_type: htpasswd
+openshift_playbook_rpm_repos: "[{'id': 'aos34-devel-install', 'name': 'aos34-devel-install', 'baseurl': 'http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift-errata/3.4/latest/RH7-RHAOS-3.4/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
 os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
 openshift_master_default_subdomain_enable: true
 #update_is_images_url: registry.access.redhat.com
@@ -34,7 +33,7 @@ openshift_ansible_vars:
   openshift_docker_blocked_registries: registry.hacker.com
   osm_use_cockpit: false
   osm_cockpit_plugins: "['cockpit-kubernetes']"
-  openshift_node_kubelet_args: '{"enable-controller-attach-detach": ["true"],"minimum-container-ttl-duration": ["10s"], "maximum-dead-containers-per-container": ["1"], "maximum-dead-containers": ["20"], "image-gc-high-threshold": ["80"], "image-gc-low-threshold": ["70"]}'
+  openshift_node_kubelet_args: '{"enable-controller-attach-detach": ["true"], "pods-per-core": ["0"], "minimum-container-ttl-duration": ["10s"], "maximum-dead-containers-per-container": ["1"], "maximum-dead-containers": ["20"], "image-gc-high-threshold": ["80"], "image-gc-low-threshold": ["70"]}'
   openshift_hosted_registry_selector: '"role=node,registry=enabled"'
   openshift_hosted_router_selector: '"role=node,router=enabled"'
   openshift_hosted_router_registryurl: 'registry.ops.openshift.com/openshift3/ose-${component}:${version}'
