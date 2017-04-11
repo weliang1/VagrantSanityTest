@@ -10,7 +10,7 @@ rhel_roles:
 
 
 iaas_name: AWS
-node_number: 2
+node_number: 3
 image: qe-rhel-733_1
 install_update_docker: true
 docker_storage_driver: devicemapper
