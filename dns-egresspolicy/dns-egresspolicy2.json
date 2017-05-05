@@ -15,7 +15,7 @@
             {
                 "type": "Deny",
                 "to": {
-                  "cidrSelector": "98.138.0.0/8"
+                  "cidrSelector": "98.138.0.0/16"
                 }
             }
         ]
