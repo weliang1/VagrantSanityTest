@@ -15,7 +15,7 @@
             {
                 "type": "Deny",
                 "to": {
-                  "cidrSelector": "69.172.200.235/32"
+                  "dnsname": "cisco.com"
                 }
             }
         ]
