@@ -5,17 +5,17 @@
         "name": "policy-test"
     },
     "spec": {
-        "egress": [
-            {
-                "type": "Allow",
-                "to": {
-                    "cidrSelector": "98.138.253.109/32"
-                }
-            },
+        "egress": [       
             {
                 "type": "Deny",
                 "to": {
                      "dnsName": "www.pod2.com"
+                }
+            },
+            {
+                "type": "Allow",
+                "to": {
+                    "cidrSelector": "0.0.0.0/0"
                 }
             }
         ]
