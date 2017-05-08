@@ -1,0 +1,23 @@
+{
+    "kind": "EgressNetworkPolicy",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "policy-test"
+    },
+    "spec": {
+        "egress": [
+            {
+                "type": "Allow",
+                "to": {
+                    "cidrSelector": "206.190.36.45"
+                }
+            },
+            {
+                "type": "Deny",
+                "to": {
+                     "dnsName": "www.pod2ip.com"
+                }
+            }
+        ]
+    }
+}
