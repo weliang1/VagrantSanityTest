@@ -15,7 +15,7 @@
             {
                 "type": "Deny",
                 "to": {
-                  "dnsname": "cisco.com"
+                  "dnsName": "cisco.com"
                 }
             }
         ]
