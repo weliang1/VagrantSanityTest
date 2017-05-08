@@ -9,7 +9,7 @@
             {
                 "type": "Allow",
                 "to": {
-                    "cidrSelector": "206.190.36.45"
+                    "cidrSelector": "98.138.253.109"
                 }
             },
             {
