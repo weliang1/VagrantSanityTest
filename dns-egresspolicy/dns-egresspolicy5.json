@@ -1,0 +1,23 @@
+{  
+   "kind":"EgressNetworkPolicy",
+   "apiVersion":"v1",
+   "metadata":{  
+      "name":"policy-test"
+   },
+   "spec":{  
+      "egress":[  
+         {  
+            "type":"Allow",
+            "to":{  
+               "dnsName":"www.test1.com"
+            }
+         },
+         {  
+            "type":"Deny",
+            "to":{  
+               "dnsName":"www.test2.com"
+            }
+         }
+      ]
+   }
+}
