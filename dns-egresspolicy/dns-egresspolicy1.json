@@ -9,7 +9,7 @@
             {
                 "type": "Deny",
                 "to": {
-                    "dnsName": "www.aaa.com"
+                    "dnsName": "www.test.com"
                 }
             },
             {
