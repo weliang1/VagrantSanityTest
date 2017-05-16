@@ -7,15 +7,15 @@
     "spec": {
         "egress": [
             {
-                "type": "Allow",
+                "type": "Deny",
                 "to": {
-                    "dnsName": "yahoo.com"
+                    "dnsName": "aaa.com"
                 }
             },
             {
-                "type": "Deny",
+                "type": "Allow",
                 "to": {
-                  "dnsName": "cisco.com"
+                    "cidrSelector": "0.0.0.0/0"
                 }
             }
         ]
