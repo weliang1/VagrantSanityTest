@@ -9,7 +9,7 @@
             {
                 "type": "Deny",
                 "to": {
-                     "dnsName": "www.pod2.com"
+                     "dnsName": "pod2.ec2.internal"
                 }
             },
             {
