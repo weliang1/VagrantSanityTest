@@ -11,15 +11,15 @@
          "spec":{  
             "egress":[  
                {  
-                  "type":"Deny",
+                  "type":"Allow",
                   "to":{  
-                     "dnsName":"www.test.com"
+                     "dnsName":"yahoo.com"
                   }
                },
                {  
-                  "type":"Allow",
+                  "type":"Deny",
                   "to":{  
-                     "cidrSelector":"0.0.0.0/0"
+                     "cidrSelector":"98.138.0.0/16"
                   }
                }
             ]
