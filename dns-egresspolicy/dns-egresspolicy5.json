@@ -1,0 +1,29 @@
+{  
+   "apiVersion":"v1",
+   "kind":"List",
+   "items":[  
+      {  
+         "kind":"EgressNetworkPolicy",
+         "apiVersion":"v1",
+         "metadata":{  
+            "name":"policy-test"
+         },
+         "spec":{  
+            "egress":[  
+               {  
+                  "type":"Deny",
+                  "to":{  
+                     "dnsName":"www.test.com"
+                  }
+               },
+               {  
+                  "type":"Allow",
+                  "to":{  
+                     "cidrSelector":"0.0.0.0/0"
+                  }
+               }
+            ]
+         }
+      }
+   ]
+}
