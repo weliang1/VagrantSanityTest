@@ -29,7 +29,7 @@ items:
     creationTimestamp: null
     labels:
       app: hello-openshift
-    name: hello-openshift
+    name: hello-pod
   spec:
     replicas: 1
     selector:
