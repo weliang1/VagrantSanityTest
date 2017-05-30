@@ -7,8 +7,8 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift
-    name: hello-openshift
+      app: hello-pod
+    name: hello-pod
   spec:
     tags:
     - annotations:
@@ -28,13 +28,13 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift
+      app: hello-pod
     name: hello-pod
   spec:
     replicas: 1
     selector:
-      app: hello-openshift
-      deploymentconfig: hello-openshift
+      app: hello-pod
+      deploymentconfig: hello-pod
     strategy:
       resources: {}
     template:
@@ -44,8 +44,8 @@ items:
           openshift.io/generated-by: OpenShiftNewApp
         creationTimestamp: null
         labels:
-          app: hello-openshift
-          deploymentconfig: hello-openshift
+          app: hello-pod
+          deploymentconfig: hello-pod
       spec:
         containers:
         - image: bmeng/hello-openshift
@@ -62,10 +62,10 @@ items:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - hello-openshift
+        - hello-pod
         from:
           kind: ImageStreamTag
-          name: hello-openshift:latest
+          name: hello-pod:latest
       type: ImageChange
   status: {}
 - apiVersion: v1
@@ -75,8 +75,8 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift
-    name: hello-openshift
+      app: hello-pod
+    name: hello-pod
   spec:
     ports:
     - name: 8080-tcp
@@ -88,8 +88,8 @@ items:
       protocol: TCP
       targetPort: 8888
     selector:
-      app: hello-openshift
-      deploymentconfig: hello-openshift
+      app: hello-pod
+      deploymentconfig: hello-pod
   status:
     loadBalancer: {}
 kind: List
