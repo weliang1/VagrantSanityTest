@@ -15,7 +15,7 @@ items:
         openshift.io/imported-from: openshift/hello-openshift
       from:
         kind: DockerImage
-        name: openshift/hello-openshift
+        name: bmeng/hello-openshift
       generation: null
       importPolicy: {}
       name: latest
@@ -48,7 +48,7 @@ items:
           deploymentconfig: hello-openshift
       spec:
         containers:
-        - image: openshift/hello-openshift
+        - image: bmeng/hello-openshift
           name: hello-openshift
           ports:
           - containerPort: 8080
