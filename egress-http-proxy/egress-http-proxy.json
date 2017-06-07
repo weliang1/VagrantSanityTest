@@ -30,7 +30,7 @@
             "env":[  
                {  
                   "name":"EGRESS_HTTP_PROXY_DESTINATION",
-                  "value": "!*.redhat.com\n!98.138.0.0/24\n!69.172.200.235\n!www.cisco.com\n*\n"               }
+                  "value": "!*.redhat.com\n!98.0.0.0/8\n!69.172.200.235/32\n!www.cisco.com\n*\n"               }
             ]
          }
       ]
