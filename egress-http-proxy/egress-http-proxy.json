@@ -27,7 +27,9 @@
       ],
       "containers":[  
          {  
-           
+            "securityContext":{  
+               "privileged":true
+            },
             "name":"egress-router-proxy",
             "image": "openshift3/ose-egress-http-proxy",
             "env":[  
