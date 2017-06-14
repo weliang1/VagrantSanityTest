@@ -8,7 +8,7 @@
                "privileged":true
             },
             "name":"egress-router-setup",
-            "image": "openshift/origin-egress-router",
+            "image": "openshift3/ose-egress-router",
             "env":[  
                {  
                   "name":"EGRESS_SOURCE",
@@ -31,7 +31,7 @@
                "privileged":true
             },
             "name":"egress-router-proxy",
-            "image": "openshift/origin-egress-http-proxy",
+            "image": "openshift3/ose-egress-http-proxy",
             "env":[  
                {  
                   "name":"EGRESS_HTTP_PROXY_DESTINATION",
