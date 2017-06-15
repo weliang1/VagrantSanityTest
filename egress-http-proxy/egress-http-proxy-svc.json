@@ -2,7 +2,7 @@
    "kind":"Service",
    "apiVersion":"v1",
    "metadata":{  
-      "name":"egress-1"
+      "name":"egress-router-proxy"
    },
    "spec":{  
       "type":"ClusterIP",
