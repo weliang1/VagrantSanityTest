@@ -17,7 +17,7 @@
          }
       ],
       "selector":{  
-         "name":"egress-router-proxy"
+         "name":"egress-http-proxy"
       }
    }
 }
