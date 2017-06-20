@@ -21,6 +21,7 @@ spec:
       value: http-proxy
   containers:
   - name: egress-router-proxy
+    imagePullPolicy: IfNotPresent
     image: openshift3/ose-egress-http-proxy
     env:
     - name: EGRESS_HTTP_PROXY_DESTINATION
