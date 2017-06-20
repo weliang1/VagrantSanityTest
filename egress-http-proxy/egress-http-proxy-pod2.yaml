@@ -1,4 +1,11 @@
+apiVersion: v1
 kind: Pod
+metadata:
+  labels:
+    name: egress-http-proxy
+  name: egress-http-proxy
+  annotations:
+    pod.network.openshift.io/assign-macvlan: 'true'
 spec:
   initContainers:
   - securityContext:
@@ -23,10 +30,4 @@ spec:
         !69.172.200.235/32
         !www.cisco.com
         *
-apiVersion: v1
-metadata:
-  labels:
-    name: egress-http-proxy
-  name: egress-http-proxy
-  annotations:
-    pod.network.openshift.io/assign-macvlan: 'true'
+
