@@ -9,7 +9,8 @@ metadata:
 spec:
   initContainers:
   - name: egress-router-setup
-    image: openshift/origin-egress-router
+    imagePullPolicy: IfNotPresent
+    image: openshift3/ose-egress-router
     securityContext:
       privileged: true
     env:
