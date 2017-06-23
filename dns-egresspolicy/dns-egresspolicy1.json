@@ -15,7 +15,7 @@
             {
                 "type": "Deny",
                 "to": {
-                  "cidrSelector": "www.apple.com"
+                  "dnsName": "www.apple.com"
                 }
             }
         ]
