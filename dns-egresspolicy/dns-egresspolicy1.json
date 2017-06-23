@@ -9,13 +9,13 @@
             {
                 "type": "Allow",
                 "to": {
-                    "dnsName": "www.google.com"
+                    "dnsName": "www.cisco.com"
                 }
             },
             {
                 "type": "Deny",
                 "to": {
-                  "cidrSelector": "98.138.0.0/16"
+                  "cidrSelector": "www.apple.com"
                 }
             }
         ]
