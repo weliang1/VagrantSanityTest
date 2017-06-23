@@ -16,7 +16,6 @@ install_update_docker: true
 docker_storage_driver: devicemapper
 os_update: false
 use_rpm_playbook: true
-qe_additional_repos: "[{'id': 'prerelease-rhel7', 'name': 'prerelease-rhel7', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'prerelease-extra', 'name': 'prerelease-extra', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/extras', 'enabled': 1, 'gpgcheck': 0},{'id': 'dockernext', 'name': 'dockernext', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra/x86_64/os/', 'enabled': 1, 'gpgcheck': 0},{'id': 'docker_previous', 'name': 'docker_previous', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra.previous/x86_64/os/', 'enabled': 1, 'gpgcheck': 0},{'id': 'aos', 'name': 'Prerelease OCP', 'baseurl': 'https://mirror.openshift.com/enterprise/enterprise-3.6/latest/x86_64/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'fast-datapath', 'name': 'fast-datapath', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel-7-fast-datapath-rpms/', 'enabled': 1, 'gpgcheck': 0}]"
 auth_type: htpasswd
 openshift_playbook_rpm_repos: "[{'id': 'aos36-devel-install', 'name': 'aos36-devel-install', 'baseurl': 'http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.6/2017-06-06.1/x86_64/os', 'enabled': 1, 'gpgcheck': 0}]"
 #os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
