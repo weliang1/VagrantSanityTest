@@ -9,7 +9,7 @@
             {
                 "type": "Allow",
                 "to": {
-                    "dnsName": "yahoo.com"
+                    "dnsName": "www.google.com"
                 }
             },
             {
