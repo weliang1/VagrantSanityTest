@@ -9,7 +9,7 @@
             {
                 "type": "Deny",
                 "to": {
-                    "dnsName": "59.172.200.236"
+                    "dnsName": "www.cisco.com"
                 }
             },
             {
