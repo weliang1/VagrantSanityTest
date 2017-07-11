@@ -2,7 +2,7 @@
    "kind":"Service",
    "apiVersion":"v1",
    "metadata":{  
-      "name":"egressrouter-redirect"
+      "name":"egressrouter-redirect-svc"
    },
    "spec":{  
       "type":"ClusterIP",
@@ -15,7 +15,7 @@
          }
       ],
       "selector":{  
-         "name":"egressrouter-redirect"
+         "name":"egressrouter-redirect-pod"
       }
    }
 }
