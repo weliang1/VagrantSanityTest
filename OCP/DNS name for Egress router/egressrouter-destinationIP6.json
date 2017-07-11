@@ -26,6 +26,5 @@ spec:
   - name: egress-redirect
     image: openshift3/ose-egress-router
     imagePullPolicy: IfNotPresent
-    securityContext:
-      privileged: true
+    
     
