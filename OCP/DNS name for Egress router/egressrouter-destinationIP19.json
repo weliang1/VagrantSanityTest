@@ -21,9 +21,6 @@ spec:
       value: 69.172.200.235
     - name: EGRESS_ROUTER_MODE
       value: init
-  containers:
-  - name: egress-redirect
-    image: openshift3/ose-egress-router
-
+  
     
     
