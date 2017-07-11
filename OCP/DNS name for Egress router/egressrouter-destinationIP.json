@@ -14,7 +14,7 @@ spec:
       privileged: true
     env:
     - name: EGRESS_SOURCE
-      value: 172.17.0.9
+      value: 172.17.0.2
     - name: EGRESS_GATEWAY
       value: 172.17.0.1
     - name: EGRESS_DESTINATION 
@@ -23,4 +23,5 @@ spec:
       value: init
   containers:
   - name: egress-redirect
+    image: openshift3/ose-egress-router
     
