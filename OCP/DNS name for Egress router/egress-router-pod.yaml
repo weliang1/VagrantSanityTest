@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: egress-redirect
+  name: egressrouter-redirect
   labels:
-    name: egress-redirect
+    name: egressrouter-redirect
   annotations:
     pod.network.openshift.io/assign-macvlan: "true"
 spec:
@@ -23,5 +23,5 @@ spec:
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
-  - name: egress-redirect
+  - name: egressrouter-redirect
     
