@@ -1,0 +1,3 @@
+
+80   tcp www.test.com 
+8443 tcp www.yahoo.com 443
