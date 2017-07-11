@@ -9,7 +9,7 @@ metadata:
 spec:
   initContainers:
   - name: egress-router
-    image: openshift3/ose-egress-router
+    image: openshift3/hello-openshift
     securityContext:
       privileged: true
     env:
@@ -23,6 +23,6 @@ spec:
       value: init
   containers:
   - name: egressrouter-redirect
-    image: openshift3/hello-openshift
+    image: openshift3/ose-egress-router
     
     
