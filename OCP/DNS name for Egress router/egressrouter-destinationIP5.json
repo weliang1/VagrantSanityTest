@@ -9,6 +9,7 @@ metadata:
 spec:
   initContainers:
   - name: egress-router
+    imagePullPolicy: IfNotPresent
     image: openshift3/ose-egress-router
     securityContext:
       privileged: true
@@ -24,6 +25,7 @@ spec:
   containers:
   - name: egress-redirect
     image: openshift3/ose-egress-router
+    imagePullPolicy: IfNotPresent
     securityContext:
       privileged: true
     
