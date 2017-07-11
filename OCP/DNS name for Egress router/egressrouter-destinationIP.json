@@ -23,5 +23,4 @@ spec:
       value: init
   containers:
   - name: egress-redirect
-    image: openshift3/ose-egress-router
     
