@@ -15,7 +15,7 @@
          }
       ],
       "selector":{  
-         "name":"egressrouter-redirect-pod"
+         "name":"egressrouter-redirect"
       }
    }
 }
