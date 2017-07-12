@@ -23,6 +23,6 @@ spec:
       value: init
   containers:
   - name: egressrouter-redirect
-    image: openshift3/ose-egress-router
+    image: openshift3/ose-pod
     
     
