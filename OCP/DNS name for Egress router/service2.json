@@ -12,7 +12,7 @@
          }
       ],
       "selector":{  
-         "name":"egressrouter-redirect"
+         "name":"egress-redirect"
       }
    }
 }
