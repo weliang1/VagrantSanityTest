@@ -14,7 +14,7 @@ spec:
       privileged: true
     env:
     - name: EGRESS_SOURCE
-      value: 172.16.120.127
+      value: 172.16.120.222
     - name: EGRESS_GATEWAY
       value: 172.16.120.1
     - name: EGRESS_DESTINATION 
