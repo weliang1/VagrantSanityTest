@@ -18,7 +18,7 @@ spec:
     - name: EGRESS_GATEWAY
       value: 10.240.0.1
     - name: EGRESS_DESTINATION 
-      value: 69.172.200.235
+      value: 10.240.0.87
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
