@@ -1,0 +1,53 @@
+template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-36/hosts/hosts.1master_nfs+Nnode
+
+
+rhel_roles:
+- master
+- node
+- router
+- registry
+- nfs
+
+
+iaas_name: AWS
+node_number: 1
+image: qe-rhel-73-20170606
+qe_additional_repos: "[{'id': 'prerelease-rhel7', 'name': 'prerelease-rhel7', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/os', 'enabled': 0, 'gpgcheck': 0},{'id': 'prerelease-extra', 'name': 'prerelease-extra', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/extras', 'enabled': 0, 'gpgcheck': 0},{'id': 'dockernext', 'name': 'dockernext', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra/x86_64/os/', 'enabled': 0, 'gpgcheck': 0},{'id': 'docker_previous', 'name': 'docker_previous', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra.previous/x86_64/os/', 'enabled': 0, 'gpgcheck': 0},{'id': 'aos', 'name': 'Prerelease OCP', 'baseurl': 'https://mirror.openshift.com/enterprise/all/3.6/latest/x86_64/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'fast-datapath', 'name': 'fast-datapath', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel-7-fast-datapath-rpms/', 'enabled': 1, 'gpgcheck': 0}]"
+install_update_docker: true
+docker_storage_driver: devicemapper
+os_update: false
+use_rpm_playbook: true
+auth_type: htpasswd
+openshift_playbook_rpm_repos: "[{'id': 'aos36-devel-install', 'name': 'aos36-devel-install', 'baseurl': 'http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.6/latest/x86_64/os/', 'enabled': 1, 'gpgcheck': 0}]"
+os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
+openshift_master_default_subdomain_enable: true
+update_is_images_url: registry.access.redhat.com
+
+
+openshift_ansible_vars:
+  deployment_type: openshift-enterprise
+  openshift_cockpit_deployer_prefix: registry.ops.openshift.com/openshift3/
+  oreg_url: registry.ops.openshift.com/openshift3/ose-${component}:${version}
+  openshift_docker_additional_registries: registry.ops.openshift.com
+  openshift_docker_insecure_registries: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888,virt-openshift-05.lab.eng.nay.redhat.com:5000,virt-openshift-05.lab.eng.nay.redhat.com:5001,registry.ops.openshift.com,registry.access.stage.redhat.com
+  openshift_docker_blocked_registries: registry.hacker.com
+  osm_use_cockpit: false
+  osm_cockpit_plugins: "['cockpit-kubernetes']"
+  openshift_node_kubelet_args: '{"enable-controller-attach-detach": ["true"], "pods-per-core": ["0"], "minimum-container-ttl-duration": ["10s"], "maximum-dead-containers-per-container": ["1"], "maximum-dead-containers": ["20"], "image-gc-high-threshold": ["80"], "image-gc-low-threshold": ["70"]}'
+  openshift_hosted_registry_selector: '"role=node,registry=enabled"'
+  openshift_hosted_router_selector: '"role=node,router=enabled"'
+  openshift_hosted_router_registryurl: 'registry.ops.openshift.com/openshift3/ose-${component}:${version}'
+  debug_level: 5
+  openshift_set_hostname: true
+  openshift_override_hostname_check: true
+
+  openshift_hosted_registry_storage_kind: nfs
+  openshift_hosted_registry_storage_nfs_options: '"*(rw,root_squash,sync,no_wdelay)"'
+  openshift_hosted_registry_storage_nfs_directory: /var/lib/exports
+  openshift_hosted_registry_storage_volume_name: regpv
+  openshift_hosted_registry_storage_access_modes: ["ReadWriteMany"]
+  openshift_hosted_registry_storage_volume_size: 17G
+  
+  #openshift_disable_check: disk_availability,memory_availability,package_availability,docker_image_availability,docker_storage,package_version
+  openshift_check_min_host_disk_gb: 5
+  openshift_check_min_host_memory_gb: 4
