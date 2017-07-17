@@ -19,7 +19,7 @@ os_update: false
 use_rpm_playbook: true
 auth_type: htpasswd
 openshift_playbook_rpm_repos: "[{'id': 'aos36-devel-install', 'name': 'aos36-devel-install', 'baseurl': 'http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.6/latest/x86_64/os/', 'enabled': 1, 'gpgcheck': 0}]"
-os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
+#os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
 openshift_master_default_subdomain_enable: true
 update_is_images_url: registry.access.redhat.com
 
