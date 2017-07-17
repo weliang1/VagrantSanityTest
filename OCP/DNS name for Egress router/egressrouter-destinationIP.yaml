@@ -14,11 +14,11 @@ spec:
       privileged: true
     env:
     - name: EGRESS_SOURCE
-      value: 10.240.0.56
+      value: 172.18.3.189
     - name: EGRESS_GATEWAY
-      value: 10.240.0.1
+      value: 172.18.0.1
     - name: EGRESS_DESTINATION 
-      value: 10.240.0.87
+      value: 172.18.8.56
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
