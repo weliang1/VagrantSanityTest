@@ -33,3 +33,7 @@ Feature: Egress-ingress related networking scenarios
        | (ovs-ofctl dump-flows br0 -O openflow13 \| grep tcp \|grep table=100 \| grep tp-dst=53  \|\| docker exec openvswitch ovs-ofctl dump-flows br0 -O openflow13 | grep tcp  |grep table=100 | grep tp-dst=53 )  |
     And the output should contain 1 times:
       | nw-dst=<%= cb.router_ip %> |
+      When I run commands on the host:
+       | (ovs-ofctl dump-flows br0 -O openflow13 \| grep udp \|grep table=100 \| grep tp-dst=53  \|\| docker exec openvswitch ovs-ofctl dump-flows br0 -O openflow13 | grep udp  |grep table=100 | grep tp-dst=53 )  |
+    And the output should contain 1 times:
+      | nw-dst=<%= cb.router_ip %> |
