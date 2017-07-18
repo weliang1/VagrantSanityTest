@@ -20,8 +20,11 @@ spec:
       value: 172.17.0.1
     - name: EGRESS_DESTINATION 
       value: | 
-        80   tcp www.test.com 
-        8443 tcp www.yahoo.com 443
+        80 tcp www.yahoo.com
+        8080 udp www.cisco.com
+        8000 tcp www.redhat.com 80
+        8443 udp www.google.com 443
+        www.facebook.com
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
