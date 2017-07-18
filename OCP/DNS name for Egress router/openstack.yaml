@@ -18,7 +18,7 @@ spec:
     - name: EGRESS_GATEWAY
       value: 172.16.120.1
     - name: EGRESS_DESTINATION 
-      value: 
+      value: |
       80 tcp 1.1.1.1
       443 tcp 6.6.6.6
       8080 udp 2.2.2.2
