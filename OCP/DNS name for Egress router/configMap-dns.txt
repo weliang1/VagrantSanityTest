@@ -1,3 +1,6 @@
 
-80   tcp www.test.com 
-8443 tcp www.yahoo.com 443
+80 tcp www.yahoo.com
+8080 udp www.cisco.com
+8000 tcp www.redhat.com 80
+8443 udp www.google.com 443
+www.facebook.com
