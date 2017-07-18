@@ -20,11 +20,6 @@ spec:
     - name: EGRESS_DESTINATION 
       value: |
       80 tcp 1.1.1.1
-      443 tcp 6.6.6.6
-      8080 udp 2.2.2.2
-      8080 tcp 3.3.3.3 80
-      8443 udp 4.4.4.4 443
-      5.5.5.5
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
