@@ -1,6 +1,6 @@
 Feature: Egress-ingress related networking scenarios
 
-# @author weliang@redhat.com
+  # @author weliang@redhat.com
   # @case_id OCP-15017
   @admin
   Scenario: Add nodes local IP address to OVS rules for egressnetworkpolicy	
