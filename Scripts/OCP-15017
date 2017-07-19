@@ -1,16 +1,14 @@
-Feature: Egress-ingress related networking scenarios
-
   # @author weliang@redhat.com
   # @case_id OCP-15017
   @admin
-  Scenario: Add nodes local IP address to OVS rules for egressnetworkpolicy	
+  Scenario: Add nodes local IP address to OVS rules for egressnetworkpolicy
     Given the env is using multitenant network
-    Given I have a project  
-    And I store default router IPs in the :router_ip clipboard
+    Given I have a project
     Given I have a pod-for-ping in the project
+    And evaluation of `pod('hello-pod').node_ip(user: user)` is stored in the :hostip clipboard
     And evaluation of `project.name` is stored in the :proj1 clipboard
 
-    # Create egress policy with allow and deny order
+    # Create egress policy
     When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/egress-ingress/dns-egresspolicy1.json"
     And I replace lines in "dns-egresspolicy1.json":
       | 98.138.0.0/16 | 0.0.0.0/0 |
@@ -24,16 +22,17 @@ Feature: Egress-ingress related networking scenarios
       | ping | -c1 | -W2 | www.yahoo.com |
     Then the step should succeed
     When I execute on the pod:
-      | ping | -c1 | -W2 | www.cisco.com | 
+      | ping | -c1 | -W2 | www.cisco.com |
     Then the step should fail
-    
+
     # Check egress rule added in openflow
     Given I select a random node's host
     When I run commands on the host:
-       | (ovs-ofctl dump-flows br0 -O openflow13 \| grep tcp \|grep table=100 \| grep tp-dst=53  \|\| docker exec openvswitch ovs-ofctl dump-flows br0 -O openflow13 | grep tcp  |grep table=100 | grep tp_dst=53 )  |
+       | (ovs-ofctl dump-flows br0 -O openflow13 \| grep tcp \|grep table=100 \| grep tp_dst=53  \|\| docker exec openvswitch ovs-ofctl dump-flows br0 -O openflow13 | grep tcp  |grep table=100 | grep tp_dst=53 )  |
     And the output should contain 1 times:
-      | nw-dst=<%= cb.router_ip %> |
+      | nw_dst=<%= cb.hostip %> |
       When I run commands on the host:
-       | (ovs-ofctl dump-flows br0 -O openflow13 \| grep udp \|grep table=100 \| grep tp-dst=53  \|\| docker exec openvswitch ovs-ofctl dump-flows br0 -O openflow13 | grep udp  |grep table=100 | grep tp_dst=53 )  |
+       | (ovs-ofctl dump-flows br0 -O openflow13 \| grep udp \|grep table=100 \| grep tp_dst=53  \|\| docker exec openvswitch ovs-ofctl dump-flows br0 -O openflow13 | grep udp  |grep table=100 | grep tp-dst=53 )  |
     And the output should contain 1 times:
-      | nw-dst=<%= cb.router_ip %> |
+      | nw_dst=<%= cb.hostip %> |
+
