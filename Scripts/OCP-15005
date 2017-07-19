@@ -23,26 +23,32 @@
       | f | service-externalName.json |
       | n | <%= cb.proj1 %> |
     Then the step should succeed 
-     
-     
-     
-     
-     
-    # Check ping from pod
+    
+    # Check curl from pod
     When I execute on the pod:
-      | ping | -c2 | -W2 | www.cisco.com |
+      | curl -ILs | --head | www.test.com |
     Then the step should fail
-    When I execute on the pod:
-      | ping | -c2 | -W2 | www.facebook.com |
-    Then the step should succeed
 
-    # Check egress rule added in openflow
-    Given I select a random node's host
-    When I run commands on the host:
-       | (ovs-ofctl dump-flows br0 -O openflow13 \| grep tcp \|grep table=100 \| grep tp_dst=53  \|\| docker exec openvswitch ovs-ofctl dump-flows br0 -O openflow13 | grep tcp  |grep table=100 | grep tp_dst=53 )  |
-    And the output should contain 1 times:
-      | nw_dst=<%= cb.hostip %> |
-      When I run commands on the host:
-       | (ovs-ofctl dump-flows br0 -O openflow13 \| grep udp \|grep table=100 \| grep tp_dst=53  \|\| docker exec openvswitch ovs-ofctl dump-flows br0 -O openflow13 | grep udp  |grep table=100 | grep tp-dst=53 )  |
-    And the output should contain 1 times:
-      | nw_dst=<%= cb.hostip %> |
+
+    # Delete egress network policy
+    When I run the :delete client command with:
+      | object_type       | egressnetworkpolicy |
+      | n                 | <%= project.name %> |
+    Then the step should succeed
+    
+    # Create egress policy
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/egress-ingress/dns-egresspolicy2.json"
+    And I replace lines in "dns-egresspolicy1.json":
+      | 98.138.0.0/16 | 0.0.0.0/0 |
+      | yahoo.com | www.cisco.com |
+    And I run the :create admin command with:
+      | f | dns-egresspolicy1.json |
+      | n | <%= cb.proj1 %> |
+    Then the step should succeed
+    
+    # Check curl from pod
+    When I execute on the pod:
+      | curl -ILs | --head | www.test.com |    
+    And the output should contain "HTTP/1.1 200"
+
+    
