@@ -1,4 +1,4 @@
-# @author weliang@redhat.com
+  # @author weliang@redhat.com
   # @case_id OCP-15005
   @admin
   Scenario: Service with a DNS name can not by pass Egressnetworkpolicy with that DNS name	
