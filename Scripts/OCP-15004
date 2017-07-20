@@ -18,7 +18,7 @@
     Then the step should succeed
    
     # Create a service with a "externalname"
-    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/egressnetworkpolicy/policy.json
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/service-externalName.json"
     And I run the :create admin command with:
       | f | service-externalName.json |
       | n | <%= cb.proj1 %> |
