@@ -8,7 +8,7 @@
     And evaluation of `pod('hello-pod').node_ip(user: user)` is stored in the :hostip clipboard
     And evaluation of `project.name` is stored in the :proj1 clipboard
 
-    # Create egress policy
+    # Create egress policy to allow www.facebook.com
     When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/egress-ingress/dns-egresspolicy1.json"
     And I replace lines in "dns-egresspolicy1.json":
       | 98.138.0.0/16 | 0.0.0.0/0 |
