@@ -1,7 +1,7 @@
   # @author weliang@redhat.com
   # @case_id OCP-15005
   @admin
-  Scenario: Service with a DNS name can not by pass Egressnetworkpolicy with that DNS name
+  Scenario: Service with a DNS name can not by pass Egressnetworkpolicy with that DNS name	
     Given the env is using multitenant network
     Given I have a project
     Given I have a pod-for-ping in the project
@@ -16,18 +16,19 @@
       | f | dns-egresspolicy2.json |
       | n | <%= cb.proj1 %> |
     Then the step should succeed
-
+    
     # Create a service with a "externalname"
-    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/service-externalName.json"
+    When I download a file from "https://raw.githubusercontent.com/weliang1/Openshift_Networking/master/OCP/Egress-DNS/service-externalName.json"
     And I run the :create admin command with:
       | f | service-externalName.json |
       | n | <%= cb.proj1 %> |
-    Then the step should succeed
-
+    Then the step should succeed 
+    
     # Check curl from pod
     When I execute on the pod:
       | curl |-ILs  | --head | www.test.com |
     Then the step should fail
+
 
     # Delete egress network policy
     Given I switch to cluster admin pseudo user
@@ -39,7 +40,7 @@
     And the output should contain:
       | egressnetworkpolicy |
       | deleted             |
-
+    
     # Create egress policy
     When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/egress-ingress/dns-egresspolicy2.json"
     And I replace lines in "dns-egresspolicy2.json":
@@ -49,8 +50,8 @@
       | f | dns-egresspolicy2.json |
       | n | <%= cb.proj1 %> |
     Then the step should succeed
-
+    
     # Check curl from pod
     When I execute on the pod:
-      | curl | -ILs | --head | www.test.com |
-    And the output should contain "HTTP/1.1 200
+      | curl | -ILs | --head | www.test.com |    
+    And the output should contain "HTTP/1.1 200"
