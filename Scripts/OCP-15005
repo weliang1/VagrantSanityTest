@@ -7,7 +7,7 @@
     Given I have a pod-for-ping in the project
     And evaluation of `project.name` is stored in the :proj1 clipboard
 
-    # Create egress policy
+    # Create egress policy to deny www.test.com
     When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/egress-ingress/dns-egresspolicy2.json"
     And I replace lines in "dns-egresspolicy2.json":
       | 98.138.0.0/16 | 0.0.0.0/0 |
@@ -29,7 +29,6 @@
       | curl |-ILs  | --head | www.test.com |
     Then the step should fail
 
-
     # Delete egress network policy
     Given I switch to cluster admin pseudo user
     When I run the :delete client command with:
@@ -41,7 +40,7 @@
       | egressnetworkpolicy |
       | deleted             |
     
-    # Create egress policy
+    # Create egress policy to allow www.test.com
     When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/egress-ingress/dns-egresspolicy2.json"
     And I replace lines in "dns-egresspolicy2.json":
       | 98.138.0.0/16 | 0.0.0.0/0 |
