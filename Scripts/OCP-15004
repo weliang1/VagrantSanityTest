@@ -8,10 +8,10 @@
     And evaluation of `project.name` is stored in the :proj1 clipboard
 
     # Create egress policy to deny www.test.com
-    And evaluation of `CucuShift::Common::Net.dns_lookup("www.test.com")` is stored in the :test_ip clipboard
-    When I download a file from "https://github.com/openshift-qe/v3-testfiles/blob/master/networking/egressnetworkpolicy/policy.json"
+    And evaluation of `CucuShift::Common::Net.dns_lookup("test.com")` is stored in the :test_ip clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/egressnetworkpolicy/policy.json"
     And I replace lines in "policy.json":
-      | 10.66.140.0/24 | <%= cb.test_ip %>/32|
+      | 10.66.140.0/24 | <%= cb.test_ip %>/32 |
     And I run the :create admin command with:
       | f | policy.json |
       | n | <%= cb.proj1 %> |
@@ -33,7 +33,7 @@
     Given I switch to cluster admin pseudo user
     When I run the :delete client command with:
       | object_type       | egressnetworkpolicy |
-      | object_name_or_id | policy-test         |
+      | object_name_or_id | default             |
       | n                 | <%= project.name %> |
     Then the step should succeed
     And the output should contain:
@@ -51,3 +51,4 @@
     When I execute on the pod:
       | curl | -ILs | --head | www.test.com |    
     And the output should contain "HTTP/1.1 200"
+
