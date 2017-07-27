@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: egress-router-env
+data:
+  EGRESS_SOURCE: 172.17.0.99 
+  EGRESS_GATEWAY: 172.17.0.1 
+  EGRESS_ROUTER_MODE: dns-proxy 
+  EGRESS_DESTINATION: | 
+    80 www.baidu.com
+    8443 www.baidu.com 443
