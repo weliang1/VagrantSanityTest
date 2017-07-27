@@ -8,4 +8,6 @@ data:
   EGRESS_ROUTER_MODE: dns-proxy 
   EGRESS_DESTINATION: | 
     80 www.baidu.com
+    443 www.baidu.com
+    8080 www.baidu.com 80
     8443 www.baidu.com 443
