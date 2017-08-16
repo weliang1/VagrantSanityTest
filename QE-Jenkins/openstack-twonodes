@@ -9,9 +9,9 @@ rhel_roles:
 - nfs
 
 
-iaas_name: openstack_qeos7
+iaas_name: openstack_qeos10
 node_number: 2
-image: qe-rhel-73-20170606
+image: qe-rhel-74-20170727
 install_update_docker: true
 docker_storage_driver: devicemapper
 os_update: false
@@ -20,6 +20,7 @@ auth_type: htpasswd
 qe_additional_repos: "[{'id': 'rhel7', 'name': 'rhel7', 'baseurl': 'http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'rhel7-extra', 'name': 'rhel7-extra', 'baseurl': 'http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'fast-datapath', 'name': 'fast-datapath', 'baseurl': 'http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/fast-datapath/os', 'enabled': 1, 'gpgcheck': 0}]"
 openshift_additional_repos: "[{'id': 'aos36-devel-install', 'name': 'aos36-devel-install', 'baseurl': 'http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.6/latest/x86_64/os/', 'enabled': 1, 'gpgcheck': 0}]"
 #os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
+#os_firewall_use_firewalld: true
 openshift_master_default_subdomain_enable: true
 
 
