@@ -1,13 +1,33 @@
 apiVersion: v1
-kind: ConfigMap
+kind: Pod
 metadata:
-  name: egress-router-env
-data:
-  EGRESS_SOURCE: 172.17.0.99 
-  EGRESS_GATEWAY: 172.17.0.1 
-  EGRESS_ROUTER_MODE: dns-proxy 
-  EGRESS_DESTINATION: | 
-    80 www.baidu.com
-    443 www.baidu.com
-    8080 www.baidu.com 80
-    8443 www.baidu.com 443
+  name: egress-dns-proxy
+  labels:
+    name: egress-dns-proxy
+  annotations:
+    pod.network.openshift.io/assign-macvlan: "true" 
+spec:
+  initContainers:
+  - name: egress-router-setup
+    image: openshift3/ose-egress-router
+    securityContext:
+      privileged: true
+    env:
+    - name: EGRESS_SOURCE
+      value: 192.168.12.99
+    - name: EGRESS_GATEWAY
+      value: 192.168.12.1
+    - name: EGRESS_DESTINATION
+      valueFrom:
+        configMapKeyRef:
+          name: egress-routes
+          key: destination
+    - name: EGRESS_ROUTER_MODE
+      value: dns-proxy
+  containers:
+  - name: egress-dns-proxy
+    image: openshift3/ose-egress-dns-proxy
+    env:
+    - name: EGRESS_DNS_PROXY_DEBUG
+      value: "1"
+   
