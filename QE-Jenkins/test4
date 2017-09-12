@@ -28,8 +28,7 @@ openshift_master_default_subdomain_enable: true
 
 openshift_ansible_vars:
   deployment_type: openshift-enterprise
-  openshift_use_openshift_sdn: false
-  openshift_use_flannel: true
+
   openshift_cockpit_deployer_prefix: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/openshift3/
   oreg_url: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/openshift3/ose-${component}:${version}
   openshift_docker_additional_registries: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888
