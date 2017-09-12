@@ -22,9 +22,9 @@ openshift_additional_repos: "[{'id': 'aos36-devel-install', 'name': 'aos36-devel
 #os_sdn_network_plugin_name: redhat/openshift-ovs-multitenant
 #os_firewall_use_firewalld: true
 openshift_master_default_subdomain_enable: true
-openshift_use_openshift_sdn=false
-openshift_use_flannel=true
-flannel_interface=eth1
+openshift_use_openshift_sdn:false
+openshift_use_flannel:true
+flannel_interface:eth1
 
 
 
