@@ -7,7 +7,7 @@ rhel_roles:
 - node
 - router
 - registry
-- etcd
+
 
 
 iaas_name: AWS
