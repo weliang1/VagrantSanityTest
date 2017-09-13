@@ -1,4 +1,5 @@
-template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-36/hosts/hosts.1master+1etcd
+template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-36/hosts/hosts.1master+Nnode+1etcd
+
 
 
 rhel_roles:
@@ -10,7 +11,7 @@ rhel_roles:
 
 
 iaas_name: AWS
-node_number: 2
+node_number: 1
 image: qe-rhel-73-20170606
 qe_additional_repos: "[{'id': 'prerelease-rhel7', 'name': 'prerelease-rhel7', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/os', 'enabled': 0, 'gpgcheck': 0},{'id': 'prerelease-extra', 'name': 'prerelease-extra', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel7next/extras', 'enabled': 0, 'gpgcheck': 0},{'id': 'dockernext', 'name': 'dockernext', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra/x86_64/os/', 'enabled': 0, 'gpgcheck': 0},{'id': 'docker_previous', 'name': 'docker_previous', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/dockerextra.previous/x86_64/os/', 'enabled': 0, 'gpgcheck': 0},{'id': 'aos', 'name': 'Prerelease OCP', 'baseurl': 'https://mirror.openshift.com/enterprise/all/3.6/latest/x86_64/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'fast-datapath', 'name': 'fast-datapath', 'baseurl': 'https://mirror.openshift.com/enterprise/rhel/rhel-7-fast-datapath-rpms/', 'enabled': 1, 'gpgcheck': 0}]"
 install_update_docker: true
