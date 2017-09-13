@@ -1,4 +1,4 @@
-template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-36/hosts/hosts.1master_nfs+Nnode
+template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-36/hosts/hosts.1master_nfs+Nnode+1etcd
 
 
 rhel_roles:
