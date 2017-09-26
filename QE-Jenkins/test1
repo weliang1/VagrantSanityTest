@@ -24,7 +24,7 @@ openshift_playbook_rpm_repos: "[{'id': 'aos36-devel-install', 'name': 'aos36-dev
 openshift_master_default_subdomain_enable: true
 update_is_images_url: registry.access.redhat.com
 enable_cloudprovider: true
-openshift_release: v3.6
+
 
 
 openshift_ansible_vars:
