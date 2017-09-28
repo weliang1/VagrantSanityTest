@@ -27,8 +27,6 @@ openshift_master_default_subdomain_enable: true
 openshift_ansible_vars:
   openshift_deployment_type: origin
   openshift_release: v3.6
-  openshift_image_tag: v3.6.0
-  openshift_pkg_version: -3.6.0
   openshift_cockpit_deployer_prefix: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/openshift3/
   oreg_url: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/openshift3/ose-${component}:${version}
   openshift_docker_additional_registries: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888
