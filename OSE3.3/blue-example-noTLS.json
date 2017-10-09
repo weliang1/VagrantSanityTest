@@ -55,7 +55,7 @@
         "containers": [
           {
             "name": "blue-pod-container",
-            "image": "openshift/hello-openshift",
+            "image": "bmeng/hello-openshift",
             "env": [
             { "name": "RESPONSE",
                "value": "Hello Blue Example"
