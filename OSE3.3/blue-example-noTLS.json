@@ -1,0 +1,77 @@
+{
+  "kind": "List",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service-complete-example"
+  },
+  "items": [
+    {
+      "kind": "Route",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "blue-route",
+        "labels": {
+          "name": "blue-route"
+        }
+      },
+      "spec": {
+        "host": "blue.example.com",
+        "to": {
+          "kind": "Service",
+          "name": "blue-service"
+        }
+      }
+    },
+    
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "blue-service"
+      },
+      "spec": {
+        "selector": {
+          "name": "blue-openshift"
+        },
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8080,
+            "targetPort": 8080
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "blue-pod",
+        "labels": {
+          "name": "blue-openshift"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "blue-pod-container",
+            "image": "openshift/hello-openshift",
+            "env": [
+            { "name": "RESPONSE",
+               "value": "Hello Blue Example"
+          }
+        ],
+            "ports": [
+              {
+                "containerPort": 8080
+              },
+              {
+                "containerPort": 443
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
