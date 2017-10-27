@@ -85,7 +85,7 @@
                      {
                         "containerPort": 8080,
                     "protocol": "TCP",
-                    "hostPort": 9736
+                    "hostPort": 9737
                      }
                   ]
                }
@@ -110,7 +110,7 @@
                      {
                        "containerPort": 8080,
                     "protocol": "TCP",
-                    "hostPort": 9736
+                    "hostPort": 9738
                      }
                   ]
                }
