@@ -18,11 +18,11 @@ items:
             privileged: true
           env:
           - name: EGRESS_SOURCE
-            value: egress_ip
+            value: 172.18.0.199
           - name: EGRESS_GATEWAY
-            value: egress_gw
+            value: 172.18.0.1
           - name: EGRESS_DESTINATION
-            value: egress_dest
+            value: 216.58.217.110
           - name: EGRESS_ROUTER_MODE
             value: init
         containers:
