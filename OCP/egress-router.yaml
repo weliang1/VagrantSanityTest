@@ -16,7 +16,9 @@ spec:
       value: 172.18.0.177
     - name: EGRESS_GATEWAY
       value: 172.18.0.1
-    - name: 216.58.217.110
+    - name: EGRESS_DESTINATION
+      value: 216.58.217.110
+    - name: EGRESS_ROUTER_MODE
       value: init
     securityContext:
       privileged: true
