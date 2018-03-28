@@ -25,7 +25,7 @@ spec:
     env:
     - name: EGRESS_DNS_PROXY_DEBUG
       value: "1"
-    - name: EGRESS_HTTP_PROXY_DESTINATION
+    - name: EGRESS_DNS_DESTINATION
       value: |
         80   tcp www.baidu.com
         8080 tcp www.jd.com
