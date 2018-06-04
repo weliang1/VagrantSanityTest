@@ -15,11 +15,11 @@ spec:
   - name: con3
     protocol: TCP
     port: 8080
-    targetPort: 8080
+    targetPort: 80
   - name: con4
     protocol: TCP
     port: 8443
-    targetPort: 8443
+    targetPort: 443
   type: ClusterIP
   selector:
     name: egress-dns-proxy
