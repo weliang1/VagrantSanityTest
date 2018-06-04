@@ -29,4 +29,7 @@ spec:
       value: "1"
     - name: EGRESS_DNS_PROXY_DESTINATION
       value: |
-        80  www.baidu.com
+        80   www.baidu.com
+        443  www.baidu.com
+        8080 www.baidu.com 80
+        8443 www.baidu.com 443
