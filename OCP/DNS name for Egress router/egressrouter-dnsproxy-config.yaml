@@ -9,23 +9,25 @@ metadata:
 spec:
   initContainers:
   - name: egress-router-setup
-    image: openshift3/ose-egress-router
+    image: registry.reg-aws.openshift.com:443/openshift3/ose-egress-router:v3.10.0-0.58.0
+    imagePullPolicy:  IfNotPresent
     securityContext:
       privileged: true
     env:
     - name: EGRESS_SOURCE
-      value: 192.168.12.99
+      value: 172.16.120.137
     - name: EGRESS_GATEWAY
-      value: 192.168.12.1
+      value: 172.16.120.1
     - name: EGRESS_ROUTER_MODE
       value: dns-proxy
   containers:
   - name: egress-dns-proxy
-    image: openshift3/ose-egress-dns-proxy
+    image: registry.reg-aws.openshift.com:443/openshift3/ose-egress-dns-proxy:v3.10.0-0.58.0
+    imagePullPolicy:  IfNotPresent
     env:
     - name: EGRESS_DNS_PROXY_DEBUG
       value: "1"
-    - name: EGRESS_DNS_DESTINATION
+    - name: EGRESS_DNS_PROXY_DESTINATION
       value: |
         80   tcp www.baidu.com
         8080 tcp www.jd.com
