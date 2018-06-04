@@ -15,9 +15,9 @@ spec:
       privileged: true
     env:
     - name: EGRESS_SOURCE
-      value: 172.16.120.137
+      value: 172.18.6.68
     - name: EGRESS_GATEWAY
-      value: 172.16.120.1
+      value: 172.18.0.1
     - name: EGRESS_ROUTER_MODE
       value: dns-proxy
   containers:
@@ -29,5 +29,4 @@ spec:
       value: "1"
     - name: EGRESS_DNS_PROXY_DESTINATION
       value: |
-        80   tcp www.baidu.com
-        
+        80  www.baidu.com
