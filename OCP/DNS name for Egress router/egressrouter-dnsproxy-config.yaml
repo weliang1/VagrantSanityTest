@@ -5,7 +5,7 @@ metadata:
   labels:
     name: egress-dns-proxy
   annotations:
-    pod.network.openshift.io/assign-macvlan: "true" 
+    pod.network.openshift.io/assign-macvlan: "true"
 spec:
   initContainers:
   - name: egress-router-setup
