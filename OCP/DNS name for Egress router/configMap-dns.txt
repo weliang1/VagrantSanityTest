@@ -1,4 +1,3 @@
-80   tcp www.baidu.com
-8080 tcp www.jd.com
-8000 tcp www.baidu.com
-8443 tcp www.jd.com
+80     www.google.com
+8000   209.82.215.211 80
+8001   www.yahoo.com  80
