@@ -7,31 +7,31 @@ items:
 - kind: Route
   apiVersion: v1
   metadata:
-    name: blue-route
+    name: edge-route
     labels:
-      name: blue-route
+      name: edge-route
   spec:
-    host: blue.example.com
+    host: edgeroute.example.com
     to:
       kind: Service
-      name: blue-service
+      name: edgeroute-service
     tls:
       termination: edge
       certificate: |
         -----BEGIN CERTIFICATE-----
-        MIIDTjCCAjYCCQDg2mz/YC9aCTANBgkqhkiG9w0BAQsFADBpMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDDAKBgNVBAoMA09TMzEMMAoGA1UECwwDRW5nMRkwFwYDVQQDDBBibHVlLmV4YW1wbGUuY29tMB4XDTE4MDUyNTEzMTEzNFoXDTI4MDYwMTEzMTEzNFowaTELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1Nb3VudGFpbiBWaWV3MQwwCgYDVQQKDANPUzMxDDAKBgNVBAsMA0VuZzEZMBcGA1UEAwwQYmx1ZS5leGFtcGxlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANFQ5wT9fnGZMCzDkkJyoTGKR3yEusWJyjISh9MCoGWz0NCpzMFUqQ6YtL+8VF7uyTJcUvkHLA4vWxxdo8CCw22FGrqvKOjnItJ/XUQregT6brxzyq6obxuvv1GL/eJNcSGcKPo3lb61MtG6gh/Fg4Hkf8FcJ9/PA2Mv7AUPimmcASTIMYNONFYKLEzacT9rHhplIXGHN6zBCu9l+KdNtC4+3pDeW7YhbZdsFhNuhFQ+H9Y6p/imH3Jg62BN2FKXkBiOyyDRV+imCPO7m0gKtKvmBQSjvDxhLvIes/fBWRgjYxf/0qwjuG6sSdO6EAQbeOA57dICIA+lZ8cM1s/fA7sCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAWhvR7cQJi6q8PEQ3y+p5Ef6pUpfy2WZMc4NP2QngJKPEXEBh52gsGR6jmOJeRZrVHkNS0paYAe+lV7tzD2jc/s3bminewBfwwxLj6dj0gUFRiwTHGNmzKG8wA9F12ZI4bhTbZNzTqAysKjBbsix+Vk63Ckl2gNz9FmTMFwZMrScaCGA02e0x3KodwuunPDT9zK2oEi6D0rjgLR70EIfYOvWm2ZkDlXoWMTjejHlqCXk3MZEC1761Sbic5R13QUlJ2kvM4bMc18LVz10HrlB/dMKGkZ/U52OE9OqZNDB9MzGVb0T3nVCeRxw6aoJJR36n+H13o413l9uN4y+rSgR4vw==
+        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
         -----END CERTIFICATE-----
       key: |
         -----BEGIN RSA PRIVATE KEY-----
-        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
+        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
         -----END RSA PRIVATE KEY-----
 - kind: Service
   apiVersion: v1
   metadata:
-    name: blue-service
+    name: edgeroute-service
   spec:
     selector:
-      name: blue-openshift
+      name: edgeroute-openshift
     ports:
     - protocol: TCP
       port: 8080
@@ -39,16 +39,16 @@ items:
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: blue-pod
+    name: edgeroute-pod
     labels:
-      name: blue-openshift
+      name: edgeroute-openshift
   spec:
     containers:
-    - name: blue-pod-container
+    - name: edgeroute-pod-container
       image: openshift/hello-openshift
       env:
       - name: RESPONSE
-        value: Hello Blue Example
+        value: Hello EdgeRoute Example
       ports:
       - containerPort: 8080
       - containerPort: 443
