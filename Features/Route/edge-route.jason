@@ -1,0 +1,54 @@
+---
+kind: List
+apiVersion: v1
+metadata:
+  name: hello-service-complete-example
+items:
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: edgeroute-route
+    labels:
+      name: edgeroute-route
+  spec:
+    host: edgeroute.example.com
+    to:
+      kind: Service
+      name: edgeroute-service
+    tls:
+      termination: edge
+      certificate: |
+        -----BEGIN CERTIFICATE-----
+        MIICszCCAZsCAQAwbjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1Nb3VudGFpbiBWaWV3MQwwCgYDVQQKDANPUzMxDDAKBgNVBAsMA0VuZzEeMBwGA1UEAwwVZWRnZXJvdXRlLmV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwo++btKEbLrUbMC2aP4WzaUVnP5zqOhfk/3JqQNQN+7+YrA+yzLcV8gIAlV/TGJPY9YtNqEByoxvTGCQOzEOhfA2DnaWkM80CgYoCcMYEkfwIm82a7KAGXNXHAC3LPye33NOkXMjtFAtV2Ht7RMcZNpbnPbyaUYw6F08pktaf+zLR4xCZbBundRWYSrhFLVpX1z9g7+oYf7lFD9OZruPWDJS9+7lnaNwiYQcqwxlfVFJLDlo2zMZyZUeGfRHnPqSGg7OJJuoHnptd0KmfbNCNkvYivNojDGlzPAjzNqUudOvNCJ52LpkqO4mYCDuOoAc27ymI8oXEAstPQNU/oxBAwIDAQABoAAwDQYJKoZIhvcNAQELBQADggEBAKdrPgPVjpw+Mosk6rOTIBpxpukX4nBYjPycm97UOoofqhKPsioXEgCYi+o7i8Adp0hrSDAcSTNpNLVs29Xgeu4cq1FdGhSBpgab9IpG3Fs7V28x9CTQMJvslbGjJlGMEB/Tnk1IqtJNB/+T2pOyMPcqco28Qd8r/NCJC8CC+jp7F5ToV/KfAs5MT9faKC0qM7DIHeB+SgviYuD/9RwbN9TgXo/QbesdqFNsl46Yy3+AwkSzVf/lXWiybWGjO0caOmwnAhW5Bap9lMrjjXXs0D9urLlFj0T412QOwMl7GADgTOw743KEstqbamYShCYzuYB+PnReqE9uPGuSapaXnuA=
+        -----END CERTIFICATE-----
+      key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEpAIBAAKCAQEAwo++btKEbLrUbMC2aP4WzaUVnP5zqOhfk/3JqQNQN+7+YrA+yzLcV8gIAlV/TGJPY9YtNqEByoxvTGCQOzEOhfA2DnaWkM80CgYoCcMYEkfwIm82a7KAGXNXHAC3LPye33NOkXMjtFAtV2Ht7RMcZNpbnPbyaUYw6F08pktaf+zLR4xCZbBundRWYSrhFLVpX1z9g7+oYf7lFD9OZruPWDJS9+7lnaNwiYQcqwxlfVFJLDlo2zMZyZUeGfRHnPqSGg7OJJuoHnptd0KmfbNCNkvYivNojDGlzPAjzNqUudOvNCJ52LpkqO4mYCDuOoAc27ymI8oXEAstPQNU/oxBAwIDAQABAoIBAQCMknz95z5krMxEUyy4STVCmc824iXA2TwNWiV05v7zmsrTlRGZkQLgrZcT0KAsGS/RK3L5cHUx2iukHHS5P6WFolv8MTRyJjMsNuyAuSPQOYfH6WCBibPCL7K1edLfPxquycnvjygx5GgOJaRZUSCHwbjFfSsCYwN9L7hdUj5uA+5SDab7juUG5Ob1YmusQUA/n5DGxilkVHI5eqUuZmJ3oYkdsGPvkHv5owXI/nkbAFqNYD182DpgDkHZzZzXrSNDpbx+KNymauO1BC+bEXlnoaclIfgbiAhnKINNplVFN/WLLplftB5svGtzPYBVM7tZLjwjEZRzycG3gvesufa5AoGBAO7WothoBndYvYW7Mphyo9g/FvasfMyvwyXfD+O6qVqPeqgwcZm8yH4bQLQaIBc1ZAle5B4FjiWuilZwXmr05ebB43Y0IyQMvNtqRciXuyQLd6C7yeU68sXK3XJAQ72mklpcR25qFr9KmucvIxH8JdGbKHEqGW2mKQgR6KX0aVR9AoGBANCKpYOyg+KeUpsGmNPSzXhcIRDxkxl9NT1uoRgcOtudnKhugJG+9GRkaw/3JB8K2mvI7ZTagv04Jv8h0mva7aglHGefvA3YZwHnqY5Cm6Yo/vI9i3A5e8uJzrBepFRh7amp+HEb/Qpnl7fi7Equr+3KruAJ5Qq41Rdhad7qS2N/AoGAOjMvZ5Ch0r9bH5VoVOHKr01gaSfLGY3S/g2HL7Uyw5CnEQkNBauNJ724XKrpGv61q9rlt7Me2mvX5gxn1aRryXmB1jIKRiSceNNCwgjHX5czxYU9Q5DDzBMNN2QVncdTbpWCCpPrix3A9Yj1ANLy3Er05e6eV6vf38mNabNPX3kCgYEAqSKZ5PtG7eicdLFgCASjsud9xgE33edn48AzFZvnvLDTGuQskIiALGApWRSHjkm+JscasaybqoX9UtV6lRFFySb4J68s1UnbGXdrVD7/gD8lrxBtZAKrPcQyB2dq/ilCmWWKYyphCyxDp9d674NImqLVPE2qHw0Tftf6BtqddD8CgYAgvTD2Fondwp7DF8BydgzX+peudYlgQ97cYeAaTzHDMEaGk0J3SjmN8l25CYc3GeaK0yapn3/2ZqOJhg0l4WdrlMMrdObLQm21+BXUhCtJh2eQiE/Gekp3xqt8S7xOSS3lnvDm65cUj1JSQulKGes2vpiA8ZHBwVSeJGEFmyzfNQ==
+        -----END RSA PRIVATE KEY-----
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: edgeroute-service
+  spec:
+    selector:
+      name: edgeroute-openshift
+    ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: edgeroute-pod
+    labels:
+      name: edgeroute-openshift
+  spec:
+    containers:
+    - name: edgeroute-pod-container
+      image: openshift/hello-openshift
+      env:
+      - name: RESPONSE
+        value: Hello EdgeRoute Example
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
