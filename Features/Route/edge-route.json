@@ -9,16 +9,16 @@
       "kind": "Route",
       "apiVersion": "v1",
       "metadata": {
-        "name": "red-route",
+        "name": "edgeroute-route",
         "labels": {
-          "name": "red-route"
+          "name": "edgeroute-route"
         }
       },
       "spec": {
-        "host": "red.example.com",
+        "host": "edgeroute.example.com",
         "to": {
           "kind": "Service",
-          "name": "red-service"
+          "name": "edgeroute-service"
         },
          "tls": {
             "termination": "edge",
@@ -33,11 +33,11 @@
       "kind": "Service",
       "apiVersion": "v1",
       "metadata": {
-        "name": "red-service"
+        "name": "edgeroute-service"
       },
       "spec": {
         "selector": {
-          "name": "red-openshift"
+          "name": "edgeroute-openshift"
         },
         "ports": [
           {
@@ -52,19 +52,19 @@
       "kind": "Pod",
       "apiVersion": "v1",
       "metadata": {
-        "name": "red-pod",
+        "name": "edgeroute-pod",
         "labels": {
-          "name": "red-openshift"
+          "name": "edgeroute-openshift"
         }
       },
       "spec": {
         "containers": [
           {
-            "name": "red-pod-container",
+            "name": "edgeroute-pod-container",
             "image": "openshift/hello-openshift",
             "env": [
             { "name": "RESPONSE",
-               "value": "Hello Red Example"
+               "value": "Hello EdgeRoute"
           }
         ],
             "ports": [
