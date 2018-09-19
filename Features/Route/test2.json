@@ -1,0 +1,82 @@
+{
+  "kind": "List",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service-complete-example"
+  },
+  "items": [
+    {
+      "kind": "Route",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "edgeroute-route",
+        "labels": {
+          "name": "edgeroute-route"
+        }
+      },
+      "spec": {
+        "host": "edgeroute.example.com",
+        "to": {
+          "kind": "Service",
+          "name": "edgeroute-service"
+        },
+         "tls": {
+            "termination": "edge",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIDTDCCAjQCCQCmk1MWnJ8ikDANBgkqhkiG9w0BAQsFADBoMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDDAKBgNVBAoMA09TMzEMMAoGA1UECwwDRW5nMRgwFgYDVQQDDA9yZWQuZXhhbXBsZS5jb20wHhcNMTgwNTI1MTM1MDQyWhcNMjgwNTIyMTM1MDQyWjBoMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExFjAUBgNVBAcMDU1vdW50YWluIFZpZXcxDDAKBgNVBAoMA09TMzEMMAoGA1UECwwDRW5nMRgwFgYDVQQDDA9yZWQuZXhhbXBsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCmv2gbAid2rU8mFf1yYDkmoDtUajdHaJpvSQXKaz6J5g+yFhT2hT1Pxq7v82DatcRGhACxn90qBnyELBC9OiGAFq6KuEgyYjXKHrI8Hk8m8XBWDXvrTNJ7tGBGOfFLHrb1kqxaiPtJCZ/m+srHRhKUxKHDd2Jx2tF1For4dE0VUNko0GQrsWKDOLfMOvPq0Mr2Iq5olsfqZmkuwOYD5DTZEubR5Hv/PEUQy8fR6KZP8PwRD2VCoNTFNLy0J/sTXpLw9TD4k1o66U7nbRh37cngOyO+aYw0cTi1mvKg2H5iaPh9qmRCl9gAAcNKnFTv/XEoZx6FGwUDOToHEkb+KHSPAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAADpZNIpLQ5lkMGBZFusNLXZwkIfXkGd/K1U95RkHrE322zRbSb/6Q0vfMsAsfCndFy7PbZ+humHirvIdjsEqfE4/KN0evVrkIXqmSNeY45U6YIniA3SOA6NIS4J92CMQqwNqw5Uys5Rjgy1oAi4PWjHgHsgSqXVhdSYjJG83YNm3Vj84l8DfLXELt7tlGtVCqARl1Q1L/kwPRq5B4v0a/pY9WApMPKO1Oxck7VCBZApB7YNoG3gHWN54naNjsiKaeustfQ4aM+2Y/xLlVjSc7rH5PMYUAZrc++L55d2JSJhdOZ+g1zNtN6WXIQ3RlxANm00DKZLiHGWtoLJDP+UGSQ=\n-----END CERTIFICATE-----\n",
+            "key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEoQIBAAKCAQEApr9oGwIndq1PJhX9cmA5JqA7VGo3R2iab0kFyms+ieYPshYU9oU9T8au7/Ng2rXERoQAsZ/dKgZ8hCwQvTohgBauirhIMmI1yh6yPB5PJvFwVg1760zSe7RgRjnxSx629ZKsWoj7SQmf5vrKx0YSlMShw3dicdrRdRaK+HRNFVDZKNBkK7Figzi3zDrz6tDK9iKuaJbH6mZpLsDmA+Q02RLm0eR7/zxFEMvH0eimT/D8EQ9lQqDUxTS8tCf7E16S8PUw+JNaOulO520Yd+3J4DsjvmmMNHE4tZryoNh+Ymj4fapkQpfYAAHDSpxU7/1xKGcehRsFAzk6BxJG/ih0jwIDAQABAoH/CHev0a9KUbx7SHPVavl37X41hRPfusCVFxGeOak4g8grA+AbMGmTs3ljaMvzHygbz3jkkCCOGpQ5vnx+XR2WleqQ8nppMCXMlXb5lhPz8QZRrg0BPfGovp9qRCatGiN1JwNLvU03dX4HoLMbmQL17pgNnt9xIFb8S/XZGMTPJUXgvelnRhWFOPocIce2y9J7IaAoEGczULje7SFrf+jfSRqAud5MK6VtJw9ZJbCeuvv087TXt0nPpgt5FcfvMseO7QZ2B5XTI2V/uYmlTL0Gm+ldridMgPFZgvgWcv4q8nX+Ph6u25kvo4a2nmc3eytTlE8y6fK8iubFEpZ+NbPxAoGBANnGITMq8vyeubSvfEX7vIsxl5spWJcWWt7dhCsjwBh5MM3HBiRXaOzM5+JJe4eXW7ZZNMCC+s0jRUDJvj/na9zBymqjrElCNKeqMZTuVaAnNoBEa6wsrbN9lu3dcRM4dcyV4lY2cGGWAbxUlb2fVdQCnY1WihApO6OInqR2H3OJAoGBAMQEXY/PwnOL7p6BX0AfmKMk595H6jZfalYp03Njfz/qNQi0yi+BjIOcxlebXgLAYFqqyv7kdEPziqC+BuL2gVmGIye2c8ellGnGW5puVqy6QDVcEfp5KN67lcFzDIAJ4KfljnDy64VvqlLgCdSrhASPa3kX+k2mCyDZ3qaELWlXAoGBAIwFYm9d3CIlhE3yzzrII3B0EICJUxbCHudREpwSPn793S1SHFbdhO9MyIOsr6p83VEfhlWJYezoEq0XiiXYjHfCen2agzoPQX/UZFDX9WImFFrgo0Ju77iKtbJ3QS8UjFlgvcik9BkqtC79S9JCUpMgo2CvFdJSULBTNX2VHZ/RAoGAH6yM6dYql70+28IQAC6a3ZHzHcoFILAeYLn1fynOwCc6VqPQIAkRCZtluXZTpKItb7k1gCauWuSZvAu41Sf8EtlICPzEjLhG2SjCWJwHyXV3NqggB5dYcVVih5XtqSrvcHH5qGq4gCFhJm8pZ4InnQ0H0tN7EN0J408RWVr2c5UCgYBGl1Li8wyAKFEw5aK1W/U25ykqQNgKqcFyc5WWt92VAcXGr0YXjp0+ZanCzL71Vwwsmv+cm7DKWAlRxneF2kSzGeY3vqIfOYo1FyiruKLd1BsbsA1fn5riQ3oyvNhTEMQRuop1OXi5nwIGDoZJyO3lwDeElIM9m77A0cVwvfee8g==\n-----END RSA PRIVATE KEY-----\n"
+        }
+      }
+    },
+    
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "edgeroute-service"
+      },
+      "spec": {
+        "selector": {
+          "name": "edgeroute-openshift"
+        },
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8080,
+            "targetPort": 8080
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "edgeroute-pod",
+        "labels": {
+          "name": "edgeroute-openshift"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "edgeroute-pod-container",
+            "image": "openshift/hello-openshift",
+            "env": [
+            { "name": "RESPONSE",
+               "value": "Hello EdgeRoute"
+          }
+        ],
+            "ports": [
+              {
+                "containerPort": 8080
+              },
+              {
+                "containerPort": 443
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
