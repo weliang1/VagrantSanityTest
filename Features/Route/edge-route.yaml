@@ -1,25 +1,28 @@
----
-kind: List
-apiVersion: v1
-metadata:
-  name: hello-service-complete-example
-items:
-- kind: Route
-  apiVersion: v1
-  metadata:
-    name: edgeroute-route
-    labels:
-      name: edgeroute-route
-  spec:
-    host: edgeroute.example.com
-    to:
-      kind: Service
-      name: edgeroute-service
-    tls:
-      termination: edge
-      certificate: |
-        -----BEGIN CERTIFICATE REQUEST-----
-MIICszCCAZsCAQAwbjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRYwFAYDVQQH
+{
+  "kind": "List",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service-complete-example"
+  },
+  "items": [
+    {
+      "kind": "Route",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "red-route",
+        "labels": {
+          "name": "red-route"
+        }
+      },
+      "spec": {
+        "host": "red.example.com",
+        "to": {
+          "kind": "Service",
+          "name": "red-service"
+        },
+         "tls": {
+            "termination": "edge",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIICszCCAZsCAQAwbjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRYwFAYDVQQH
 DA1Nb3VudGFpbiBWaWV3MQwwCgYDVQQKDANPUzMxDDAKBgNVBAsMA0VuZzEeMBwG
 A1UEAwwVZWRnZXJvdXRlLmV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
 AQ8AMIIBCgKCAQEAmkreNogKYUZERMpnAcqxQ75ZADj/tYVRmqaLfo7URthq4dQc
@@ -33,11 +36,8 @@ BQADggEBADdQNxyxP7bu+J1KwYdKMPh4O7ZPTcKsyMV/bHIFre971LvWuNWspXzG
 2RB8zj2ucAX24MZRdxHIuZ9Shh3b/jab59fVBf0lvZo6hjqNAVvkC8czf5dzm7Io
 ZMXrRTxRAbd1trgWXfVHvVHVoNsjTTDK24ZktZYo1IisERXN6F/1RJbNBkjqd4O/
 WI7iomfDkIpoIJ6+5UpyGw+og/zhrwe3sz2xTSKqM38KqNYiymiRk5rtqM4DYvS6
-b+Ca4a/6gOxDhTFpPJj3u5/yzGm2zRs=
------END CERTIFICATE REQUEST-----
-      key: |
-        -----BEGIN RSA PRIVATE KEY-----
-MIIEogIBAAKCAQEAmkreNogKYUZERMpnAcqxQ75ZADj/tYVRmqaLfo7URthq4dQc
+b+Ca4a/6gOxDhTFpPJj3u5/yzGm2zRs=\n-----END CERTIFICATE-----\n",
+            "key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEogIBAAKCAQEAmkreNogKYUZERMpnAcqxQ75ZADj/tYVRmqaLfo7URthq4dQc
 ufKYZ1fI3c1/5b8kj1LAnmQCSwbYHE2sBkzVDsoEgPFjOeyV8+3u74+XtqnRTcNA
 R9ODhfqM8SltpW648t3LFOtUL0Hdvapv3YKk17P45FWbHUC6yE3Yp7qihphoutSW
 Eo7onTSFjsvZNhEa08OUaZwSj0ECkGqLhI6WZ3V3sdPsdYDdMlqhtSXktx+06FiP
@@ -61,31 +61,61 @@ XMe3dL/ad8JwpO4Kyk+AD8vg6pbkr1i0lcd6upczn/1DWuRaKW4C4T9PNAhLX784
 xJqTKBJ88Aj2SrvUgvMHCfcW0wJUaQA5foUkkpwRCQ810wS/OO8nWF3ED+Uirogu
 7DXBAoGAG1rVIPw1MDUnI6ovBVwATeWoBGx6uiBU/VqEtfJEWsgwN0bv1M+bC8Mn
 F+NkU5VoKzyopd/C4OT55DhP2Lb+2k1P8xKT7WMuJRKmddtA/nfz8ahHiEsE84p9
-l3z4eD5SYraoBLxD4UfAafbYLJg1fhXTKbd/44yPz2holCIWYbM=
-- kind: Service
-  apiVersion: v1
-  metadata:
-    name: edgeroute-service
-  spec:
-    selector:
-      name: edgeroute-openshift
-    ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
-- kind: Pod
-  apiVersion: v1
-  metadata:
-    name: edgeroute-pod
-    labels:
-      name: edgeroute-openshift
-  spec:
-    containers:
-    - name: edgeroute-pod-container
-      image: openshift/hello-openshift
-      env:
-      - name: RESPONSE
-        value: Hello EdgeRoute Example
-      ports:
-      - containerPort: 8080
-      - containerPort: 443
+l3z4eD5SYraoBLxD4UfAafbYLJg1fhXTKbd/44yPz2holCIWYbM=\n-----END RSA PRIVATE KEY-----\n"
+
+        }
+      }
+    },
+    
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "red-service"
+      },
+      "spec": {
+        "selector": {
+          "name": "red-openshift"
+        },
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8080,
+            "targetPort": 8080
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "red-pod",
+        "labels": {
+          "name": "red-openshift"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "red-pod-container",
+            "image": "openshift/hello-openshift",
+            "env": [
+            { "name": "RESPONSE",
+               "value": "Hello Red Example"
+          }
+        ],
+            "ports": [
+              {
+                "containerPort": 8080
+              },
+              {
+                "containerPort": 443
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
