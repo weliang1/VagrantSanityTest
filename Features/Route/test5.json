@@ -9,16 +9,16 @@
       "kind": "Route",
       "apiVersion": "v1",
       "metadata": {
-        "name": "edgeroute-route",
+        "name": "edge-route",
         "labels": {
-          "name": "edgeroute-route"
+          "name": "edge-route"
         }
       },
       "spec": {
-        "host": "edgeroute.example.com",
+        "host": "edge.example.com",
         "to": {
           "kind": "Service",
-          "name": "edgeroute-service"
+          "name": "edge-service"
         },
          "tls": {
             "termination": "edge",
@@ -32,11 +32,11 @@
       "kind": "Service",
       "apiVersion": "v1",
       "metadata": {
-        "name": "edgeroute-service"
+        "name": "edge-service"
       },
       "spec": {
         "selector": {
-          "name": "edgeroute-openshift"
+          "name": "edge-openshift"
         },
         "ports": [
           {
@@ -51,15 +51,15 @@
       "kind": "Pod",
       "apiVersion": "v1",
       "metadata": {
-        "name": "edgeroute-pod",
+        "name": "edge-pod",
         "labels": {
-          "name": "edgeroute-openshift"
+          "name": "edge-openshift"
         }
       },
       "spec": {
         "containers": [
           {
-            "name": "edgeroute-pod-container",
+            "name": "edge-pod-container",
             "image": "openshift/hello-openshift",
             "env": [
             { "name": "RESPONSE",
