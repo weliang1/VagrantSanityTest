@@ -7,23 +7,23 @@ items:
 - kind: Route
   apiVersion: v1
   metadata:
-    name: edgeroute-route
+    name: passthroughroute-route
     labels:
-      name: edgeroute-route
+      name: passthroughroute-route
   spec:
-    host: edgeroute.example.com
+    host: passthroughroute.example.com
     to:
       kind: Service
-      name: edgeroute-service
+      name: passthroughroute-service
     tls:
-      termination: edge
+      termination: passthrough
 - kind: Service
   apiVersion: v1
   metadata:
-    name: edgeroute-service
+    name: passthroughroute-service
   spec:
     selector:
-      name: edgeroute-openshift
+      name: passthroughroute-openshift
     ports:
     - protocol: TCP
       port: 8080
@@ -31,16 +31,16 @@ items:
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: edgeroute-pod
+    name: passthroughroute-pod
     labels:
-      name: edgeroute-openshift
+      name: passthroughroute-openshift
   spec:
     containers:
-    - name: edgeroute-pod-container
+    - name: passthroughroute-pod-container
       image: openshift/hello-openshift
       env:
       - name: RESPONSE
-        value: Hello EdgeRoute
+        value: Hello PassthroughRoute
       ports:
       - containerPort: 8080
       - containerPort: 443
