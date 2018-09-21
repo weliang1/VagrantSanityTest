@@ -1,0 +1,46 @@
+---
+kind: List
+apiVersion: v1
+metadata:
+  name: hello-service-complete-example
+items:
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: edgeroute-route
+    labels:
+      name: edgeroute-route
+  spec:
+    host: edgeroute.example.com
+    to:
+      kind: Service
+      name: edgeroute-service
+    tls:
+      termination: edge
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: edgeroute-service
+  spec:
+    selector:
+      name: edgeroute-openshift
+    ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: edgeroute-pod
+    labels:
+      name: edgeroute-openshift
+  spec:
+    containers:
+    - name: edgeroute-pod-container
+      image: openshift/hello-openshift
+      env:
+      - name: RESPONSE
+        value: Hello EdgeRoute
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
