@@ -1,4 +1,4 @@
-template: ../hosts/1master_etcd_nfs+Nregistry_router_node+Nnode
+template: ./1master_etcd_nfs+Nregistry_router_node+Nnode
 
 
 rhel_roles:
