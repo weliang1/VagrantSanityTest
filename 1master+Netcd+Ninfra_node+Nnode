@@ -1,0 +1,71 @@
+<% if (/openstack.*_qeos10/ =~ iaas_name) and ((not defined?(enable_internal_dns)) or (enable_internal_dns.nil?)) %>
+<% enable_internal_dns=true %>
+<% end %>
+
+hosts:
+  # create opts passed to service methods we have
+  common_launch_opts: <%= include_ruby["launch_opts/common_launch_opts.rb"] %>
+<%# include_erb["launch_opts/common_launch_opts.erb", 4] %>
+
+  list:
+  - num: 1
+    roles:
+    - master
+  - num: <%= defined?(infra_node_number)? "#{infra_node_number}" : "1" %>
+    roles:
+    - node
+    - infra
+  - num: <%= defined?(node_number)? "#{node_number}" : "1" %>
+    roles:
+    - node
+  - num: <%= defined?(etcd_number)? "#{etcd_number}" : "1" %>
+    roles:
+    - etcd
+
+install_sequence:
+<% if defined?(openshift_master_default_subdomain) and openshift_master_default_subdomain.start_with?("apps.fixed-") %>
+- type: force_domain
+  name: <%= "#{openshift_master_default_subdomain.sub(/.qe.rhcloud.com$/, '').sub(/^apps./, '')}" %>
+<% end %>
+<% if not (defined?(skip_dns) and skip_dns) %>
+<% if (defined?(enable_internal_dns) and enable_internal_dns) %>
+- type: dns_internal_ips
+<% end %>
+- type: dns_hostnames
+- type: wildcard_dns
+  <% if defined?(infra_lb_address) %>
+  ips: <%= "#{infra_lb_address.split(',')}" %>
+  <% else %>
+  roles: ['infra']
+  <% end %>
+  store_in: default_subdomain
+  <% if defined?(openshift_master_default_subdomain) and openshift_master_default_subdomain.start_with?("apps.fixed-") %>
+  overwrite: true
+  <% end %>
+<% end %>
+- type: playbook
+  playbook: private-openshift-misc/v3-launch-templates/functionality-testing/aos-3_11/extra-ansible/pre_actions.yaml
+  inventory: ../inventory.openshift-ansible 
+<% if (not defined?(skip_post_tasks)) or (defined?(skip_post_tasks) and "#{skip_post_tasks}" == "false") %>
+<% if not defined?(playbook_list) %>
+<% if (defined?(playbook_break_up) and playbook_break_up) %>
+<% playbook_list=["prerequisites.yml", "openshift-checks/pre-install.yml", "openshift-node/bootstrap.yml", "openshift-etcd/config.yml", "openshift-nfs/config.yml", "openshift-loadbalancer/config.yml", "openshift-master/config.yml", "openshift-master/additional_config.yml", "openshift-node/join.yml", "openshift-glusterfs/config.yml", "openshift-hosted/config.yml", "openshift-monitoring/config.yml", "openshift-web-console/config.yml", "openshift-console/config.yml", "openshift-metrics/config.yml", "openshift-logging/config.yml", "openshift-prometheus/config.yml", "openshift-monitoring/config.yml", "openshift-monitor-availability/config.yml", "openshift-service-catalog/config.yml", "openshift-management/config.yml", "openshift-descheduler/config.yml", "openshift-node-problem-detector/config.yml", "openshift-autoheal/config.yml"] %>
+<% else %>
+<% playbook_list=["prerequisites.yml", "deploy_cluster.yml"] %>
+<% end %>
+<% end %>
+<% for standalone_playbook in playbook_list %>
+- type: playbook
+  <% if not (defined?(install_method) and install_method.include? "container") %>
+  playbook: private-openshift-ansible/playbooks/<%= "#{standalone_playbook}" %>
+  <% else %>
+  playbook: private-openshift-misc/v3-launch-templates/functionality-testing/aos-3_11/extra-ansible/ose-ansible.yaml
+  extra_vars: "playbook=playbooks/<%= "#{standalone_playbook}" %>"
+  <% end %>
+  inventory: ../inventory.openshift-ansible
+<% end %>
+- type: playbook 
+  playbook: private-openshift-misc/v3-launch-templates/functionality-testing/aos-35/extra-ansible/post_actions.yaml
+  inventory: ../inventory.openshift-ansible
+
+<% end %>
