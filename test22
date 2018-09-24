@@ -1,4 +1,4 @@
-template: https://raw.githubusercontent.com/weliang1/Openshift_Networking/master/1master%2BNetcd%2BNinfra_node%2BNnode
+template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-3_11/hosts/1master+Netcd+Ninfra_node+Nnode
 
 
 rhel_roles:
