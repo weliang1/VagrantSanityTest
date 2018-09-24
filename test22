@@ -1,4 +1,4 @@
-template: ./1master_etcd_nfs+Nregistry_router_node+Nnode
+template: https://raw.githubusercontent.com/weliang1/Openshift_Networking/master/1master%2BNetcd%2BNinfra_node%2BNnode
 
 
 rhel_roles:
