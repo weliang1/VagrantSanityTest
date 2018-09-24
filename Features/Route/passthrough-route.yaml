@@ -37,9 +37,6 @@ items:
     containers:
     - name: hello-nginx-docker-pod
       image: pweil/hello-nginx-docker
-      env:
-      - name: RESPONSE
-        value: Hello PassthroughRoute
       ports:
       - containerPort: 80
         protocol: TCP
