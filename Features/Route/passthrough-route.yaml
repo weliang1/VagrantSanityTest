@@ -7,40 +7,41 @@ items:
 - kind: Route
   apiVersion: v1
   metadata:
-    name: passthroughroute-route
-    labels:
-      name: passthroughroute-route
+    name: route-secure
   spec:
-    host: passthroughroute.example.com
+    host: www.example.com
     to:
       kind: Service
-      name: passthroughroute-service
+      name: hello-nginx-https
     tls:
       termination: passthrough
 - kind: Service
   apiVersion: v1
   metadata:
-    name: passthroughroute-service
+    name: hello-nginx-https
   spec:
     selector:
-      name: passthroughroute-openshift
+      name: hello-nginx-docker
     ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
+    - name: http
+      protocol: TCP
+      port: 443
+      targetPort: 443
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: passthroughroute-pod
+    name: hello-nginx-docker-1
     labels:
-      name: passthroughroute-openshift
+      name: hello-nginx-docker
   spec:
     containers:
-    - name: passthroughroute-pod-container
-      image: openshift/hello-openshift
+    - name: hello-nginx-docker-pod
+      image: pweil/hello-nginx-docker
       env:
       - name: RESPONSE
         value: Hello PassthroughRoute
       ports:
-      - containerPort: 8080
+      - containerPort: 80
+        protocol: TCP
       - containerPort: 443
+        protocol: TCP
