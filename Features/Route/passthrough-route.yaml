@@ -7,7 +7,7 @@ items:
 - kind: Route
   apiVersion: v1
   metadata:
-    name: route-secure
+    name: passthrough-route
   spec:
     host: www.example.com
     to:
@@ -42,3 +42,18 @@ items:
         protocol: TCP
       - containerPort: 443
         protocol: TCP
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: hello-nginx-docker-2
+    labels:
+      name: hello-nginx-docker
+  spec:
+    containers:
+    - name: hello-nginx-docker-pod
+      image: pweil/hello-nginx-docker
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      - containerPort: 443
+        protocol: TCP  
