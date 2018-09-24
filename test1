@@ -1,0 +1,58 @@
+template: ../hosts/1master_etcd_nfs+Nregistry_router_node+Nnode
+
+
+rhel_roles:
+- master
+- node
+- router
+- registry
+- nfs
+
+
+iaas_name: openstack_qeos10
+vm_type: m1.medium
+node_number: 1
+image: qe-rhel-7-release
+qe_additional_repos: "[{'id': 'rhel7', 'name': 'rhel7', 'baseurl': 'http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/os', 'enabled': 1, 'gpgcheck': 0},{'id': 'rhel7-extra', 'name': 'rhel7-extra', 'baseurl': 'http://pulp.dist.prod.ext.phx2.redhat.com/content/dist/rhel/server/7/7Server/x86_64/extras/os', 'enabled': 1, 'gpgcheck': 0}]"
+install_update_docker: true
+docker_storage_driver: overlay2
+os_update: false
+install_method: rpm
+auth_type: allowall
+openshift_additional_repos: "[{'id': 'aos-3_11-devel-install', 'name': 'aos-3_11-devel-install', 'baseurl': 'http://download.eng.bos.redhat.com/rcm-guest/puddles/RHAOS/AtomicOpenShift/3.11/latest/x86_64/os/', 'enabled': 1, 'gpgcheck': 0}]"
+openshift_use_openshift_sdn: False
+os_sdn_network_plugin_name: cni
+#qe_openshift_registry_deployment_method: daemonset
+#update_is_images_url: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888
+#os_firewall_use_firewalld: true
+openshift_master_default_subdomain_enable: true
+#openshift_release: v3.11
+enable_cloudprovider: true
+
+
+openshift_ansible_vars:
+  openshift_deployment_type: openshift-enterprise
+  #oreg_url: registry.reg-aws.openshift.com:443/openshift3/ose-${component}:${version}
+  oreg_url: registry.dev.redhat.io/openshift3/ose-${component}:${version}
+  openshift_examples_modify_imagestreams: true
+  openshift_docker_insecure_registries: brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888,virt-openshift-05.lab.eng.nay.redhat.com:5000,virt-openshift-05.lab.eng.nay.redhat.com:5001,registry.reg-aws.openshift.com:443,asb-registry.usersys.redhat.com:5000
+  openshift_docker_blocked_registries: registry.hacker.com
+  osm_use_cockpit: false
+  osm_cockpit_plugins: "['cockpit-kubernetes']"
+  openshift_hosted_registry_selector: '"role=node,registry=enabled"'
+  openshift_hosted_router_selector: '"role=node,router=enabled"'
+  debug_level: 5
+  template_service_broker_selector: '{"role": "node"}'
+  ansible_service_broker_node_selector: '{"role": "node"}'
+  openshift_cluster_monitoring_operator_node_selector: '{"role": "node"}' 
+
+  openshift_hosted_registry_storage_kind: nfs
+  openshift_hosted_registry_storage_nfs_options: '"*(rw,root_squash,sync,no_wdelay)"'
+  openshift_hosted_registry_storage_nfs_directory: /var/lib/exports
+  openshift_hosted_registry_storage_volume_name: regpv
+  openshift_hosted_registry_storage_access_modes: ["ReadWriteMany"]
+  openshift_hosted_registry_storage_volume_size: 17G
+  
+  #openshift_disable_check: disk_availability,memory_availability,package_availability,docker_image_availability,docker_storage,package_version
+  openshift_check_min_host_disk_gb: 2
+  openshift_check_min_host_memory_gb: 1
