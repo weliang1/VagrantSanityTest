@@ -18,7 +18,7 @@ items:
     tls:
       termination: reencrypt
       certificate: |+
-      -----BEGIN CERTIFICATE-----
+        -----BEGIN CERTIFICATE-----
         MIIDEzCCAfugAwIBAgIBDjANBgkqhkiG9w0BAQUFADCBoTELMAkGA1UEBhMCVVMx
         CzAJBgNVBAgMAlNDMRUwEwYDVQQHDAxEZWZhdWx0IENpdHkxHDAaBgNVBAoME0Rl
         ZmF1bHQgQ29tcGFueSBMdGQxEDAOBgNVBAsMB1Rlc3QgQ0ExGjAYBgNVBAMMEXd3
