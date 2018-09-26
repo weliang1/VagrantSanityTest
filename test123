@@ -1,4 +1,4 @@
-template: ./1master_etcd_nfs+Nregistry_router_node+Nnode
+template: http://git.app.eng.bos.redhat.com/git/openshift-misc.git/plain/v3-launch-templates/functionality-testing/aos-3_11/hosts/1master_etcd_nfs+Nregistry_router_node+Nnode
 
 
 rhel_roles:
