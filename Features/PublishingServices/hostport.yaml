@@ -1,0 +1,71 @@
+---
+kind: List
+apiVersion: v1
+metadata:
+  name: hello-service-complete-example
+items:
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: hello-route
+    labels:
+      name: hello-route-1
+  spec:
+    host: hello-openshift.com
+    to:
+      kind: Service
+      name: hello-service
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: hello-service
+  spec:
+    selector:
+      name: hello-openshift
+    ports:
+    - protocol: TCP
+      port: 9736
+      targetPort: 0
+      nodePort: 0
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: hello-pod-1
+    labels:
+      name: hello-openshift
+  spec:
+    containers:
+    - name: hello-pod-container-1
+      image: openshift/hello-openshift
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+        hostPort: 9736
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: hello-pod-2
+    labels:
+      name: hello-openshift
+  spec:
+    containers:
+    - name: hello-pod-container-2
+      image: openshift/hello-openshift
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+        hostPort: 9737
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: hello-pod-3
+    labels:
+      name: hello-openshift
+  spec:
+    containers:
+    - name: hello-pod-container-3
+      image: openshift/hello-openshift
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+        hostPort: 9738
