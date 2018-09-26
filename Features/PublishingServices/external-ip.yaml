@@ -16,7 +16,7 @@ items:
       port: 27018
       targetPort: 8080
     externalIPs:
-    - 172.16.122.100
+    - 172.16.122.90
 - kind: Pod
   apiVersion: v1
   metadata:
