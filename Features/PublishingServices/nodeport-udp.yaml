@@ -12,7 +12,7 @@ items:
     selector:
       name: hello-openshift
     ports:
-    - protocol: UPD
+    - protocol: UDP
       port: 8080
       targetPort: 8080
     type: NodePort
