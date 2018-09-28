@@ -15,9 +15,7 @@ items:
           name: udp-pods
       spec:
         containers:
-        - command:
-          - "sh"
-          - "ping -c 500 yahoo.com"
+        - command: command: ["sh", "-c", "while true; do echo \"$(date): BROADCASTING ARP REQUEST\"; ping -q -U -c 5 yahoo.com; sleep 200; done"]
           name: udp-pod
           image: library/busybox
         restartPolicy: Always
