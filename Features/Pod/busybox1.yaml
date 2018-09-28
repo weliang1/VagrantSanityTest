@@ -16,9 +16,8 @@ items:
       spec:
         containers:
         - command:
-          - "sh"
-          - "-c"
-          - 'ping -q -U -c 500 -I yahoo.com;'
+          - 'sh'
+          - 'ping -c 500 -I yahoo.com'
           name: udp-pod
           image: aosqe/pod-for-ping
         restartPolicy: Always
