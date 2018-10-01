@@ -5,8 +5,8 @@ items:
   kind: ReplicationController
   metadata:
     labels:
-      name: test-rc
-    name: test-rc
+      name: test-pod
+    name: test-pod
   spec:
     replicas: 2
     template:
