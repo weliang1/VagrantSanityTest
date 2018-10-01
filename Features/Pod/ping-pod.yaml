@@ -6,20 +6,20 @@ items:
   kind: ReplicationController
   metadata:
     labels:
-      name: udp-rc
-    name: udp-rc
+      name: ping-pod-rc
+    name: ping-pod-rc
   spec:
     replicas: 1
     template:
       metadata:
         labels:
-          name: udp-pods
+          name: ping-pod
       spec:
         containers:
         - command: 
           - "sh"
           - "-c"
           - "while true; do echo \"$(date): BROADCASTING ARP REQUEST\"; ping -c 10 yahoo.com; sleep 2; done"
-          name: udp-pod
+          name: ping-pod
           image: aosqe/pod-for-ping
         restartPolicy: Always
