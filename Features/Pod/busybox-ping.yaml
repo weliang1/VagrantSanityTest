@@ -1,3 +1,4 @@
+## This pod will continue pinging yahoo.com 10 times and sleep 2 seconds.
 apiVersion: v1
 kind: List
 items:
