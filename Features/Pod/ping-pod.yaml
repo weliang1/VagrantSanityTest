@@ -19,7 +19,7 @@ items:
         - command: 
           - "sh"
           - "-c"
-          - "while true; do echo \"$(date): BROADCASTING ARP REQUEST\"; ping -c 10 yahoo.com; ping -c facebook.com; sleep 2; done"
+          - "while true; do echo \"$(date): BROADCASTING ARP REQUEST\"; ping -c 5 yahoo.com; ping -c 5 facebook.com; sleep 2; done"
           name: ping-pod
           image: aosqe/pod-for-ping
         restartPolicy: Always
