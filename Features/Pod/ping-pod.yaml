@@ -6,8 +6,8 @@ items:
   kind: ReplicationController
   metadata:
     labels:
-      name: ping-pod-rc
-    name: ping-pod-rc
+      name: ping-pod
+    name: ping-pod
   spec:
     replicas: 1
     template:
