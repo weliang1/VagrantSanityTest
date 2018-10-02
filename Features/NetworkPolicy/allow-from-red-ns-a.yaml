@@ -1,7 +1,7 @@
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
-    name: allow-from-same-namespace
+    name: allow-from-red-ns-a
 spec:
     podSelector: 
     ingress:
