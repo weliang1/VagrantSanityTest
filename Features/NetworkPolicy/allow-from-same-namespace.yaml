@@ -1,0 +1,9 @@
+kind: NetworkPolicy
+apiVersion: extensions/v1beta1
+metadata:
+    name: allow-from-same-namespace
+spec:
+    podSelector: null
+    ingress:
+    - from:
+      - podSelector: { }
