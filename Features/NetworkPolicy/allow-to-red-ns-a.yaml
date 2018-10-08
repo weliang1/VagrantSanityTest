@@ -5,7 +5,7 @@ metadata:
 spec:
     podSelector: 
       matchLabels:
-        red-openshift
+        name: red-openshift
     ingress:
     - from:
       - podSelector: { }
