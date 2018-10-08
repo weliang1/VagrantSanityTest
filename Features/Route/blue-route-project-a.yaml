@@ -2,11 +2,11 @@
 kind: Route
 apiVersion: v1
 metadata:
-  name: blue-route
+  name: blue-route-project-a
   labels:
     name: blue-route
 spec:
-  host: blue.example.com
+  host: blue-projecct-a.example.com
   to:
     kind: Service
     name: blue-service
