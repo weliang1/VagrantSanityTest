@@ -1,0 +1,12 @@
+---
+kind: Route
+apiVersion: v1
+metadata:
+  name: red-route-project-b
+  labels:
+    name: red-route
+spec:
+  host: red-project-b.example.com
+  to:
+    kind: Service
+    name: red-service
