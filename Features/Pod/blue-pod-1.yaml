@@ -1,0 +1,17 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: blue-pod-1
+  labels:
+    name: blue-openshift
+spec:
+  containers:
+  - name: blue-pod-container
+    image: bmeng/hello-openshift
+    env:
+    - name: RESPONSE
+      value: Hello Blue Pod-1 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
