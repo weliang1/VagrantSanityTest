@@ -8,4 +8,4 @@ spec:
     - from:
       - podSelector:
           matchLabels:
-            type: red
+            name: red-openshift
