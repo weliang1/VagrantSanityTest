@@ -1,3 +1,5 @@
+# policy specifies “all pods in namespace ‘project-a’ allow traffic from any pod in the same namespace or pod 
+# whose namespace is labeled with ‘user: alice’.”
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
