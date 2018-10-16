@@ -1,3 +1,4 @@
+# policy specifies “all pods in namespace ‘project-a’ allow traffic from red pods in the same namespace.”
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
