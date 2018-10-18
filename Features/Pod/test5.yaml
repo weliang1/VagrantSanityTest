@@ -7,7 +7,7 @@ items:
     name: recreate-example
   spec:
     ports:
-    - port: 8080
+    - port: 8888
       targetPort: 8080
     selector:
       deploymentconfig: recreate-example
