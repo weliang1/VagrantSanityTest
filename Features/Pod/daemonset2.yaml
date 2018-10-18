@@ -15,7 +15,9 @@ spec:
       containers:
       - name: daemonset-pod
         image: bmeng/hello-openshift
-        user: root
+        securityContext: {}
+        serviceAccount: router
+        serviceAccountName: router
         ports:
         - name: http
           containerPort: 8080
