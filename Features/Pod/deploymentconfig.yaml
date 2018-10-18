@@ -1,4 +1,4 @@
-
+# oc get https://raw.githubusercontent.com/weliang1/Openshift_Networking/master/Features/Pod/deploymentconfig.yaml
 # oc new-app apache-kafka
 # oc scale dc/apache-kafka --replicas=8
 
