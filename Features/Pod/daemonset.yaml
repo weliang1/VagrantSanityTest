@@ -2,23 +2,24 @@
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
-  name: daemonset-pod
+  name: nginx
 spec:
   selector:
     matchLabels:
-      name: daemonset-pod
+      name: nginx
   template:
     metadata:
       labels:
-          name: daemonset-pod
+          name: nginx
     spec:
       containers:
-      - name: daemonset-pod
+      - name: nginx
         image: bmeng/hello-openshift
-        securityContext: {}
-        serviceAccount: router
-        serviceAccountName: router
+        user: root
         ports:
         - name: http
           containerPort: 8080
           hostPort: 8888
+      securityContext: {}
+      serviceAccount: router
+      serviceAccountName: router
