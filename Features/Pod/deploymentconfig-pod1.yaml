@@ -14,6 +14,9 @@ spec:
           ports:
             - containerPort: 8080
               protocol: "TCP"
+      securityContext: {}
+      serviceAccount: router
+      serviceAccountName: router
   replicas: 5 
   selector:
     name: "frontend"
@@ -26,6 +29,6 @@ spec:
           - "helloworld"
         from:
           kind: "ImageStreamTag"
-          name: "origin-ruby-sample:latest"
+          name: "bmeng/hello-openshift:latest"
   strategy: 
     type: "Rolling"
