@@ -27,4 +27,4 @@ spec:
       containers:
       - name: pause
         image: gcr.io/google_containers/pause
-        hostPort: 8888
+        hostPort: 9999
