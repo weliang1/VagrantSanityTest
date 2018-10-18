@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
         - name: "helloworld"
-          image: "openshift/origin-ruby-sample"
+          image: "bmeng/hello-openshift"
           ports:
             - containerPort: 8080
               protocol: "TCP"
