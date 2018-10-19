@@ -1,8 +1,9 @@
 # https://rondinif.github.io/openshift-kafka/quick-start-002.html
-# oc get https://raw.githubusercontent.com/weliang1/Openshift_Networking/master/Features/Pod/deploymentconfig.yaml
+# oc create -f https://raw.githubusercontent.com/weliang1/Openshift_Networking/master/Features/Pod/deploymentconfig.yaml
 # oc new-app apache-kafka
 # oc scale dc/apache-kafka --replicas=8
-
+# oc idle apache-kafka
+# oc delete pod -l deploymentconfig=apache-kafka
 kind: List
 apiVersion: v1
 metadata: {}
