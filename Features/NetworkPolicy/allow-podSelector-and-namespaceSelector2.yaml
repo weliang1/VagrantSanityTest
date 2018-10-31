@@ -4,7 +4,7 @@
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
-    name: podSelector-and-namespaceSelector
+    name: podSelector-namespaceSelector
 spec:
     podSelector: 
       matchLabels:
