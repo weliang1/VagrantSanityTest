@@ -15,7 +15,7 @@ items:
           name: test-pods
       spec:
         containers:
-        - image: weliang/test-pod
+        - image: bmeng/fedora-ncvim
           name: test-pod
           imagePullPolicy: IfNotPresent
           resources:
