@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: blue-pod-container
-    image: docker.io/fedora
+    image: docker.io/fedora:latest
     env:
     - name: RESPONSE
       value: Hello Blue Pod-1 Example
