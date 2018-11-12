@@ -8,7 +8,7 @@ items:
       name: test-pod
     name: test-pod
   spec:
-    replicas: 2
+    replicas: 3
     template:
       metadata:
         labels:
