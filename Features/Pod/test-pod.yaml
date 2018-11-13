@@ -1,0 +1,51 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: blue-pod-1
+  labels:
+    name: blue-openshift-1
+spec:
+  containers:
+  - name: blue-pod-container-1
+    image: weliang/test-pod
+    env:
+    - name: RESPONSE
+      value: Hello Blue Pod-1 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
+    
+kind: Pod
+apiVersion: v1
+metadata:
+  name: blue-pod-2
+  labels:
+    name: blue-openshif-2
+spec:
+  containers:
+  - name: blue-pod-container-2
+    image: weliang/test-pod
+    env:
+    - name: RESPONSE
+      value: Hello Blue Pod-2 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
+    
+kind: Pod
+apiVersion: v1
+metadata:
+  name: blue-pod-3
+  labels:
+    name: blue-openshift-3
+spec:
+  containers:
+  - name: blue-pod-container-3
+    image: weliang/test-pod
+    env:
+    - name: RESPONSE
+      value: Hello Blue Pod-3 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
