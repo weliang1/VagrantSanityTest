@@ -30,7 +30,7 @@ items:
       ports:
       - containerPort: 8080
       - containerPort: 443
- - kind: Pod
+- kind: Pod
   apiVersion: v1
   metadata:
     name: hello-pod-3
