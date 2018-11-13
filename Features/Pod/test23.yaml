@@ -13,7 +13,7 @@ items:
   spec:
     containers:
     - name: test-pod-container-1
-      image: bmeng/fedora-ncvim
+      image: weliang/centos
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -26,7 +26,7 @@ items:
   spec:
     containers:
     - name: test-pod-container-2
-      image: bmeng/fedora-ncvim
+      image: weliang/centos
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -39,7 +39,7 @@ items:
   spec:
     containers:
     - name: test-pod-container-3
-      image: bmeng/fedora-ncvim
+      image: weliang/centos
       ports:
       - containerPort: 8080
       - containerPort: 443
