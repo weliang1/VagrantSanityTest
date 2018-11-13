@@ -19,20 +19,4 @@ items:
           command: ['sh', '-c', 'echo Hello! && sleep 3600']
           name: test-pod
           imagePullPolicy: Always
-          resources:
-            limits:
-              memory: 340Mi
-- apiVersion: v1
-  kind: Service
-  metadata:
-    labels:
-      name: test-service
-    name: test-service
-  spec:
-    ports:
-    - name: http
-      port: 27017
-      protocol: TCP
-      targetPort: 8080
-    selector:
-      name: test-pods
+          
