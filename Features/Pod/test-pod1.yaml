@@ -8,7 +8,7 @@ items:
       name: test-pod
     name: test-pod
   spec:
-    replicas: 3
+    replicas: 1
     template:
       metadata:
         labels:
@@ -18,9 +18,6 @@ items:
         - image: weliang/test-pod
           name: test-pod
           imagePullPolicy: IfNotPresent
-          resources:
-            limits:
-              memory: 340Mi
 - apiVersion: v1
   kind: Service
   metadata:
