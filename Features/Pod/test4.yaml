@@ -8,7 +8,7 @@
   spec:
     containers:
     - name: test-pod-container-2
-      image: weliang/centos
+      image: openshift/test-multicast
       ports:
       - containerPort: 8080
       - containerPort: 443
