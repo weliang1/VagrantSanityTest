@@ -7,12 +7,12 @@ items:
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: hello-pod-1
+    name: test-pod-1
     labels:
-      name: hello-openshift
+      name: test-openshift
   spec:
     containers:
-    - name: hello-pod-container-1
+    - name: test-pod-container-1
       image: weliang/test-pod
       ports:
       - containerPort: 8080
@@ -20,12 +20,12 @@ items:
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: hello-pod-2
+    name: test-pod-2
     labels:
-      name: hello-openshift
+      name: test-openshift
   spec:
     containers:
-    - name: hello-pod-container-2
+    - name: test-pod-container-2
       image: weliang/test-pod
       ports:
       - containerPort: 8080
@@ -33,12 +33,12 @@ items:
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: hello-pod-3
+    name: test-pod-3
     labels:
-      name: hello-openshift
+      name: test-openshift
   spec:
     containers:
-    - name: hello-pod-container-3
+    - name: test-pod-container-3
       image: weliang/test-pod
       ports:
       - containerPort: 8080
