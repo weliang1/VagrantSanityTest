@@ -15,7 +15,7 @@ items:
           name: test-pods
       spec:
         containers:
-        - image: aosqe/pod-for-ping
+        - image: weliang/test-pod
           name: test-pod
           imagePullPolicy: IfNotPresent
 - apiVersion: v1
