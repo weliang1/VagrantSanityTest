@@ -14,6 +14,7 @@ items:
     containers:
     - name: test-pod-container-1
       image: weliang/test-pod
+      command: ['sh', '-c', 'echo Hello! && sleep 3600']
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -27,6 +28,7 @@ items:
     containers:
     - name: test-pod-container-2
       image: weliang/test-pod
+      command: ['sh', '-c', 'echo Hello! && sleep 3600']
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -40,6 +42,7 @@ items:
     containers:
     - name: test-pod-container-3
       image: weliang/test-pod
+      command: ['sh', '-c', 'echo Hello! && sleep 3600']
       ports:
       - containerPort: 8080
       - containerPort: 443
