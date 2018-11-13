@@ -15,7 +15,7 @@ items:
           name: test-pods
       spec:
         containers:
-        - image: weliang/test-pod
+        - image: weliang/centos
           name: test-pod
           imagePullPolicy: Always
 - apiVersion: v1
