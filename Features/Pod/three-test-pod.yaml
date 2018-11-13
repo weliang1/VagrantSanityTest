@@ -2,7 +2,7 @@
 kind: List
 apiVersion: v1
 metadata:
-  name: hello-service-complete-example
+  name: test-pods
 items:
 - kind: Pod
   apiVersion: v1
