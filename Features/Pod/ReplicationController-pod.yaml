@@ -17,7 +17,7 @@ items:
         containers:
         - image: aosqe/pod-for-ping
           name: test-pod
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           resources:
             limits:
               memory: 340Mi
