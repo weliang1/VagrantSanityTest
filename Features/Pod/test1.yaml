@@ -1,0 +1,13 @@
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: test-pod-2
+    labels:
+      name: test-openshift
+  spec:
+    containers:
+    - name: test-pod-container-2
+      image: weliang/test-pod
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
