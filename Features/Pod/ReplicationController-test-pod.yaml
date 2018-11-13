@@ -5,25 +5,29 @@ items:
   kind: ReplicationController
   metadata:
     labels:
-      name: multicast-pod
-    name: multicast-pod
+      name: test-pod
+    name: test-pod
   spec:
     replicas: 3
     template:
       metadata:
         labels:
-          name: multicast-pods
+          name: test-pods
       spec:
         containers:
-        - image: weliang/fedora-multicast
-          name: multicast-pod
-          imagePullPolicy: IfNotPresent
+        - image: weliang/centos
+          command: ['sh', '-c', 'echo Hello! && sleep 3600']
+          name: test-pod
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 340Mi
 - apiVersion: v1
   kind: Service
   metadata:
     labels:
-      name: multicast-service
-    name: multicast-service
+      name: test-service
+    name: test-service
   spec:
     ports:
     - name: http
@@ -31,4 +35,4 @@ items:
       protocol: TCP
       targetPort: 8080
     selector:
-      name: multicast-pods
+      name: test-pods
