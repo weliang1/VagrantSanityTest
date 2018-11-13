@@ -15,7 +15,7 @@ items:
           name: test-pods
       spec:
         containers:
-        - image: weliang/test-pod
+        - image: weliang/fedora-multicast
           name: test-pod
           imagePullPolicy: IfNotPresent
 - apiVersion: v1
