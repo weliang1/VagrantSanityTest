@@ -49,6 +49,7 @@ items:
       spec:
         containers:
         - image: weliang/fedora-multicast
+          command: ['sh', '-c', 'echo Hello! && sleep 3600']
           name: hello-openshift
           ports:
           - containerPort: 8080
