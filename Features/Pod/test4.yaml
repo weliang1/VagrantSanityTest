@@ -15,7 +15,7 @@ items:
         openshift.io/imported-from: openshift/hello-openshift
       from:
         kind: DockerImage
-        name: bmeng/hello-openshift
+        name: weliang/fedora-multicast
       generation: null
       importPolicy: {}
       name: latest
