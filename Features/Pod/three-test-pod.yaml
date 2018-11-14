@@ -13,7 +13,7 @@ items:
   spec:
     containers:
     - name: test-pod-container-1
-      image: weliang/centos
+      image: weliang/test-pod
       command: ['sh', '-c', 'echo Hello! && sleep 3600']
       ports:
       - containerPort: 8080
@@ -27,7 +27,7 @@ items:
   spec:
     containers:
     - name: test-pod-container-2
-      image: weliang/centos
+      image: weliang/test-pod
       command: ['sh', '-c', 'echo Hello! && sleep 3600']
       ports:
       - containerPort: 8080
@@ -41,7 +41,7 @@ items:
   spec:
     containers:
     - name: test-pod-container-3
-      image: weliang/centos
+      image: weliang/test-pod
       command: ['sh', '-c', 'echo Hello! && sleep 3600']
       ports:
       - containerPort: 8080
