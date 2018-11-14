@@ -15,7 +15,7 @@ items:
         openshift.io/imported-from: weliang/fedora-multicast
       from:
         kind: DockerImage
-        name: weliang/test-pod
+        name: weliang/fedora-multicast
       generation: null
       importPolicy: {}
       name: latest
