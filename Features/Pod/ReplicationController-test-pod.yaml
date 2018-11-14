@@ -15,7 +15,7 @@ items:
           name: test-pods
       spec:
         containers:
-        - image: weliang/fedora-multicast
+        - image: weliang/test-pod
           command: ['sh', '-c', 'echo Hello! && sleep 3600']
           name: test-pod
           imagePullPolicy: Always
