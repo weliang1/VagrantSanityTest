@@ -14,6 +14,6 @@ spec:
         - namespaceSelector:     
             matchLabels:
               user: alice
-        - podSelector:
+          podSelector:
             matchLabels:
               name: red-openshift  
