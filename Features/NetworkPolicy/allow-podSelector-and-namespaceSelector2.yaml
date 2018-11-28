@@ -11,9 +11,9 @@ spec:
         name: red-openshift
     ingress:
       - from:
-        - namespaceSelector:     # chooses all pods in namespaces labelled with user=alice
+        - namespaceSelector:     
             matchLabels:
               user: alice
         - podSelector:
             matchLabels:
-              name: red-openshift  # chooses pods with name=red-openshift
+              name: red-openshift  
