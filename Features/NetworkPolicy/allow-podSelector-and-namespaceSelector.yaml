@@ -1,5 +1,5 @@
 # policy specifies “the only traffic allowed is from any red pod in namespace labeled with
-# user:alice to the pod labeled with name: blue-openshift
+# user:alice to the pod labeled with name: red-openshift
 
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
@@ -8,7 +8,7 @@ metadata:
 spec:
     podSelector: 
       matchLabels:
-        name: blue-openshift
+        name: red-openshift
     ingress:
     - from:
       - namespaceSelector:     # chooses all pods in namespaces labelled with user=alice
