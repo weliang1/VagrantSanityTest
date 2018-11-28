@@ -1,0 +1,18 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: red-pod-6
+  labels:
+    name: red-openshift
+spec:
+  containers:
+  - name: red-pod-container
+    image: weliang/test-pod
+    command: ['sh', '-c', 'echo Hello! && sleep 3600']
+    env:
+    - name: RESPONSE
+      value: Hello Red Pod-6 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
