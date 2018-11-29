@@ -54,7 +54,10 @@ items:
           ports:
           - containerPort: 8080
             protocol: TCP
-            hostPort: 8888
+            hostPort: 55522
+          - containerPort: 8888
+            protocol: TCP
+            hostPort: 55544
           resources: {}
     test: false
     triggers:
