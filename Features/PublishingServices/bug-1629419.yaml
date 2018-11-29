@@ -70,29 +70,5 @@ items:
           name: hello-openshift:latest
       type: ImageChange
   status: {}
-- apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: null
-    labels:
-      app: hello-openshift
-    name: hello-openshift
-  spec:
-    ports:
-    - name: 8080-tcp
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-    - name: 8888-tcp
-      port: 8888
-      protocol: TCP
-      targetPort: 8888
-    selector:
-      app: hello-openshift
-      deploymentconfig: hello-openshift
-  status:
-    loadBalancer: {}
 kind: List
 metadata: {}
