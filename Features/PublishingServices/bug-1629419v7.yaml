@@ -6,7 +6,7 @@ metadata:
   generation: 1
   labels:
     run: website
-  name: websiteHostPortTest
+  name: webtest
   namespace: default
 spec:
   replicas: 1
