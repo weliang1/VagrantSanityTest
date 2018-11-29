@@ -40,4 +40,4 @@ items:
       ports:
       - containerPort: 8080
         protocol: TCP
-        hostPort: 9736
+        hostPort: 9738
