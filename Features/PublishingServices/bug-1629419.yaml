@@ -12,7 +12,7 @@ items:
   spec:
     tags:
     - annotations:
-        openshift.io/imported-from: weliang/test-pod
+        openshift.io/imported-from: openshift/hello-openshift
       from:
         kind: DockerImage
         name: weliang/test-pod
@@ -48,16 +48,15 @@ items:
           deploymentconfig: hello-openshift
       spec:
         containers:
-        - image: weliang/test-pod
-          command: ['sh', '-c', 'echo Hello! && sleep 3600']
+        - image: openshift/hello-openshift
           name: hello-openshift
           ports:
           - containerPort: 8080
             protocol: TCP
-            hostPort: 55522
+            hostPort: 9736
           - containerPort: 8888
             protocol: TCP
-            hostPort: 55544
+            hostPort: 9738
           resources: {}
     test: false
     triggers:
