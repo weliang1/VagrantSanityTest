@@ -54,9 +54,6 @@ items:
           - containerPort: 8080
             protocol: TCP
             hostPort: 8080
-          - containerPort: 8888
-            protocol: TCP
-            hostPort: 8888
           resources: {}
     test: false
     triggers:
