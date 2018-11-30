@@ -31,7 +31,7 @@ items:
       app: hello-openshift
     name: hello-openshift
   spec:
-    replicas: 3
+    replicas: 1
     selector:
       app: hello-openshift
       deploymentconfig: hello-openshift
@@ -54,9 +54,10 @@ items:
           ports:
           - containerPort: 8080
             protocol: TCP
-            hostPort: 57119
-            hostPort: 55429
-            hostPort: 56833
+            hostPort: 8080
+          - containerPort: 8888
+            protocol: TCP
+            hostPort: 8888
           resources: {}
     test: false
     triggers:
@@ -85,6 +86,10 @@ items:
       port: 8080
       protocol: TCP
       targetPort: 8080
+    - name: 8888-tcp
+      port: 8888
+      protocol: TCP
+      targetPort: 8888
     selector:
       app: hello-openshift
       deploymentconfig: hello-openshift
