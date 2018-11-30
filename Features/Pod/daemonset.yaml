@@ -1,25 +1,24 @@
-#apiVersion: apps/v1beta2
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
-  name: nginx
+  name: hello-daemonset
 spec:
   selector:
-    matchLabels:
-      name: nginx
+      matchLabels:
+        name: hello-daemonset
   template:
     metadata:
       labels:
-          name: nginx
+        name: hello-daemonset
     spec:
       containers:
-      - name: nginx
-        image: bmeng/hello-openshift
-        user: root
+      - image: openshift/hello-openshift
+        imagePullPolicy: Always
+        name: registry
         ports:
-        - name: http
-          containerPort: 8080
-          hostPort: 8888
-      securityContext: {}
-      serviceAccount: router
-      serviceAccountName: router
+        - containerPort: 80
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+      serviceAccount: default
+      terminationGracePeriodSeconds: 10
