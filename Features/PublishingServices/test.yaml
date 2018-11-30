@@ -1,31 +1,46 @@
-apiVersion: apps/v1beta2
-kind: Deployment
+---
+kind: List
+apiVersion: v1
 metadata:
-  labels:
-    workload.user.cattle.io/workloadselector: deployment-mystack-nginx
-  name: nginx
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      workload.user.cattle.io/workloadselector: deployment-mystack-nginx
-  template:
-    metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: deployment-mystack-nginx
-    spec:
-      affinity: {}
-      containers:
-      - image: nginx
-        imagePullPolicy: Always
-        name: nginx
-        ports:
-        - containerPort: 80
-          hostPort: 9890
-          name: 80tcp98900
-          protocol: TCP
-        resources: {}
-        stdin: true
-        tty: true
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
+  name: hello-service-complete-example
+items:
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: hello-route
+    labels:
+      name: hello-route-1
+  spec:
+    host: hello-openshift.com
+    to:
+      kind: Service
+      name: hello-service
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: hello-service
+  spec:
+    selector:
+      name: hello-openshift
+    ports:
+    - protocol: TCP
+      port: 9736
+      targetPort: 0
+      nodePort: 0
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: hello-pod-1
+    labels:
+      name: hello-openshift
+  spec:
+    containers:
+    - name: hello-pod-container-1
+      image: openshift/hello-openshift
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+        hostPort: 9738
+      - containerPort: 8888
+        protocol: TCP
+        hostPort: 9740
