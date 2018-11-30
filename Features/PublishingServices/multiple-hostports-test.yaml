@@ -44,3 +44,6 @@ items:
       - containerPort: 8888
         protocol: TCP
         hostPort: 9740
+      - containerPort: 8866
+        protocol: TCP
+        hostPort: 9742
