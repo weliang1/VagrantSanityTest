@@ -18,7 +18,7 @@ spec:
         ports:
         - containerPort: 8080
           protocol: TCP
-          hostPort: 2222
+          hostPort: 4444
         resources: {}
         terminationMessagePath: /dev/termination-log
       serviceAccountName: tester
