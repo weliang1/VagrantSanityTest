@@ -54,13 +54,13 @@ items:
           ports:
           - containerPort: 8080
             protocol: TCP
-            hostPort: 7777
+            hostPort: 1111
           - containerPort: 8080
             protocol: TCP
-            hostPort: 8888
+            hostPort: 2222
           - containerPort: 8080
             protocol: TCP
-            hostPort: 9999
+            hostPort: 3333
           resources: {}
         serviceAccountName: tester
     test: false
