@@ -52,9 +52,15 @@ items:
           command: ['sh', '-c', 'echo Hello! && sleep 3600']
           name: hello-openshift
           ports:
-          - containerPort: 8080
+          - containerPort: 7777
             protocol: TCP
-          hostPort: 7777
+            hostPort: 7777
+          - containerPort: 8888
+            protocol: TCP
+            hostPort: 8888
+          - containerPort: 9999
+            protocol: TCP
+            hostPort: 9999
           resources: {}
         serviceAccountName: tester
     test: false
@@ -80,10 +86,18 @@ items:
     name: hello-openshift
   spec:
     ports:
-    - name: 8080-tcp
-      port: 8080
+    - name: 7777-tcp
+      port: 7777
       protocol: TCP
-      targetPort: 8080
+      targetPort: 7777
+    - name: 8888-tcp
+      port: 8888
+      protocol: TCP
+      targetPort: 8888
+    - name: 9999-tcp
+      port: 9999
+      protocol: TCP
+      targetPort: 9999
     selector:
       app: hello-openshift
       deploymentconfig: hello-openshift
