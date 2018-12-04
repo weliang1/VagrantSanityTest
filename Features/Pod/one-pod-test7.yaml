@@ -14,7 +14,8 @@ items:
   spec:
     containers:
     - name: test-pod-container-1
-      image: openshift/hello-openshift
+      image: weliang/ping-pod
+      command: ['sh', '-c', 'echo Hello! && sleep 3600']
       ports:
       - containerPort: 8080
         protocol: TCP
