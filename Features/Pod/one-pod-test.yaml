@@ -1,0 +1,16 @@
+
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: test-pod-1
+    labels:
+      name: test-openshift
+  spec:
+    containers:
+    - name: test-pod-container-1
+      image: weliang/ping-pod
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
+
+
