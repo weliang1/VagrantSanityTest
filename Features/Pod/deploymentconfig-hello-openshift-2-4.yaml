@@ -15,7 +15,7 @@ items:
         openshift.io/imported-from: bmeng/hello-openshift
       from:
         kind: DockerImage
-        name: weliang/test-pod
+        name: bmeng/hello-openshift
       generation: null
       importPolicy: {}
       name: latest
@@ -28,13 +28,13 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift
-    name: hello-openshift
+      app: hello-openshift-2
+    name: hello-openshift-2
   spec:
     replicas: 3
     selector:
-      app: hello-openshift
-      deploymentconfig: hello-openshift
+      app: hello-openshift-2
+      deploymentconfig: hello-openshift-2
     strategy:
       resources: {}
     template:
@@ -44,12 +44,12 @@ items:
           openshift.io/generated-by: OpenShiftNewApp
         creationTimestamp: null
         labels:
-          app: hello-openshift
-          deploymentconfig: hello-openshift
+          app: hello-openshift-2
+          deploymentconfig: hello-openshift-2
       spec:
         containers:
         - image: bmeng/hello-openshift
-          name: hello-openshift
+          name: hello-openshift-2
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -62,7 +62,7 @@ items:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - hello-openshift
+        - hello-openshift-2
         from:
           kind: ImageStreamTag
           name: hello-openshift:latest
@@ -75,8 +75,8 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift
-    name: hello-openshift
+      app: hello-openshift-2
+    name: hello-openshift-2
   spec:
     ports:
     - name: 8080-tcp
@@ -88,8 +88,8 @@ items:
       protocol: TCP
       targetPort: 8888
     selector:
-      app: hello-openshift
-      deploymentconfig: hello-openshift
+      app: hello-openshift-2
+      deploymentconfig: hello-openshift-2
   status:
     loadBalancer: {}
 kind: List
