@@ -1,4 +1,10 @@
 
+---
+kind: List
+apiVersion: v1
+metadata:
+  name: test-pods
+items:
 - kind: Pod
   apiVersion: v1
   metadata:
