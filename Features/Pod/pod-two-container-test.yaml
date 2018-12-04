@@ -1,0 +1,27 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: blue-pod-1
+  labels:
+    name: blue-openshift
+spec:
+  containers:
+  - name: blue-pod-container-1
+    image: weliang/test-pod
+    command: ['sh', '-c', 'echo Hello! && sleep 3600']
+    env:
+    - name: RESPONSE
+      value: Hello Blue Pod-1 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
+  - name: blue-pod-container-2
+    image: weliang/test-pod
+    command: ['sh', '-c', 'echo Hello! && sleep 3600']
+    env:
+    - name: RESPONSE
+      value: Hello Blue Pod-1 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
