@@ -7,12 +7,12 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift-2
-    name: hello-openshift-2
+      app: hello-openshift
+    name: hello-openshift
   spec:
     tags:
     - annotations:
-        openshift.io/imported-from: bmeng/hello-openshift
+        openshift.io/imported-from: weliang/test-pod
       from:
         kind: DockerImage
         name: weliang/test-pod
@@ -28,13 +28,13 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift-2
-    name: hello-openshift-2
+      app: hello-openshift
+    name: hello-openshift
   spec:
     replicas: 3
     selector:
-      app: hello-openshift-2
-      deploymentconfig: hello-openshift-2
+      app: hello-openshift
+      deploymentconfig: hello-openshift
     strategy:
       resources: {}
     template:
@@ -44,13 +44,13 @@ items:
           openshift.io/generated-by: OpenShiftNewApp
         creationTimestamp: null
         labels:
-          app: hello-openshift-2
-          deploymentconfig: hello-openshift-2
+          app: hello-openshift
+          deploymentconfig: hello-openshift
       spec:
         containers:
-        - image: bmeng/hello-openshift
+        - image: weliang/test-pod
           command: ['sh', '-c', 'echo Hello! && sleep 3600']
-          name: hello-openshift-2
+          name: hello-openshift
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -63,7 +63,7 @@ items:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - hello-openshift-2
+        - hello-openshift
         from:
           kind: ImageStreamTag
           name: hello-openshift:latest
@@ -76,8 +76,8 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift-2
-    name: hello-openshift-2
+      app: hello-openshift
+    name: hello-openshift
   spec:
     ports:
     - name: 8080-tcp
@@ -89,8 +89,8 @@ items:
       protocol: TCP
       targetPort: 8888
     selector:
-      app: hello-openshift-2
-      deploymentconfig: hello-openshift-2
+      app: hello-openshift
+      deploymentconfig: hello-openshift
   status:
     loadBalancer: {}
 kind: List
