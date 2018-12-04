@@ -17,6 +17,8 @@ items:
       image: openshift/hello-openshift
       ports:
       - containerPort: 8080
+        protocol: TCP
       - containerPort: 443
+        protocol: TCP
 
 
