@@ -8,8 +8,7 @@ metadata:
 spec:
   containers:
   - name: blue-pod-container
-    image: weliang/test-pod
-    command: ['sh', '-c', 'echo Hello! && sleep 3600']
+    image: openshift/hello-openshift
     env:
     - name: RESPONSE
       value: Hello Blue Pod-4 Example
