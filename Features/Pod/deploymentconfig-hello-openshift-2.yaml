@@ -40,7 +40,7 @@ items:
     template:
       metadata:
         annotations:
-          openshift.io/container.hello-openshift.image.entrypoint: '["/hello-openshift-2"]'
+          openshift.io/container.hello-openshift.image.entrypoint: '["/hello-openshift"]'
           openshift.io/generated-by: OpenShiftNewApp
         creationTimestamp: null
         labels:
