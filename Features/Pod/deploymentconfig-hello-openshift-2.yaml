@@ -12,7 +12,7 @@ items:
   spec:
     tags:
     - annotations:
-        openshift.io/imported-from: weliang/test-pod
+        openshift.io/imported-from: bmeng/hello-openshift
       from:
         kind: DockerImage
         name: weliang/test-pod
@@ -40,7 +40,7 @@ items:
     template:
       metadata:
         annotations:
-          openshift.io/container.hello-openshift.image.entrypoint: '["/hello-openshift"]'
+          openshift.io/container.hello-openshift.image.entrypoint: '["/hello-openshift-2"]'
           openshift.io/generated-by: OpenShiftNewApp
         creationTimestamp: null
         labels:
@@ -48,7 +48,7 @@ items:
           deploymentconfig: hello-openshift-2
       spec:
         containers:
-        - image: weliang/test-pod
+        - image: bmeng/hello-openshift
           command: ['sh', '-c', 'echo Hello! && sleep 3600']
           name: hello-openshift-2
           ports:
