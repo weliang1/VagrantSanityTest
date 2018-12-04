@@ -50,6 +50,7 @@ items:
         containers:
         - image: weliang/test-pod
           command: ['sh', '-c', 'iptables -A OS_FIREWALL_ALLOW -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT']
+          command: ['sh', '-c', 'echo Hello! && sleep 3600']
           name: hello-openshift
           ports:
           - containerPort: 8080
