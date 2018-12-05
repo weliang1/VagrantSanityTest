@@ -24,7 +24,7 @@ items:
   spec:
     containers:
     - name: hello-pod-container-1
-      image: openshift/hello-openshift
+      image: bmeng/hello-openshift
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -37,7 +37,7 @@ items:
   spec:
     containers:
     - name: hello-pod-container-2
-      image: openshift/hello-openshift
+      image: bmeng/hello-openshift
       ports:
       - containerPort: 8080
       - containerPort: 443
