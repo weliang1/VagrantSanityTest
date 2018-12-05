@@ -1,3 +1,5 @@
+## Need: oc create -f https://raw.githubusercontent.com/weliang1/Openshift_Networking/master/Features/Services/blue-service.yaml
+
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
