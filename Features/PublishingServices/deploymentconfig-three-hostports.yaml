@@ -31,7 +31,7 @@ items:
       app: hello-openshift
     name: hello-openshift
   spec:
-    replicas: 4 
+    replicas: 1
     selector:
       app: hello-openshift
       deploymentconfig: hello-openshift
@@ -48,7 +48,7 @@ items:
           deploymentconfig: hello-openshift
       spec:
         containers:
-        - image: bmeng/hello-openshift
+        - image: openshift/hello-openshift
           name: hello-openshift
           ports:
           - containerPort: 8080
