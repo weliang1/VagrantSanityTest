@@ -36,7 +36,7 @@ items:
   spec:
     containers:
     - name: hello-pod-container-1
-      image: openshift/hello-openshift
+      image: bmeng/hello-openshift
       ports:
       - containerPort: 8080
         protocol: TCP
