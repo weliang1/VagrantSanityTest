@@ -12,10 +12,10 @@ items:
   spec:
     tags:
     - annotations:
-        openshift.io/imported-from: weliang/test-pod
+        openshift.io/imported-from: openshift/hello-openshift
       from:
         kind: DockerImage
-        name: weliang/test-pod
+        name: openshift/hello-openshift
       generation: null
       importPolicy: {}
       name: latest
