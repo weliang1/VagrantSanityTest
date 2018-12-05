@@ -48,8 +48,7 @@ items:
           deploymentconfig: hello-openshift
       spec:
         containers:
-        - image: weliang/test-pod
-          command: ['sh', '-c', 'echo Hello! && sleep 3600']
+        - image: bmeng/hello-openshift
           name: hello-openshift
           ports:
           - containerPort: 8080
