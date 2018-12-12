@@ -4,16 +4,16 @@
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
-    name: allow-podselector-and-namespaceselector
+  name: allow-podselector-and-namespaceselector
 spec:
-    podSelector: 
-      matchLabels:
-        name: red-openshift
-    ingress:
-      - from:
-        - namespaceSelector:     
-            matchLabels:
-              user: alice
-          podSelector:
-            matchLabels:
-              name: red-openshift  
+  podSelector: 
+    matchLabels:
+      name: red-openshift
+  ingress:
+    - from:
+      - namespaceSelector:     
+          matchLabels:
+            user: alice
+        podSelector:
+          matchLabels:
+            name: red-openshift  
