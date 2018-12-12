@@ -12,7 +12,7 @@ items:
     template:
       metadata:
         labels:
-          name: blue-pods
+          name: core-service
       spec:
         containers:
         - image: aosqe/pod-for-ping
@@ -36,4 +36,4 @@ items:
       protocol: TCP
       targetPort: 8080
     selector:
-      name: blue-pods
+      name: core-service
