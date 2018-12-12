@@ -3,10 +3,10 @@
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
-    name: allow-http-and-https-ns-a
+  name: allow-http-and-https-ns-a
 spec:
-    podSelector: null
-    ingress:
+  podSelector: null
+  ingress:
     - ports:
        - protocol: TCP
          port: 80
