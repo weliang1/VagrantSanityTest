@@ -3,12 +3,12 @@
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
-    name: allow-from-red-to-blue
+  name: allow-from-red-to-blue
 spec:
-    podSelector: 
-      matchLabels:
-        name: blue-openshift
-    ingress:
+  podSelector: 
+    matchLabels:
+      name: blue-openshift
+  ingress:
     - from:
       - podSelector:
           matchLabels:
