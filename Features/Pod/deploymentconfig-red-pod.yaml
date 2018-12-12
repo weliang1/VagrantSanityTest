@@ -62,7 +62,7 @@ items:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - blue-openshift
+        - red-openshift
         from:
           kind: ImageStreamTag
           name: hello-openshift:latest
