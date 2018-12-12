@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    labels:
+      name: blue-pod
+    name: blue-pod
+  spec:
+    replicas: 2
+    template:
+      metadata:
+        labels:
+          name: blue-pods
+      spec:
+        containers:
+        - image: aosqe/pod-for-ping
+          name: blue-pod
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+          resources:
+            limits:
+              memory: 340Mi
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      name: blue-service
+    name: blue-service
+  spec:
+    ports:
+    - name: http
+      port: 27017
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      name: blue-pods
