@@ -7,7 +7,7 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift
+      name: hello-openshift
     name: hello-openshift
   spec:
     tags:
@@ -28,12 +28,12 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: red-openshift
+      name: red-openshift
     name: red-openshift
   spec:
     replicas: 2
     selector:
-      app: red-openshift
+      name: red-openshift
       deploymentconfig: red-openshift
     strategy:
       resources: {}
@@ -44,7 +44,7 @@ items:
           openshift.io/generated-by: OpenShiftNewApp
         creationTimestamp: null
         labels:
-          app: red-openshift
+          name: red-openshift
           deploymentconfig: red-openshift
       spec:
         containers:
@@ -75,7 +75,7 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: red-openshift
+      name: red-openshift
     name: red-openshift
   spec:
     ports:
@@ -88,7 +88,7 @@ items:
       protocol: TCP
       targetPort: 8888
     selector:
-      app: red-openshift
+      name: red-openshift
       deploymentconfig: red-openshift
   status:
     loadBalancer: {}
