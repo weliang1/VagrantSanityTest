@@ -28,12 +28,12 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: blue-openshift
+      name: blue-openshift
     name: blue-openshift
   spec:
     replicas: 2
     selector:
-      app: blue-openshift
+      name: blue-openshift
       deploymentconfig: blue-openshift
     strategy:
       resources: {}
@@ -44,7 +44,7 @@ items:
           openshift.io/generated-by: OpenShiftNewApp
         creationTimestamp: null
         labels:
-          app: blue-openshift
+          name: blue-openshift
           deploymentconfig: blue-openshift
       spec:
         containers:
@@ -75,7 +75,7 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: blue-openshift
+      name: blue-openshift
     name: blue-openshift
   spec:
     ports:
@@ -88,7 +88,7 @@ items:
       protocol: TCP
       targetPort: 8888
     selector:
-      app: blue-openshift
+      name: blue-openshift
       deploymentconfig: blue-openshift
   status:
     loadBalancer: {}
