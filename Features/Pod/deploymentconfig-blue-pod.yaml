@@ -7,7 +7,7 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: null
     labels:
-      app: hello-openshift
+      name: hello-openshift
     name: hello-openshift
   spec:
     tags:
