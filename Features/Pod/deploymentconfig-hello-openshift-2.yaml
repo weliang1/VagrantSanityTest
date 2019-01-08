@@ -50,6 +50,9 @@ items:
         containers:
         - image: bmeng/hello-openshift
           name: hello-openshift-2
+          env:
+          - name: RESPONSE
+            value: Hello-openshift-2
           ports:
           - containerPort: 8080
             protocol: TCP
