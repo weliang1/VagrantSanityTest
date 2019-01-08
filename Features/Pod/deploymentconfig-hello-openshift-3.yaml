@@ -49,6 +49,9 @@ items:
       spec:
         containers:
         - image: bmeng/hello-openshift
+          env:
+          - name: RESPONSE
+            value: Hello-openshift-3
           name: hello-openshift-3
           ports:
           - containerPort: 8080
