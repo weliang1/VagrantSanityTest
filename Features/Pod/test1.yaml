@@ -1,0 +1,19 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: red-pod-1
+  labels:
+    name: red-openshift
+spec:
+  dnsPolicy: ClusterFirst
+  containers:
+  - name: red-pod-container
+    image: bmeng/hello-openshift
+    env:
+    - name: RESPONSE
+      value: Hello Red Pod-1 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
+
