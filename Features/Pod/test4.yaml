@@ -6,7 +6,7 @@ metadata:
   labels:
     name: red-openshift
 spec:
-  dnsPolicy: Defualt
+  dnsPolicy: Default
   containers:
   - name: red-pod-container
     image: bmeng/hello-openshift
