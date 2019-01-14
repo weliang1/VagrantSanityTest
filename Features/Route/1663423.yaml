@@ -1,0 +1,50 @@
+---
+kind: List
+apiVersion: v1
+metadata:
+  name: hello-service-complete-example
+items:
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: portal
+    labels:
+      name: edgeroute-route
+  spec:
+    host: arap.bcs.cmbchina.cn
+    path: /CMBWebTool
+    port:
+      targetPort: port-8080
+    to:
+      kind: Service
+      name: portal-svc
+      weight: 100
+  wildcardPolicy: None
+   
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: portal-svc
+  spec:
+    selector:
+      name: edgeroute-openshift
+    ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: edgeroute-pod
+    labels:
+      name: edgeroute-openshift
+  spec:
+    containers:
+    - name: edgeroute-pod-container
+      image: openshift/hello-openshift
+      env:
+      - name: RESPONSE
+        value: Hello EdgeRoute
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
