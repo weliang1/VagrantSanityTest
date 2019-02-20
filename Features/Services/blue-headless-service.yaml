@@ -1,3 +1,4 @@
+## Headless svc is to mark clusterIP to be None and nslookup svc will get endpoints IP
 ---
 kind: Service
 apiVersion: v1
