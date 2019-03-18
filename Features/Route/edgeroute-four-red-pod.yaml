@@ -36,6 +36,7 @@ items:
     - protocol: TCP
       port: 8080
       targetPort: 8080
+      
 - kind: Pod
   apiVersion: v1
   metadata:
@@ -52,7 +53,8 @@ items:
       ports:
       - containerPort: 8080
       - containerPort: 443
- - kind: Pod
+      
+- kind: Pod
   apiVersion: v1
   metadata:
     name: edgeroute-red-pod-2
@@ -68,7 +70,7 @@ items:
       ports:
       - containerPort: 8080
       - containerPort: 443
- 
+      
 - kind: Pod
   apiVersion: v1
   metadata:
@@ -85,4 +87,21 @@ items:
       ports:
       - containerPort: 8080
       - containerPort: 443
- 
+      
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: edgeroute-red-pod-4
+    labels:
+      name: edgeroute-openshift
+  spec:
+    containers:
+    - name: edgeroute-pod-container-4
+      image: openshift/hello-openshift
+      env:
+      - name: RESPONSE
+        value: Hello EdgeRoute
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
+    
