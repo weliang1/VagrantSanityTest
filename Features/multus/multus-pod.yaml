@@ -6,6 +6,6 @@ metadata:
     k8s.v1.cni.cncf.io/networks: macvlan-conf
 spec:
   containers:
-  - name: samplepod
+  - name: multuspod
     command: ["/bin/bash", "-c", "sleep 2000000000000"]
     image: dougbtv/centos-network
