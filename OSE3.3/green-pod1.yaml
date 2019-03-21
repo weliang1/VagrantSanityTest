@@ -58,7 +58,7 @@
             "image": "bmeng/hello-openshift",
             "env": [
             { "name": "RESPONSE",
-               "value": "Hello Red Pod-1 Example"
+               "value": "Hello Green Pod-1 Example"
           }
         ],
             "ports": [
