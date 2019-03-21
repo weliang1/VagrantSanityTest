@@ -14,7 +14,7 @@ spec:
     type: OpenshiftSDN
   serviceNetwork: 
   - 172.30.0.0/16
-  disableMultiNetwork: false
+  disableMultiNetwork: true
   deployKubeProxy: false
   kubeProxyConfig:
     iptablesSyncPeriod: 30s
