@@ -1,0 +1,77 @@
+{
+  "kind": "List",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello-service-complete-example"
+  },
+  "items": [
+    {
+      "kind": "Route",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "green-route",
+        "labels": {
+          "name": "green-route"
+        }
+      },
+      "spec": {
+        "host": "green.example.com",
+        "to": {
+          "kind": "Service",
+          "name": "green-service"
+        }
+      }
+    },
+    
+    {
+      "kind": "Service",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "green-service"
+      },
+      "spec": {
+        "selector": {
+          "name": "green-openshift"
+        },
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8080,
+            "targetPort": 8080
+          }
+        ]
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "green-pod-1",
+        "labels": {
+          "name": "green-openshift"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "green-pod-container",
+            "image": "bmeng/hello-openshift",
+            "env": [
+            { "name": "RESPONSE",
+               "value": "Hello Red Pod-1 Example"
+          }
+        ],
+            "ports": [
+              {
+                "containerPort": 8080
+              },
+              {
+                "containerPort": 443
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
