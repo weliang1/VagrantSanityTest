@@ -1,0 +1,15 @@
+# policy specifies “the only traffic allowed is from any red pod in namespace ‘project-a’ 
+# to any blue pod in namespace ‘project-a’.”
+kind: NetworkPolicy
+apiVersion: extensions/v1beta1
+metadata:
+  name: allow-from-red-to-blue
+spec:
+  podSelector: 
+    matchLabels:
+      name: red-openshift
+  ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            name: red-openshift
