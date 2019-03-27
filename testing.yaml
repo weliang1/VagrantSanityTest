@@ -3,7 +3,7 @@
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
-  name: allow-from-red-to-blue
+  name: allow-from-red-to-red
 spec:
   podSelector: 
     matchLabels:
