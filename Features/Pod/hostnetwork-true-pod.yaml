@@ -7,7 +7,7 @@ items:
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: test-pod-1
+    name: hostnetwork-true-pod
     labels:
       name: test-openshift
   spec:
