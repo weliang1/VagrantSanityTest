@@ -1,0 +1,21 @@
+---
+kind: List
+apiVersion: v1
+metadata:
+  name: test-pods
+items:
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: test-pod-1
+    labels:
+      name: test-openshift
+  spec:
+    hostNetwork: true
+    containers:
+    - name: hostnetwork-true-pod
+      image: weliang/test-pod
+      command: ['sh', '-c', 'echo Hello! && sleep 3600']
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
