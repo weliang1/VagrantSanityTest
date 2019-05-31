@@ -1,6 +1,6 @@
 #oc new-project test1
 #oc adm policy add-scc-to-user -z default hostnetwork -n test1
-#oc create -f 
+#oc create -f https://raw.githubusercontent.com/weliang1/Openshift_Networking/master/Features/Pod/debug-pod.yaml
 
 apiVersion: v1
 kind: Pod
