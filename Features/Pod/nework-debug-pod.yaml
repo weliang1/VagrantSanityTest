@@ -5,7 +5,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  generateName: network-pod
+  name: network-debg-pod
 spec:
   containers:
   - name: network-pod
