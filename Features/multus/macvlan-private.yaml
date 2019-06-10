@@ -1,0 +1,21 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: macvlan-private
+spec:
+  config: '{
+      "cniVersion": "0.3.0",
+      "type": "macvlan",
+      "master": "eth0",
+      "mode": "private",
+      "ipam": {
+        "type": "host-local",
+        "subnet": "30.1.1.0/24",
+        "rangeStart": "30.1.1.100",
+        "rangeEnd": "30.1.1.200",
+        "routes": [
+          { "dst": "0.0.0.0/0" }
+        ],
+        "gateway": "30.1.1.1"
+      }
+    }'
