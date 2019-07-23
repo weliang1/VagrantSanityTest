@@ -1,0 +1,25 @@
+## Use “oc edit networks.operator.openshift.io cluster” to configure MACLVAN
+additionalNetworks:
+  # test-macvlan-case3 (macvlan config manually with static)
+  - name: test-macvlan-case3
+    type: SimpleMacvlan
+    simpleMacvlanConfig:
+      master: eth0
+      mode: bridge
+      ipamConfig:
+        type: static
+        staticIPAMConfig:
+          addresses:
+          - address: XXX198.51.100.11/24 
+            gateway: 198.51.100.10
+          routes:
+          - destination: 0.0.0.0/0
+            gateway: 198.51.100.1
+          dns:
+            nameservers:
+            - 198.51.100.1
+            - 198.51.100.2
+            domain: testDNS.example
+            search:
+            - testdomain1.example
+            - testdomain2.example
