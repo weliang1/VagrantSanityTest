@@ -4,7 +4,7 @@ additionalNetworks:
   - name: test-macvlan-case3
     type: SimpleMacvlan
     simpleMacvlanConfig:
-      master: eth0
+      master: ens5
       mode: bridge
       ipamConfig:
         type: static
