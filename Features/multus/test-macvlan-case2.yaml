@@ -1,0 +1,12 @@
+## Use “oc edit networks.operator.openshift.io cluster” to configure MACLVAN
+
+additionalNetworks:
+  # test-macvlan-case2 (macvlan config manually with DHCP)
+  - name: test-macvlan-case2
+    type: SimpleMacvlan
+    simpleMacvlanConfig:
+      master: eth0
+      mode: bridge
+      mtu: 1515
+      ipamConfig:
+        type: dhcp
