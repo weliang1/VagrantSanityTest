@@ -10,16 +10,15 @@ additionalNetworks:
         type: static
         staticIPAMConfig:
           addresses:
-          - address: XXX198.51.100.11/24 
-            gateway: 198.51.100.10
+          - address: 10.128.2.100/23 
+            gateway: 10.128.2.1
           routes:
           - destination: 0.0.0.0/0
-            gateway: 198.51.100.1
+            gateway: 10.128.2.1
           dns:
             nameservers:
-            - 198.51.100.1
-            - 198.51.100.2
-            domain: testDNS.example
+            - 172.30.0.10
+            domain: us-west-2.compute.internal
             search:
-            - testdomain1.example
-            - testdomain2.example
+            - us-west-2.compute.internal
+  
