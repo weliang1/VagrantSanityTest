@@ -2,6 +2,7 @@
 additionalNetworks:
   # test-macvlan-case3 (macvlan config manually with static)
   - name: test-macvlan-case3
+    namespace: openshift-multus
     type: SimpleMacvlan
     simpleMacvlanConfig:
       master: ens5
