@@ -9,4 +9,4 @@ spec:
       master: ens5
       mode: bridge
       mtu: 1515
-    type: SimpleMacvla
+    type: SimpleMacvlan
