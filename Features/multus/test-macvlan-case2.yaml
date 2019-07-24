@@ -2,6 +2,7 @@
 spec:
   additionalNetworks:
   - name: test-macvlan-case2
+    namespace: openshift-multus
     simpleMacvlanConfig:
       ipamConfig:
         type: dhcp
