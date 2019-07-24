@@ -18,5 +18,5 @@ spec:
         "forceAddress": false,
         "hairpinMode": true,
         "promiscMode": false,
-        "vlan": 100
+        "vlan": 200
   }'
