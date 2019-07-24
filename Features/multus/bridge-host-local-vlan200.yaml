@@ -1,22 +1,22 @@
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
-  name: macvlan-bridge
+  name: macvlan-bridge-1
 spec:
   config: '{
         "cniVersion": "0.3.1",
-        "name": "myvlanbridge",
+        "name": "myvlanbridge-1",
         "type": "bridge",
         "ipMasq": true,
         "bridge": "mynet0",
         "ipam": {
                 "type": "host-local",
-                "subnet": "10.52.0.0/24"
+                "subnet": "10.10.200.0/24"
         },
-        isGateway": true
+        isGateway": true,
         "isDefaultGateway": true,
         "forceAddress": false,
         "hairpinMode": true,
-        promiscMode": false,
+        "promiscMode": false,
         "vlan": 100
   }'
