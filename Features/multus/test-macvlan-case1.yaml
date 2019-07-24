@@ -3,6 +3,7 @@
 spec:
   additionalNetworks:
   - name: test-macvlan-case1
+    namespace: openshift-multus
     type: SimpleMacvlan
 
 
