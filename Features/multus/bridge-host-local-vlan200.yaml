@@ -13,7 +13,7 @@ spec:
                 "type": "host-local",
                 "subnet": "10.10.200.0/24"
         },
-        isGateway": true,
+        "isGateway": true,
         "isDefaultGateway": true,
         "forceAddress": false,
         "hairpinMode": true,
