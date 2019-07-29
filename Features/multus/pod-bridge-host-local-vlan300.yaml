@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: pod-bridge-host-local-vlan300
   annotations:
-    k8s.v1.cni.cncf.io/networks: bridge-host-local-vlan300
+    k8s.v1.cni.cncf.io/networks: myvlanbridge-2
 spec:
   containers:
   - name: pod-bridge-host-local-vlan300
