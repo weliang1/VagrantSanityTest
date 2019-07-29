@@ -17,5 +17,5 @@ spec:
         "isDefaultGateway": true,
         "forceAddress": false,
         "hairpinMode": true,
-        "promiscMode": false,
+        "promiscMode": false
   }'
