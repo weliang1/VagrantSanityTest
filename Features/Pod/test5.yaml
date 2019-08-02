@@ -1,19 +1,73 @@
----
-kind: Pod
 apiVersion: v1
-metadata:
-  name: red-pod-1
-  labels:
-    name: red-openshift
-spec:
-  dnsPolicy: ClusterFirst
-  containers:
-  - name: red-pod-container
-    image: bmeng/hello-openshift
-    env:
-    - name: RESPONSE
-      value: Hello Red Pod-1 Example
-    ports:
-    - containerPort: 8080
-    - containerPort: 443
-
+items:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: hello-openshift
+    name: hello-openshift
+  spec:
+    tags:
+    - annotations:
+        openshift.io/imported-from: bmeng/hello-openshift
+      from:
+        kind: DockerImage
+        name: bmeng/hello-openshift
+      generation: null
+      importPolicy: {}
+      name: latest
+  status:
+    dockerImageRepository: ""
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: hello-openshift-2
+    name: hello-openshift-2
+  spec:
+    replicas: 3
+    selector:
+      app: hello-openshift-2
+      deploymentconfig: hello-openshift-2
+    strategy:
+      resources: {}
+    template:
+      metadata:
+        annotations:
+          openshift.io/container.hello-openshift.image.entrypoint: '["/hello-openshift"]'
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: hello-openshift-2
+          deploymentconfig: hello-openshift-2
+      spec:
+        containers:
+        - image: bmeng/hello-openshift
+          name: hello-openshift-2
+          env:
+          - name: RESPONSE
+            value: Hello-openshift-2
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          - containerPort: 8888
+            protocol: TCP
+          resources: {}
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - hello-openshift-2
+        from:
+          kind: ImageStreamTag
+          name: hello-openshift:latest
+      type: ImageChange
+  status: {}
