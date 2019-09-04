@@ -1,5 +1,5 @@
 # The allow-http-and-https-ns-a policy specifies “allow ingress traffic to sockets tcp/80 and tcp/443 
-# from any pod in namespace ‘project-a’ to any other pod in namespace ‘project-a’.”
+# from any pod in the same namespace 
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
