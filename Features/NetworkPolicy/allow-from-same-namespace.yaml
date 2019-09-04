@@ -1,5 +1,5 @@
 # The allow-from-same-namespace policy specifies “all pods in namespace ‘project-a’ 
-# allow traffic from any other pods in the same namespace.”
+# allow traffic from same namespace.”
 kind: NetworkPolicy
 apiVersion: extensions/v1beta1
 metadata:
