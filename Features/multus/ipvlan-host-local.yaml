@@ -10,6 +10,6 @@ spec:
 	      "master": "ens5",
 	      "ipam": {
 		             "type": "host-local",
-		             "subnet": "10.1.2.0/24"
+		             "subnet": "22.2.2.0/24"
 	}
 }'
