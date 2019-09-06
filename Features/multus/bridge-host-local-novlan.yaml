@@ -4,17 +4,16 @@ metadata:
   name: macvlan-bridge-3
 spec:
   config: '{
-        "cniVersion": "0.3.1",
-          "name": "myvlanbridge-3",
+          "name": "myvlanbridge3",
           "type": "bridge",
           "ipMasq": true,
           "bridge": "bridge3",
           "ipam": {
                     "type": "host-local",
-                    "subnet": "22.2.2.0/24
+                    "subnet": "22.2.2.0/24"
           },
           "isDefaultGateway": true,
-	  "forceAddress": false,
-	  "ipMasq": true,
-	  "hairpinMode": true
+          "forceAddress": false,
+          "ipMasq": true,
+          "hairpinMode": true
   }'
