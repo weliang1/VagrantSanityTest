@@ -4,8 +4,9 @@ metadata:
   name: bridgelayer2
 spec:
   config: '{
-          "name": "bridgelayer2",
-          "type": "bridge",
-          "bridge": "bridgelayer2",
-          "ipam": { }
+          "cniVersion": "0.3.1",
+            "name": "bridgelayer2",
+            "type": "bridge",
+            "bridge": "bridgelayer2",
+            "ipam": { }
   }'
