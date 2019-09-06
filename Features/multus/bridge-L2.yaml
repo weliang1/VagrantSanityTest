@@ -1,11 +1,11 @@
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
-  name: bridgeL2
+  name: bridgelayer2
 spec:
   config: '{
-          "name": "bridgeL2",
+          "name": "bridgelayer2",
           "type": "bridge",
-          "bridge": "bridgeL2",
+          "bridge": "bridgelayer2",
           "ipam": { }
   }'
