@@ -8,14 +8,9 @@ spec:
         "name": "myvlanbridge-3",
         "type": "bridge",
         "ipMasq": true,
-        "bridge": "mynet0",
+        "bridge": "ens5",
         "ipam": {
-                "type": "host-local",
-                "subnet": "22.22.22.0/24
-        },
-        "isGateway": true,
-        "isDefaultGateway": true,
-        "forceAddress": false,
-        "hairpinMode": true,
-        "promiscMode": false
+                  "type": "host-local",
+                  "subnet": "22.2.2.0/24
+        }
   }'
