@@ -7,7 +7,7 @@ spec:
           "name": "bridge1",
           "type": "bridge",
           "ipMasq": true,
-          "bridge": "bridge3",
+          "bridge": "bridge1",
           "ipam": {
                     "type": "host-local",
                     "subnet": "22.2.2.0/24"
