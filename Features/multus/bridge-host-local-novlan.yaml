@@ -1,10 +1,10 @@
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
-  name: macvlan-bridge-3
+  name: bridge3
 spec:
   config: '{
-          "name": "myvlanbridge3",
+          "name": "bridge3",
           "type": "bridge",
           "ipMasq": true,
           "bridge": "bridge3",
