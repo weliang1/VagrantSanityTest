@@ -6,6 +6,7 @@ spec:
   config: '{
           "name": "macvlan-ipam-static",
           "type": "macvlan",
+          "mode": "bridge",
           "master": "ens5",
           "ipam": {
                     "type": "static",
