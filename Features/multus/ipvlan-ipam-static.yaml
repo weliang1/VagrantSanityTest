@@ -1,10 +1,10 @@
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
-  name: ipam-static1 
+  name: ipvlan-ipam-static 
 spec:
   config: '{
-          "name": "ipam-static1",
+          "name": "ipvlan-ipam-static",
           "type": "ipvlan",
           "master": "ens5",
           "ipam": {
