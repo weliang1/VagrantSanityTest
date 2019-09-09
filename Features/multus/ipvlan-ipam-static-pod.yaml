@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: ipvlan-ipam-static-pod
   annotations:
-    k8s.v1.cni.cncf.io/networks: ipam-static
+    k8s.v1.cni.cncf.io/networks: ipvlan-ipam-static
 spec:
   containers:
   - name: ipvlan-ipam-static-pod
