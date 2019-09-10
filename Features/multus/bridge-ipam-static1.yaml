@@ -1,7 +1,7 @@
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
-  name: bridge-ipam-static1 
+  name: bridge-ipam-static1
 spec:
   config: '{
           "name": "bridge-ipam-static1",
