@@ -6,6 +6,6 @@ metadata:
     k8s.v1.cni.cncf.io/networks: bridge-ipam-static2
 spec:
   containers:
-  - name: ipvlan-ipam-static-pod2
+  - name: bridge-ipam-static-pod2
     command: ["/bin/bash", "-c", "sleep 2000000000000"]
     image: dougbtv/centos-network
