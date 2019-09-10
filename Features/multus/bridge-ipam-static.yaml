@@ -1,0 +1,20 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: bridge-ipam-static 
+spec:
+  config: '{
+          "name": "bridge-ipam-static",
+          "type": "bridge",
+          "ipMasq": true,
+          "bridge": "bridge-ipam-static",
+          "ipam": {
+                    "type": "static",
+                    "addresses": [
+                        {
+                          "address": "22.2.2.2/24",
+                          "gateway": "22.2.2.254"
+                        }
+                    ]
+          }
+  }'
