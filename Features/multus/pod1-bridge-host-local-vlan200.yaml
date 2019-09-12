@@ -6,6 +6,6 @@ metadata:
     k8s.v1.cni.cncf.io/networks: bridge1
 spec:
   containers:
-  - name: pod-vlan200
+  - name: pod1-vlan200
     command: ["/bin/bash", "-c", "sleep 2000000000000"]
     image: dougbtv/centos-network
