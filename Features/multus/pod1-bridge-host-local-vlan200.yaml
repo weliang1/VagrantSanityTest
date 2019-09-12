@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-vlan200
+  name: pod1-vlan200
   annotations:
     k8s.v1.cni.cncf.io/networks: bridge1
 spec:
