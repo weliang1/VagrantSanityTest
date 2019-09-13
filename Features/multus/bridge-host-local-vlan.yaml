@@ -16,5 +16,5 @@ spec:
           "forceAddress": false,
           "ipMasq": true,
           "hairpinMode": true,
-          "vlan": id
+          "vlan": 22
   }'
