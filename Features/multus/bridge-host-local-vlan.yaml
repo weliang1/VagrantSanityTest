@@ -11,10 +11,12 @@ spec:
           "ipam": {
                     "type": "host-local",
                     "subnet": "22.2.2.0/24"
+                    "rangeStart": "22.2.2.10",
+                    "rangeEnd": "22.2.2.90"
           },
           "isDefaultGateway": true,
           "forceAddress": false,
           "ipMasq": true,
           "hairpinMode": true,
-          "vlan": 22
+          "vlan": 100
   }'
