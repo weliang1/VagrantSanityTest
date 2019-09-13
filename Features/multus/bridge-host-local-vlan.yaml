@@ -1,13 +1,13 @@
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
-  name: bridge-host-local-vlan
+  name: bridgevlan
 spec:
   config: '{
-          "name": "bridge-host-local-vlan",
+          "name": "bridgevlan",
           "type": "bridge",
           "ipMasq": true,
-          "bridge": "bridge1",
+          "bridge": "mybridge",
           "ipam": {
                     "type": "host-local",
                     "subnet": "22.2.2.0/24"
