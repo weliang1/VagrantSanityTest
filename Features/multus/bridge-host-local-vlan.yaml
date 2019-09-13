@@ -4,7 +4,7 @@ metadata:
   name: bridgevlan
 spec:
   config: '{
-          "name": "bridgevlan",
+          "name": "mybridge",
           "type": "bridge",
           "ipMasq": true,
           "bridge": "mybridge",
