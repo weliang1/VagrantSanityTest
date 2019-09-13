@@ -4,7 +4,7 @@ metadata:
   name: bridge-host-local-vlan
 spec:
   config: '{
-          "name": "bridge-host-local-vlan"
+          "name": "bridge-host-local-vlan",
           "type": "bridge",
           "ipMasq": true,
           "bridge": "bridge1",
