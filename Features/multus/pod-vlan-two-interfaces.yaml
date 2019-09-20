@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: podvlan
   annotations:
-    k8s.v1.cni.cncf.io/networks: bridgevlan100, bridgevlan200
+    k8s.v1.cni.cncf.io/networks: bridgevlan-100,bridgevlan-200
 spec:
   containers:
   - name: podvlan
