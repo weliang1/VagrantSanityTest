@@ -10,7 +10,7 @@ spec:
           "bridge": "mybridge",
           "ipam": {
                     "type": "host-local",
-                    "subnet": "22.2.2.0/24"
+                    "subnet": "22.2.2.0/24",
                     "rangeStart": "22.2.2.100",
                     "rangeEnd": "22.2.2.120"
           },
