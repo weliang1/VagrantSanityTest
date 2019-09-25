@@ -1,10 +1,8 @@
-apiVersion: operator.openshift.io/v1
-kind: Network
-metadata:
-  name: cluster
+#### Use: oc edit networks.operator.openshift.io cluster
 spec:
   additionalNetworks: 
-  - name: test-network-1
+  - name: CNO_raw_bridge
+    namespace: test1
     type: Raw
     rawCNIConfig: '{
       "cniVersion": "0.3.1",
