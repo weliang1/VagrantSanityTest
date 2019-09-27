@@ -9,8 +9,8 @@ spec:
       "master": "ens5",
       "ipam": {
         "type": "host-local",
-        "subnet": "20.2.2.0/24",
-        "rangeStart": "20.2.2.100",
-        "rangeEnd": "20.2.2.200"
+        "subnet": "22.2.2.0/24",
+        "rangeStart": "22.2.2.100",
+        "rangeEnd": "22.2.2.200"
       }
     }'
