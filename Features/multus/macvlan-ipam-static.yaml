@@ -1,10 +1,10 @@
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
-  name: macvlan-ipam-name
+  name: macvlan-ipam-static
 spec:
   config: '{
-          "name": "macvlan-ipam-name",
+          "name": "macvlan-ipam-static",
           "type": "macvlan",
           "mode": "macvlan-mode",
           "master": "ens5",
