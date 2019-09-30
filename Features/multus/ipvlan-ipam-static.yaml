@@ -6,7 +6,7 @@ spec:
   config: '{
           "name": "ipvlan-ipam-static",
           "type": "ipvlan",
-          "master": "ens5",
+          "master": "ens3",
           "ipam": {
                     "type": "static",
                     "addresses": [
