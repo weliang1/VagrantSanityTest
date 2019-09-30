@@ -7,7 +7,7 @@ spec:
           "name": "macvlan-ipam-static",
           "type": "macvlan",
           "mode": "macvlan-mode",
-          "master": "ens5",
+          "master": "ens3",
           "ipam": {
                     "type": "static",
                     "addresses": [
