@@ -1,0 +1,427 @@
+  # @author weliang@redhat.com
+  # @case_id OCP-24668
+  @admin
+  Scenario: externalIP defined in service but no sepc.externalIP defined	
+    Given I switch to the first user
+    Given I have a project 
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    
+    # Create a service with a externalIP in :proj1
+    When I run the :create client command with:
+      | f | https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json | 
+      | n | <%= cb.proj1 %> |
+    Then the output should contain "externalIPs have been disabled"       
+      
+  # @author weliang@redhat.com
+  # @case_id OCP-24669
+  @admin
+  Scenario: externalIP defined in service with set ExternalIP in allowedCIDRs	 
+    # Create additional network through CNO
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"allowedCIDRs":["22.2.2.0/24"]}}}} |
+      | type          | merge | 
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.allowedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.0"
+    """
+ 
+    # Need wait for about 300 seconds to apply new additional network configuration
+    Given 300 seconds have passed
+    
+    # Create a svc with externalIP/22.2.2.10
+    Given I switch to the first user
+    Given I have a project 
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json"
+    And I replace lines in "externalip_service1.json":
+      | 10.5.0.1 | 22.2.2.10 |
+    And I run the :create client command with:
+      | f | externalip_service1.json |
+      | n | <%= cb.proj1 %> |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get client command with:
+      | resource      | service               |
+      | n             | <%= cb.proj1 %> |
+      | resource_name | service-unsecure             |
+      | template      | {{.spec.externalIPs}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.10"
+    """
+ 
+    # Create a pod
+    When I run the :create client command with:
+      | f | https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/routing/caddy-docker.json |
+    Then the step should succeed
+    And a pod becomes ready with labels:
+      | name=caddy-docker |
+
+    # Curl externalIP:portnumber should pass
+    When I run the :rsh client command with:
+      | pod         | caddy-docker |
+      | n           | <%= cb.proj1 %> |
+      | command     | curl             |
+      | command_arg | 22.2.2.10:27017   |
+    Then the output should contain "Hello-OpenShift-1 http-8080"
+  
+    # Change spec.externalIP.policy back to default setup
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"allowedCIDRs": null}}}} |
+      | type          | merge |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.allowedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should not contain "22.2.2.0"
+    """      
+  # @author weliang@redhat.com
+  # @case_id OCP-24670
+  @admin
+  Scenario: externalIP defined in service with set ExternalIP in rejectedCIDRs
+    # Create additional network through CNO
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"rejectedCIDRs":["22.2.2.0/24"]}}}} |
+      | type          | merge |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.rejectedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.0"
+    """
+
+    # Need wait for about 300 seconds to apply new additional network configuration
+    Given 300 seconds have passed
+
+    # Create a svc with externalIP/22.2.2.10
+    Given I switch to the first user
+    Given I have a project
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json"
+    And I replace lines in "externalip_service1.json":
+      | 10.5.0.1 | 22.2.2.10 |
+    And I run the :create client command with:
+      | f | externalip_service1.json |
+      | n | <%= cb.proj1 %> |
+    Then the step should fail
+    And the output should contain "externalIPs have been disabled"
+   
+    # Change spec.externalIP.policy back to default setup
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"rejectedCIDRs": null}}}} |
+      | type          | merge |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.rejectedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should not contain "22.2.2.0"
+    """
+
+  # @author weliang@redhat.com
+  # @case_id OCP-24691
+  @admin
+  Scenario: Defined Multiple allowedCIDRs 
+    # Create additional network through CNO
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"allowedCIDRs":["22.2.2.0/24","44.4.4.0/24"]}}}} |
+      | type          | merge | 
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.allowedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.0"
+    And the output should contain "44.4.4.0"
+    """
+
+    # Need wait for about 300 seconds to apply new additional network configuration
+    Given 300 seconds have passed
+    
+    # Create a svc with externalIP/22.2.2.10
+    Given I switch to the first user
+    Given I have a project 
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json"
+    And I replace lines in "externalip_service1.json":
+      | 10.5.0.1 | 22.2.2.10 |
+    And I run the :create client command with:
+      | f | externalip_service1.json |
+      | n | <%= cb.proj1 %> |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get client command with:
+      | resource      | service               |
+      | n             | <%= cb.proj1 %> |
+      | resource_name | service-unsecure             |
+      | template      | {{.spec.externalIPs}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.10"
+    """
+    
+    # Create a pod
+    When I run the :create client command with:
+      | f | https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/routing/caddy-docker.json |
+    Then the step should succeed
+    And a pod becomes ready with labels:
+      | name=caddy-docker |
+    
+    # Curl externalIP:portnumber from pod 
+    When I run the :rsh client command with:
+      | pod         | caddy-docker |
+      | n           | <%= cb.proj1 %> |
+      | command     | curl             |
+      | command_arg | 22.2.2.10:27017   |
+    Then the output should contain "Hello-OpenShift-1 http-8080"
+    
+    # Delete created pod and svc
+    When I run the :delete client command with:
+      | object_type | all |
+      | all         |     |
+      | n           | <%= cb.proj1 %> |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get client command with:
+      | resource      | all               |
+      | n             | <%= cb.proj1 %> |
+    And the output should contain "No resources found"
+    """
+    
+    # Create a svc with externalIP/44.4.4.10
+    Given I switch to the first user
+    Given I have a project 
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json"
+    And I replace lines in "externalip_service1.json":
+      | 10.5.0.1 | 44.4.4.10 |
+    And I run the :create client command with:
+      | f | externalip_service1.json |
+      | n | <%= cb.proj1 %> |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get client command with:
+      | resource      | service               |
+      | n             | <%= cb.proj1 %> |
+      | resource_name | service-unsecure             |
+      | template      | {{.spec.externalIPs}} |
+      | o             | yaml   |
+    And the output should contain "44.4.4.10"
+    """
+ 
+    # Create a pod
+    When I run the :create client command with:
+      | f | https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/routing/caddy-docker.json |
+    Then the step should succeed
+    And a pod becomes ready with labels:
+      | name=caddy-docker |
+    
+    # Curl externalIP:portnumber on new pod 
+    When I run the :rsh client command with:
+      | pod         | caddy-docker |
+      | command     | curl             |
+      | command_arg | 44.4.4.10:27017   |
+      | n           | <%= cb.proj1 %> |
+    Then the output should contain "Hello-OpenShift-1 http-8080"
+
+    # Change spec.externalIP.policy back to default setup
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"allowedCIDRs": null}}}} |
+      | type          | merge |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.allowedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should not contain "22.2.2.0"
+    And the output should not contain "44.4.4.0"
+    """
+
+  # @author weliang@redhat.com
+  # @case_id OCP-24692
+  @admin
+  Scenario: A rejectedCIDRs inside an allowedCIDRs	 
+    # Create additional network through CNO
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"allowedCIDRs":["22.2.2.0/24"],"rejectedCIDRs":["22.2.2.0/25"]}}}} |
+      | type          | merge | 
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.allowedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.0/24"
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.rejectedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.0/25"
+    """
+
+    # Need wait for about 300 seconds to apply new additional network configuration  
+    Given 300 seconds have passed
+    
+    # Create a svc with a rejected externalIP/22.2.2.10
+    Given I switch to the first user
+    Given I have a project 
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json"
+    And I replace lines in "externalip_service1.json":
+      | 10.5.0.1 | 22.2.2.10 |
+    And I run the :create client command with:
+      | f | externalip_service1.json |
+      | n | <%= cb.proj1 %> |
+    Then the output should contain "externalIP is not allowed"
+    
+    # Create a svc with allowed externalIP/22.2.2.130
+    Given I switch to the first user
+    Given I have a project 
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json"
+    And I replace lines in "externalip_service1.json":
+      | 10.5.0.1 | 22.2.2.130 |
+    And I run the :create client command with:
+      | f | externalip_service1.json |
+      | n | <%= cb.proj1 %> |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get client command with:
+      | resource      | service               |
+      | n             | <%= cb.proj1 %> |
+      | resource_name | service-unsecure             |
+      | template      | {{.spec.externalIPs}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.130"
+    """
+ 
+    # Create a pod
+    When I run the :create client command with:
+      | f | https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/routing/caddy-docker.json |
+    Then the step should succeed
+    And a pod becomes ready with labels:
+      | name=caddy-docker |
+    
+    # Curl externalIP:portnumber on new pod 
+    When I run the :rsh client command with:
+      | pod         | caddy-docker |
+      | command     | curl             |
+      | command_arg | 22.2.2.130:27017   |
+      | n             | <%= cb.proj1 %> |
+    Then the output should contain "Hello-OpenShift-1 http-8080"
+
+    # Change spec.externalIP.policy back to default setup
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"allowedCIDRs": null,"rejectedCIDRs": null}}}} |
+      | type          | merge |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.allowedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should not contain "22.2.2"
+    """
+
+  # @author weliang@redhat.com
+  # @case_id OCP-24739
+  @admin
+  Scenario: An allowedCIDRs inside an rejectedCIDRs	 
+    # Create additional network through CNO
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"allowedCIDRs":["22.2.2.0/25"],"rejectedCIDRs":["22.2.2.0/24"]}}}} |
+      | type          | merge | 
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.allowedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.0/25"
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.rejectedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should contain "22.2.2.0/24"
+    """
+
+    # Need wait for about 300 seconds to apply new additional network configuration  
+    Given 300 seconds have passed
+    
+    # Create a svc with a rejected externalIP/22.2.2.10
+    Given I switch to the first user
+    Given I have a project 
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json"
+    And I replace lines in "externalip_service1.json":
+      | 10.5.0.1 | 22.2.2.10 |
+    And I run the :create client command with:
+      | f | externalip_service1.json |
+      | n | <%= cb.proj1 %> |
+    Then the output should contain "externalIP is not allowed"
+    
+    # Create a svc with allowed externalIP/22.2.2.130
+    Given I switch to the first user
+    Given I have a project 
+    And evaluation of `project.name` is stored in the :proj1 clipboard
+    When I download a file from "https://raw.githubusercontent.com/openshift-qe/v3-testfiles/master/networking/externalip_service1.json"
+    And I replace lines in "externalip_service1.json":
+      | 10.5.0.1 | 22.2.2.130 |
+    And I run the :create client command with:
+      | f | externalip_service1.json |
+      | n | <%= cb.proj1 %> |
+    Then the output should contain "externalIP is not allowed"
+
+    # Change spec.externalIP.policy back to default setup
+    When I run the :patch admin command with:
+      | resource      | networks.config.openshift.io |
+      | resource_name | cluster           |
+      | p             | {"spec":{"externalIP":{"policy":{"allowedCIDRs": null,"rejectedCIDRs": null}}}} |
+      | type          | merge |
+    Then I wait for the steps to pass:
+    """
+    When I run the :get admin command with:
+      | resource      | networks.config.openshift.io                |
+      | resource_name | cluster             |
+      | template      | {{{{.spec.externalIP.policy.allowedCIDRs}}}} |
+      | o             | yaml   |
+    And the output should not contain "22.2.2"
+    """
