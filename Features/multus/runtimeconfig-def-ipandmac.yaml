@@ -14,7 +14,7 @@ spec:
             "type": "static"
           }
         }, {
-          "capabilities": { "mac": true },
-          "type": "tuning"
+              "type": "tuning",
+              "capabilities": { "mac": true }
         }]
     }'
