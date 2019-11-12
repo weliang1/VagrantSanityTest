@@ -10,7 +10,7 @@ spec:
                 {
                     "type": "macvlan",
                     "capabilities": { "ips": true },
-                    "master": "ens3",
+                    "master": "ens5",
                     "mode": "bridge",
                     "ipam": {
                          "type": "static",
