@@ -5,7 +5,7 @@ metadata:
   annotations:
     k8s.v1.cni.cncf.io/networks: '[{
       "name": "bridge-static",
-      "default-route": ["192.168.2.2"]
+      "default-route": ["22.2.2.254"]
     }]'
 spec:
   containers:
