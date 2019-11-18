@@ -1,0 +1,22 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: multicast-macvlan-host-local
+spec:
+  config: '{
+          "name": "multicast-macvlan-host-local",
+          "type": "macvlan",
+          "mode": "macvlan-mode",
+          "master": "ens5",
+          "ipam": {
+            "type": "host-local",
+            "subnet": "192.168.22.0/24",
+            "rangeStart": "192.168.22.100",
+            "rangeEnd": "192.168.22.200",
+            "routes": [
+                  {"dst": "224.0.0.0/5"},
+                  {"dst": "232.0.0.0/5"}
+            ],
+            "gateway": "192.168.22.1
+          }
+  }'
