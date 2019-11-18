@@ -6,7 +6,7 @@ spec:
   config: '{
           "name": "multicast-macvlan-host-local",
           "type": "macvlan",
-          "mode": "macvlan-mode",
+          "mode": "bridge",
           "master": "ens5",
           "ipam": {
             "type": "host-local",
