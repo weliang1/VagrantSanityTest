@@ -1,0 +1,10 @@
+{
+	"apiVersion": "k8s.cni.cncf.io/v1",
+	"kind": "NetworkAttachmentDefinition",
+	"metadata": {
+		"name": "runtimeconfig-def"
+	},
+	"spec": {
+		"config": "{\n\"cniVersion\": \"0.3.1\",\n\"name\": \"runtimeconfig-def\",\n\"plugins\": [{\n\"type\": \"macvlan\",\n\"capabilities\": { \"ips\": true },\n\"master\": \"ens5\",\n\"mode\": \"bridge\",\n\"ipam\": {\n\"type\": \"static\"\n}\n}, {\n\"type\": \"tuning\",\n\"capabilities\": { \"mac\": true }\n}]\n}"
+	}
+}
