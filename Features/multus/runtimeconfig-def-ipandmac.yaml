@@ -9,7 +9,6 @@ spec:
       "plugins": [{
           "type": "macvlan",
           "capabilities": { "ips": true },
-          "master": "ens5",
           "mode": "bridge",
           "ipam": {
             "type": "static"
