@@ -10,7 +10,7 @@ metadata:
 spec:
   containers:
   - name: runtimeconfig-pod-mac
-    image: docker.io/library/centos:7
+    image: docker.io/bmeng/centos-network
     command:
     - /sbin/init
     
