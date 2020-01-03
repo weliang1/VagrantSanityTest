@@ -10,7 +10,7 @@ metadata:
 spec:
   containers:
   - name: runtimeconfig-pod-mac
-    image: docker.io/centos/tools:latest
+    image: docker.io/aosqe/caddy-docker-2:latest
     command:
     - /sbin/init
     
