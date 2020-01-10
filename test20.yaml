@@ -3,7 +3,7 @@ kind: NetworkAttachmentDefinition
 metadata:
   name: ipam-name
 spec:
-  config: {
+  config: '{
       "cniVersion": "0.3.0",
       "type": "ipam-type",
       "master": "ens3",
@@ -16,4 +16,4 @@ spec:
                         }
                     ]
           }
-    }
+    }'
