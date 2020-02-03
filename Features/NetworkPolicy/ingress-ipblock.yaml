@@ -9,7 +9,7 @@ spec:
       - ipBlock:
           cidr: 10.128.2.0/24
           except:
-          - 10.128.2.100/30
+          - 10.128.2.7/32
     podSelector: {}
     policyTypes:
     - Ingress
