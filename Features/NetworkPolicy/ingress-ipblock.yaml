@@ -1,0 +1,15 @@
+--- 
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata: 
+  name: default-deny
+spec: 
+  ingress:
+    - from:
+      - ipBlock:
+          cidr: 10.128.2.0/24
+          except:
+          - 10.128.2.100/30
+    podSelector: {}
+    policyTypes:
+    - Ingress
