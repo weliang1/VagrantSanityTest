@@ -1,7 +1,7 @@
 # policy specifies “the only traffic allowed is from any red pod in namespace ‘project-a’ 
 # to any blue pod in namespace ‘project-a’.”
 kind: NetworkPolicy
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 metadata:
   name: allow-from-red-to-blue
 spec:
