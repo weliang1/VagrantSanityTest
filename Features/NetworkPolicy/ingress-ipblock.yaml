@@ -10,6 +10,5 @@ spec:
           cidr: 10.128.2.0/24
           except:
           - 10.128.2.7/32
-    podSelector: {}
-    policyTypes:
-    - Ingress
+      podSelector: {}
+    
