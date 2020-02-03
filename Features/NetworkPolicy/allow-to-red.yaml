@@ -1,6 +1,6 @@
 # policy specifies “all red pods in namespace ‘project-a’ allow traffic from any pods in any namespace.”
 kind: NetworkPolicy
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 metadata:
   name: allow-to-red
 spec:
