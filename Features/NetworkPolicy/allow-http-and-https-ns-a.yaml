@@ -1,7 +1,7 @@
 # The allow-http-and-https-ns-a policy specifies “allow ingress traffic to sockets tcp/80 and tcp/443 
 # from any pod in the same namespace 
 kind: NetworkPolicy
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 metadata:
   name: allow-http-and-https-ns-a
 spec:
