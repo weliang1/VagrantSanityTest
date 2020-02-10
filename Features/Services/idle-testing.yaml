@@ -16,12 +16,8 @@ items:
           name: test-pods
       spec:
         containers:
-        - image: weliang/test-pod
+        - image: bmeng/hello-openshift
           name: test-pod
-          imagePullPolicy: IfNotPresent
-          resources:
-            limits:
-              memory: 340Mi
 - apiVersion: v1
   kind: Service
   metadata:
