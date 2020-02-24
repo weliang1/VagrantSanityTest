@@ -31,7 +31,7 @@ items:
       app: hello-openshift-3
     name: hello-openshift-3
   spec:
-    replicas: 500
+    replicas: 400
     selector:
       app: hello-openshift-3
       deploymentconfig: hello-openshift-3
