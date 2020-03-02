@@ -11,7 +11,7 @@ spec:
                     "type": "static",
                     "addresses": [
                         {
-                          "address": "fd0::22.2.2.22/128"
+                          "address": "fd00::22:2:2:22/128"
                         }
                     ]
           }
