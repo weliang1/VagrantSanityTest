@@ -7,5 +7,4 @@ metadata:
 spec:
   containers:
   - name: pod-name
-    command: ["/bin/bash", "-c", "sleep 2000000000000"]
     image: bmeng/hello-openshift
