@@ -9,7 +9,7 @@ spec:
     "plugins": [
     {
         "type": "macvlan",
-        "master": "eth3",
+        "master": "ens3",
         "mode": "bridge",
         "ipam": {
             "type": "static",
