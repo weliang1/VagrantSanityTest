@@ -1,0 +1,44 @@
+---
+kind: List
+apiVersion: v1
+metadata:
+  name: sctp-service
+items:
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: sctp-service
+  spec:
+    selector:
+      name: sctp-pod
+    ports:
+    - protocol: SCTP
+      port: 30100
+      targetPort: 30100
+    type: NodePort
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: sctp-server-pod
+    labels:
+      name: sctp-pod
+  spec:
+    containers:
+    - name: sctp-server-pod
+      image: quay.io/wcaban/net-toolbox:latest
+      ports:
+      - containerPort: 30100
+        command: ["sleep", "infinity"]
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: sctp-client-pod
+    labels:
+      name: sctp-pod
+  spec:
+    containers:
+    - name: sctp-client-pod
+      image: quay.io/wcaban/net-toolbox:latest
+      ports:
+      - containerPort: 30100
+        command: ["sleep", "infinity"]
