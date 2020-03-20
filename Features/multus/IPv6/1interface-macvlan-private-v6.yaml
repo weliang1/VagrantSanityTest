@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  generateName: macvlan-private-pod-v6
+  labels:
+    name: macvlan-private-pod-v6
+  annotations:
+    k8s.v1.cni.cncf.io/networks: macvlan-private-v6
+spec:
+  containers:
+  - name: macvlan-private-pod-v6
+    image: aosqe/pod-for-ping
+    imagePullPolicy: IfNotPresent
