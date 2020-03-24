@@ -73,3 +73,26 @@ sh-4.2# curl -g [fd00::22:2:2:104]:8080
 Hello OpenShift!
 sh-4.2# 
 
+#### notes: curl -6 [pod1_multus_ipv6]:8080 pass when using pod's image as bmeng/centos-network
+[weliang@weliang FILE]$ oc rsh macvlan-bridge-pod-v6x4hjm
+/ # ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+3: eth0@if18: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 8951 qdisc noqueue state UP 
+    link/ether 0a:58:0a:81:02:0d brd ff:ff:ff:ff:ff:ff
+    inet 10.129.2.13/23 brd 10.129.3.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::34aa:e3ff:fee9:1be8/64 scope link 
+       valid_lft forever preferred_lft forever
+4: net1@if2: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 9001 qdisc noqueue state UP 
+    link/ether 8e:86:6b:64:99:8f brd ff:ff:ff:ff:ff:ff
+    inet6 fd00::22:2:2:101/112 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::8c86:6bff:fe64:998f/64 scope link 
+       valid_lft forever preferred_lft forever
+/ # curl -6 [fd00::22:2:2:101]:8080
+Hello OpenShift!
