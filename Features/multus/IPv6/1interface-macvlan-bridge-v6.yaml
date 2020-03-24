@@ -5,7 +5,7 @@ metadata:
   labels:
     name: macvlan-bridge-pod-v6
   annotations:
-    k8s.v1.cni.cncf.io/networks: macvlan-bridge
+    k8s.v1.cni.cncf.io/networks: macvlan-bridge-v6
 spec:
   containers:
   - name: macvlan-bridge-pod-v6
