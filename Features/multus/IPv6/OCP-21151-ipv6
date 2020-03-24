@@ -48,10 +48,10 @@ Feature: Multus-CNI related scenarios
 
     # Try to access both the cluster ip and macvlan ip on pod1 from pod2
     When I execute on the "<%= cb.pod2 %>" pod:
-      | curl -6 | --connect-timeout | 5 | <%= cb.pod1_sdn_ipv6 %>:8080    |
+      | curl -6 | --connect-timeout | 5 | [<%= cb.pod1_sdn_ipv6 %>]:8080    |
     Then the step should succeed
     And the output should contain "Hello OpenShift"
     When I execute on the "<%= cb.pod2 %>" pod:
-      | curl -6 | --connect-timeout | 5 | <%= cb.pod1_multus_ipv6 %>:8080 |
+      | curl -6 | --connect-timeout | 5 | [<%= cb.pod1_multus_ipv6 %>]:8080 |
     Then the step should succeed
     And the output should contain "Hello OpenShift"
