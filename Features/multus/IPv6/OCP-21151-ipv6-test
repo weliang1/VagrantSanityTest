@@ -21,7 +21,7 @@ Feature: Multus-CNI related scenarios
       | ["spec"]["nodeName"] | "<%= cb.target_node %>" |
     Then the step should succeed
     And a pod becomes ready with labels:
-      | name=macvlan-bridge-pod |
+      | name=macvlan-bridge-pod-v6 |
     And evaluation of `pod.node_name` is stored in the :pod_node clipboard
 
     # Check that the macvlan with mode bridge is added to the pod
@@ -43,15 +43,15 @@ Feature: Multus-CNI related scenarios
       | ["spec"]["nodeName"] | "<%= cb.target_node %>" |
     Then the step should succeed
     And 2 pods become ready with labels:
-      | name=macvlan-bridge-pod |
+      | name=macvlan-bridge-pod-v6 |
     And evaluation of `pod(-1).name` is stored in the :pod2 clipboard
 
     # Try to access both the cluster ip and macvlan ip on pod1 from pod2
     When I execute on the "<%= cb.pod2 %>" pod:
-      | curl -6 | --connect-timeout | 5 | [<%= cb.pod1_sdn_ipv6 %>]:8080    |
+      | curl -g | --connect-timeout | 5 | [<%= cb.pod1_sdn_ipv6 %>]:8080    |
     Then the step should succeed
     And the output should contain "Hello OpenShift"
     When I execute on the "<%= cb.pod2 %>" pod:
-      | curl -6 | --connect-timeout | 5 | [<%= cb.pod1_multus_ipv6 %>]:8080 |
+      | curl -g | --connect-timeout | 5 | [<%= cb.pod1_multus_ipv6 %>]:8080 |
     Then the step should succeed
     And the output should contain "Hello OpenShift"
