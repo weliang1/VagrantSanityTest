@@ -9,5 +9,5 @@ metadata:
 spec:
   containers:
   - name: macvlan-bridge-pod-v6
-    image: registry.ocp-edge-cluster.qe.lab.redhat.com:5000/openshift/centos-network
+    image: bmeng/centos-network
     imagePullPolicy: IfNotPresent
