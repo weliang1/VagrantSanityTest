@@ -9,5 +9,5 @@ metadata:
 spec:
   containers:
   - name: macvlan-private-pod-v6
-    image: aosqe/pod-for-ping
+    image: bmeng/centos-network
     imagePullPolicy: IfNotPresent
