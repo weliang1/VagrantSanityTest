@@ -19,7 +19,7 @@ items:
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: sctp-server-pod
+    generateName: sctp-server-pod
     labels:
       name: sctp-server-pod
   spec:
@@ -34,7 +34,7 @@ items:
 - kind: Pod
   apiVersion: v1
   metadata:
-    name: sctp-client-pod
+    generateName: sctp-client-pod
     labels:
       name: sctp-client-pod
   spec:
