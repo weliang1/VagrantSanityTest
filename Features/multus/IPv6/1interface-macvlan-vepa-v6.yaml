@@ -9,5 +9,5 @@ metadata:
 spec:
   containers:
   - name: macvlan-vepa-pod-v6
-    image: bmeng/centos-network
+    image: docker.io/aosqe/multus-pod:latest
     imagePullPolicy: IfNotPresent
