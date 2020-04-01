@@ -10,6 +10,6 @@ spec:
   ports:
     - name: sctpserver
       protocol: SCTP
-      port: 30101
+      port: 30102
       targetPort: 'sctpserver'
   type: NodePort
