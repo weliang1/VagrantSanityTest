@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: sctpserver
-      image: fedora:31
+      image: registry.access.redhat.com/ubi8/ubi
       command: ["/bin/sh", "-c"]
       args:
         ["dnf install -y nc && nc -l 30102 --sctp"]
