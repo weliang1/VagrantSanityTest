@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sctpserver
+  labels:
+    app: sctpserver
+spec:
+  containers:
+    - name: sctpserver
+      image: registry.access.redhat.com/ubi8/ubi
+      
