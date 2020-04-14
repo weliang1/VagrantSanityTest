@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: sctpserver
-      image: registry.access.redhat.com/ubi8/ubi
+      image: fedora
       command: ["/bin/sh", "-c"]
       args:
         ["dnf install -y iperf && sleep inf"]
