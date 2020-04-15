@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: sctpserver
+  generateName: sctpclient-
   labels:
-    app: sctpserver
+    app: sctpclient
 spec:
   containers:
-    - name: sctpserver
-      image: registry.access.redhat.com/ubi8/ubi
+    - name: sctpclient
+      image: registry.access.redhat.com/ubi8/ubi 
       command: ["/bin/sh", "-c"]
       args:
-        ["sleep inf"]
-      
+        ["dnf install -y nc && sleep inf"]
+  nodeSelector:
+    app: sctpclient
