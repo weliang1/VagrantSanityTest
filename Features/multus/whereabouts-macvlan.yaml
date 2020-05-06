@@ -7,7 +7,6 @@ spec:
       "cniVersion": "0.3.0",
       "name": "whereabouts",
       "type": "macvlan",
-      "master": "ens3",
       "mode": "bridge",
       "ipam": {
         "type": "whereabouts",
