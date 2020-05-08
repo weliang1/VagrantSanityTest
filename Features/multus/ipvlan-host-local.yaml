@@ -7,7 +7,6 @@ spec:
         "cniVersion": "0.3.1",
 	      "name": "ipvlan-host-local",
 	      "type": "ipvlan",
-	      "master": "ens3",
 	      "ipam": {
 		             "type": "host-local",
 		             "subnet": "22.2.2.0/24"
