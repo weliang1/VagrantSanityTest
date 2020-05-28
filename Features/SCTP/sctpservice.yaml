@@ -8,7 +8,7 @@ spec:
   selector:
     app: sctpserver
   ports:
-    - name: sctpserver
+    - name: sctpservice
       protocol: SCTP
       port: 30102
       targetPort: 'sctpserver'
