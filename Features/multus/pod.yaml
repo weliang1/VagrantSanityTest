@@ -7,4 +7,4 @@ metadata:
 spec:
   containers:
   - name: pod-name
-    image: bmeng/hello-openshift
+    image: docker.io/aosqe/multus-pod:latest
