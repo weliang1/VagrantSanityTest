@@ -7,4 +7,4 @@ metadata:
 spec:
   containers:
   - name: pod-name
-    image: docker.io/aosqe/multus-pod:latest
+    image: quay.io/anusaxen/multus-pod@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
