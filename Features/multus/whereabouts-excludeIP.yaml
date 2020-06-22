@@ -10,7 +10,7 @@ metadata:
 spec: 
   config: '{
       "cniVersion": "0.3.0",
-      "name": "whereabouts",
+      "name": "whereabouts-excludeip",
       "type": "macvlan",
       "mode": "bridge",
       "ipam": {
