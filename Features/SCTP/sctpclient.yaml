@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  generateName: sctpclient-
+  name: sctpclient-
   labels:
     app: sctpclient
 spec:
