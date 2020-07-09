@@ -9,7 +9,6 @@ spec:
     app: sctpserver
   ports:
     - name: sctpservice
-      nodePort: 32222
       protocol: SCTP
       port: 30102
       targetPort: 'sctpserver'
