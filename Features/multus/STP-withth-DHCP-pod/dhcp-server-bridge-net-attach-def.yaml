@@ -4,7 +4,7 @@ metadata:
   name: dhcp-server-bridge-conf
 spec:
   config: '{
-      "name" "dhcp-server-bridge-conf"
+      "name" "dhcp-server-bridge-conf",
       "type": "bridge",
       "bridge": "dhcp-testbridge",
       "vlan": "100",     
