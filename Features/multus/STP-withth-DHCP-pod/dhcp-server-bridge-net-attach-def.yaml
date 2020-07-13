@@ -1,0 +1,14 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: dhcp-server-bridge-conf
+spec:
+  config: '{
+      "name" "dhcp-server-bridge-conf"
+      "type": "bridge",
+      "bridge": "dhcp-testbridge",
+      "vlan": "100",     
+      "ipam": {
+         "type": "static"
+       }    
+}'
