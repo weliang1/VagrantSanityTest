@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dhcp-server-pod
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[
+            { "name": "dhcp-server-bridge-conf",
+              "ips": [
+                "192.168.111.5/24"
+                 ]
+            }
+    ]'
+spec:
+  containers:
+  - name: dhcp-server-pod
+    image: quay.io/aneeshkp/dhcp-pod:latest
+    imagePullPolicy: Always
+    securityContext:
+       capabilities:
+         add:
+           - NET_ADMIN
+    ports:
+    - containerPort: 67
+      protocol: UDP
+    - containerPort: 547
+      protocol: UDP
