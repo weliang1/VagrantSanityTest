@@ -1,0 +1,18 @@
+
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: iperf3-pod
+  labels:
+    name: iperf3-openshift
+spec:
+  containers:
+  - name: iperf3-pod-container
+    image: weliang/test-pod
+    env:
+    - name: RESPONSE
+      value: Hello iperf3-pod
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
