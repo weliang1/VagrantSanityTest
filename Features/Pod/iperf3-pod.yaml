@@ -10,6 +10,7 @@ spec:
   containers:
   - name: iperf3-pod-container
     image: weliang/test-pod
+    command: ['sh', '-c', 'echo Hello! && sleep 3600']
     env:
     - name: RESPONSE
       value: Hello iperf3-pod
