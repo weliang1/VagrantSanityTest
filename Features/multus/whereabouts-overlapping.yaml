@@ -9,8 +9,6 @@ spec:
       "mode": "bridge",
       "ipam": {
         "type": "whereabouts",
-        "datastore": "kubernetes",
-        "kubernetes": { "kubeconfig": "/etc/cni/net.d/whereabouts.d/whereabouts.kubeconfig" },
         "range": "192.168.22.0/28",
         "log_file" : "/tmp/whereabouts.log",
         "log_level" : "debug"
