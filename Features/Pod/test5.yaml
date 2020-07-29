@@ -10,7 +10,8 @@ spec:
   containers:
   - name: iperf3-pod-container
     image: weliang/test-pod
-    command: ["/bin/bash", "-c", "sleep 2000000000000"]    env:
+    command: ["/bin/bash", "-c", "sleep 2000000000000"]    
+    env:
     - name: RESPONSE
       value: Hello iperf3-pod
     ports:
