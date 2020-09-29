@@ -38,6 +38,9 @@ items:
     containers:
     - name: hello-pod-container-1
       image: bmeng/hello-openshift
+      env:
+      - name: RESPONSE
+        value: hello-pod-container-1
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -51,6 +54,9 @@ items:
     containers:
     - name: hello-pod-container-2
       image: bmeng/hello-openshift
+      env:
+      - name: RESPONSE
+        value: hello-pod-container-2
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -64,6 +70,9 @@ items:
     containers:
     - name: hello-pod-container-3
       image: bmeng/hello-openshift
+      env:
+      - name: RESPONSE
+        value: hello-pod-container-3
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -77,6 +86,9 @@ items:
     containers:
     - name: hello-pod-container-4
       image: bmeng/hello-openshift
+      env:
+      - name: RESPONSE
+        value: hello-pod-container-4
       ports:
       - containerPort: 8080
       - containerPort: 443
