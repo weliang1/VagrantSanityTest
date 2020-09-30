@@ -16,18 +16,6 @@ items:
       port: 8080
       targetPort: 8080
     type: NodePort
-- kind: Service
-  apiVersion: v1
-  metadata:
-    name: hello-service2
-  spec:
-    selector:
-      name: hello-openshift
-    ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
-    type: NodePort
 - kind: Pod
   apiVersion: v1
   metadata:
@@ -36,11 +24,11 @@ items:
       name: hello-openshift
   spec:
     containers:
-    - name: hello-pod-container-1
+    - name: nodeport-pod-1
       image: bmeng/hello-openshift
       env:
       - name: RESPONSE
-        value: hello-pod-container-1
+        value: nodeport-pod-1
       ports:
       - containerPort: 8080
       - containerPort: 443
@@ -52,43 +40,11 @@ items:
       name: hello-openshift
   spec:
     containers:
-    - name: hello-pod-container-2
+    - name: nodeport-pod-2
       image: bmeng/hello-openshift
       env:
       - name: RESPONSE
-        value: hello-pod-container-2
-      ports:
-      - containerPort: 8080
-      - containerPort: 443
-- kind: Pod
-  apiVersion: v1
-  metadata:
-    name: hello-pod-3
-    labels:
-      name: hello-openshift
-  spec:
-    containers:
-    - name: hello-pod-container-3
-      image: bmeng/hello-openshift
-      env:
-      - name: RESPONSE
-        value: hello-pod-container-3
-      ports:
-      - containerPort: 8080
-      - containerPort: 443
-- kind: Pod
-  apiVersion: v1
-  metadata:
-    name: hello-pod-4
-    labels:
-      name: hello-openshift
-  spec:
-    containers:
-    - name: hello-pod-container-4
-      image: bmeng/hello-openshift
-      env:
-      - name: RESPONSE
-        value: hello-pod-container-4
+        value: nodeport-pod-2
       ports:
       - containerPort: 8080
       - containerPort: 443
