@@ -27,4 +27,4 @@ spec:
     image: registry.redhat.io/openshift4/ose-pod
     imagePullPolicy:  IfNotPresent
     nodeSelector:
-      app:egressrouter
+      app: egressrouter
