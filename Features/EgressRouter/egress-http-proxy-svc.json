@@ -1,0 +1,19 @@
+{  
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{  
+      "name":"egress-router-proxy"
+   },
+   "spec":{  
+      "type":"ClusterIP",
+      "ports":[  
+         {  
+            "name":"http",
+            "port":8080
+         }
+      ],
+      "selector":{  
+         "name":"egress-http-proxy"
+      }
+   }
+}
