@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: egress-redirect-svc
+spec:
+  selector:
+    name: egress-redirect-pod
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
