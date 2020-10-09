@@ -32,6 +32,6 @@ spec:
         !69.172.200.235/32
         !www.cisco.com
         *
-      nodeSelector:
-        app:egressrouter-http
+  nodeSelector:
+    app:egressrouter-http
       
