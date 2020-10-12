@@ -10,7 +10,7 @@ spec:
   initContainers:
   - name: egress-router-setup
     imagePullPolicy: IfNotPresent
-    image: openshift3/ose-egress-router
+    image: registry.redhat.io/openshift4/ose-egress-router
     securityContext:
       privileged: true
     env:
@@ -23,7 +23,7 @@ spec:
   containers:
   - name: egress-router-proxy
     imagePullPolicy: IfNotPresent
-    image: openshift3/ose-egress-http-proxy
+    image: registry.redhat.io/openshift4/ose-egress-http-proxy
     env:
     - name: EGRESS_HTTP_PROXY_DESTINATION
       value: |
