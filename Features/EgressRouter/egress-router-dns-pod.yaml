@@ -32,3 +32,5 @@ spec:
         80     www.google.com
         8000   209.82.215.211 80
         8001   www.yahoo.com  80
+  nodeSelector:
+    app:egressrouter-dns
