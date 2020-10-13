@@ -28,7 +28,6 @@ spec:
     - name: EGRESS_HTTP_PROXY_DESTINATION
       value: |
         !*.redhat.com
-        !98.0.0.0/8
         !69.172.200.235/32
         !www.cisco.com
         *
