@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: egress-http-proxy
+  name: egress-http-proxy-pod
   labels:
-    name: egress-http-proxy
+    name: egress-http-proxy-pod
   annotations:
     pod.network.openshift.io/assign-macvlan: "true"
 spec:
@@ -21,7 +21,7 @@ spec:
     - name: EGRESS_ROUTER_MODE
       value: http-proxy
   containers:
-  - name: egress-router-proxy
+  - name: egress-http-proxy-pod
     imagePullPolicy: IfNotPresent
     image: registry.redhat.io/openshift4/ose-egress-http-proxy
     env:
