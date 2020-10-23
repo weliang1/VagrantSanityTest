@@ -24,6 +24,8 @@ spec:
   - name: egress-router-dns-proxy
     image: registry.redhat.io/openshift4/ose-egress-dns-proxy
     imagePullPolicy:  IfNotPresent
+    securityContext:
+      privileged: true
     env:
     - name: EGRESS_DNS_PROXY_DEBUG
       value: "1"
