@@ -31,6 +31,9 @@ spec:
       value: "1"
     - name: EGRESS_DNS_PROXY_DESTINATION
       value: |
-        80    yahoo.com
+        80    yahoo.com 80
+        8000    yahoo.com 80
+        8001    yahoo.com 80
+        8443   yahoo.com 80
   nodeSelector:
     app: egressrouter-dns
