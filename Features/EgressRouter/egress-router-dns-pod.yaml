@@ -31,8 +31,6 @@ spec:
       value: "1"
     - name: EGRESS_DNS_PROXY_DESTINATION
       value: |
-        80     www.google.com
-        8000   www.redhat.com
-        8001   www.apple.com
+        80     www.redhat.com
   nodeSelector:
     app: egressrouter-dns
