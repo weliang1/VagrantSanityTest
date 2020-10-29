@@ -18,7 +18,7 @@ spec:
     targetPort: 8001
   - name: con4
     protocol: TCP
-    port: 7000
+    port: 8443
     targetPort: 8443
   type: ClusterIP
   selector:
