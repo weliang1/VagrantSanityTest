@@ -34,5 +34,6 @@ spec:
         80    yahoo.com
         8000  cisco.com 80
         8001 ibm.com 443
+        8443 ibm.com 443
   nodeSelector:
     app: egressrouter-dns
