@@ -16,6 +16,10 @@ spec:
     protocol: TCP
     port: 6000
     targetPort: 8001
+  - name: con4
+    protocol: TCP
+    port: 7000
+    targetPort: 8443
   type: ClusterIP
   selector:
     name: egress-router-dns-pod
