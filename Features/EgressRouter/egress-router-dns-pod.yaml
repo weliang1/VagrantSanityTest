@@ -34,6 +34,6 @@ spec:
         80    cisco.com 
         8000    cisco.com 80
         8001    cisco.com 80
-        8443   cisco.com 80
+        8443   cisco.com 443
   nodeSelector:
     app: egressrouter-dns
