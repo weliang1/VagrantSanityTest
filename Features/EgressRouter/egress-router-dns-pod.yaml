@@ -31,6 +31,6 @@ spec:
       value: "1"
     - name: EGRESS_DNS_PROXY_DESTINATION
       value: |
-        80     www.google.com
+        80     www.ibm.com
   nodeSelector:
     app: egressrouter-dns
