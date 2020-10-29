@@ -22,8 +22,8 @@ spec:
     targetPort: 8080
   - name: con5
     protocol: TCP
-    port: 8443
-    targetPort: 8443
+    port: 7000
+    targetPort: 8002
   type: ClusterIP
   selector:
     name: egress-router-dns-pod
