@@ -15,9 +15,9 @@ spec:
       privileged: true
     env:
     - name: EGRESS_SOURCE
-      value: 172.31.249.224
+      value: 10.73.116.68
     - name: EGRESS_GATEWAY
-      value: 172.31.248.1
+      value: 10.73.117.254
     - name: EGRESS_ROUTER_MODE
       value: dns-proxy
   containers:
