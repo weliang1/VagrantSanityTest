@@ -32,7 +32,7 @@ spec:
     - name: EGRESS_DNS_PROXY_DESTINATION
       value: |
         80      cisco.com 
-        8000    costco.com 80
+        8000    yahoo.com 80
         8001    redhat.com   80
         8080    hp.com 80
         8002    10.4.204.55 80
