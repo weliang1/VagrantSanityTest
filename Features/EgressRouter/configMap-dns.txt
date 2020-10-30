@@ -1,0 +1,5 @@
+80      cisco.com 
+8000    redhat.com 80
+8001    hp.com   80
+8080    10.4.204.55 80
+8443    cisco.com 443
