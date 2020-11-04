@@ -9,7 +9,7 @@ metadata:
 spec:
   initContainers:
   - name: egress-router
-    image: registry.redhat.io/openshift4/ose-egress-router
+    image: openshift4/ose-egress-router
     securityContext:
       privileged: true
     env:
@@ -23,4 +23,4 @@ spec:
       value: init
   containers:
   - name: egress-router-wait
-    image: registry.redhat.io/openshift4/ose-pod
+    image: openshift4/ose-pod
