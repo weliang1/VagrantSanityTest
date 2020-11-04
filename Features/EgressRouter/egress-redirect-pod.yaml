@@ -26,5 +26,7 @@ spec:
   - name: egressrouter-redirect-pod
     image: registry.redhat.io/openshift4/ose-pod
     imagePullPolicy:  IfNotPresent
+    securityContext:
+      privileged: true
   nodeSelector:
     app:  egressrouter
