@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: egress-redirect-pod
+  name: egressrouter-redirect-pod
   labels:
-    name: egress-redirect-pod
+    name: egressrouter-redirect-pod
   annotations:
     pod.network.openshift.io/assign-macvlan: "true"
 spec:
   initContainers:
-  - name: egress-router-pod
+  - name: egress-router
     image: registry.redhat.io/openshift4/ose-egress-router 
     imagePullPolicy:  IfNotPresent
     securityContext:
@@ -23,7 +23,7 @@ spec:
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
-  - name: egressrouter-redirect-pod
+  - name: egress-pod
     image: registry.redhat.io/openshift4/ose-pod
     imagePullPolicy:  IfNotPresent
   nodeSelector:
