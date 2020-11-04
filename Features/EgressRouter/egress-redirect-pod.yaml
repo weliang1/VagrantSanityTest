@@ -9,7 +9,7 @@ metadata:
 spec:
   initContainers:
   - name: egress-router
-    image: registry.redhat.io/openshift4/ose-egress-router 
+    image: openshift3/ose-egress-router 
     imagePullPolicy:  IfNotPresent
     securityContext:
       privileged: true
@@ -24,7 +24,7 @@ spec:
       value: init
   containers:
   - name: egress-pod
-    image: registry.redhat.io/openshift4/ose-pod
+    image: openshift3/ose-pod
     imagePullPolicy:  IfNotPresent
   nodeSelector:
     app:  egressrouter
