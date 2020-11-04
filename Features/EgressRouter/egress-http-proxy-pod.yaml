@@ -32,5 +32,5 @@ spec:
         !www.cisco.com
         *
   nodeSelector:
-    app:egressrouter-http
+    app: egressrouter-http
       
