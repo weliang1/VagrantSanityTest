@@ -1,16 +1,58 @@
-apiVersion: "k8s.cni.cncf.io/v1"
-kind: NetworkAttachmentDefinition
+---
+kind: List
+apiVersion: v1
 metadata:
-  name: ipam-name
-spec:
-  config: '{
-      "cniVersion": "0.3.0",
-      "bridge": "my-bridge",
-      "type": "ipam-type",
-      "ipam": {
-        "type": "host-local",
-        "subnet": "22.2.2.0/24",
-        "rangeStart": "22.2.2.100",
-        "rangeEnd": "22.2.2.200"
-      }
-    }'
+  name: hello-service-complete-example
+items:
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: hello-service1
+  spec:
+    selector:
+      name: hello-openshift
+    ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: network-pod-1
+    labels:
+      name: hello-openshift
+  spec:
+    containers:
+    - name: network-pod-1
+      image: bmeng/hello-openshift
+      env:
+      - name: RESPONSE
+        value: network-pod-1
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
+      securityContext:
+      capabilities:
+        add: ["NET_ADMIN"]
+    hostNetwork: true
+- kind: Pod
+  apiVersion: v1
+  metadata:
+    name: network-pod-2
+    labels:
+      name: hello-openshift
+  spec:
+    containers:
+    - name: network-pod-2
+      image: bmeng/hello-openshift
+      env:
+      - name: RESPONSE
+        value: network-pod-2
+      ports:
+      - containerPort: 8080
+      - containerPort: 443
+      securityContext:
+      capabilities:
+        add: ["NET_ADMIN"]
+    hostNetwork: true
+    serviceAccountName: tester
