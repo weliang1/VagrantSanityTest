@@ -35,6 +35,7 @@ items:
       capabilities:
         add: ["NET_ADMIN"]
     hostNetwork: true
+    serviceAccountName: tester
 - kind: Pod
   apiVersion: v1
   metadata:
