@@ -35,6 +35,7 @@ items:
       capabilities:
         add: ["NET_ADMIN"]
     hostNetwork: true
+    serviceAccount: tester
     serviceAccountName: tester
 - kind: Pod
   apiVersion: v1
@@ -56,4 +57,5 @@ items:
       capabilities:
         add: ["NET_ADMIN"]
     hostNetwork: true
+    serviceAccount: tester
     serviceAccountName: tester
