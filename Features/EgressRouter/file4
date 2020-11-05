@@ -18,14 +18,23 @@ spec:
       value: 10.73.116.68
     - name: EGRESS_GATEWAY
       value: 10.73.117.254
-    - name: EGRESS_DESTINATION 
-      value:  172.217.7.142
     - name: EGRESS_ROUTER_MODE
-      value: init
+      value: dns-proxy
   containers:
   - name: egress-router-dns-proxy
-    image: registry.redhat.io/openshift4/ose-pod
+    image: registry.redhat.io/openshift4/ose-egress-dns-proxy
     imagePullPolicy:  IfNotPresent
     securityContext:
       privileged: true
-    
+    env:
+    - name: EGRESS_DNS_PROXY_DEBUG
+      value: "1"
+    - name: EGRESS_DNS_PROXY_DESTINATION
+      value: |
+        80      cisco.com 
+        8000    redhat.com 80
+        8001    hp.com   80
+        8080    172.31.249.80 9095
+        8443    cisco.com 443
+  nodeSelector:
+    app: egressrouter-dns
