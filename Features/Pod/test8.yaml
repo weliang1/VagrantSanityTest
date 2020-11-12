@@ -10,7 +10,7 @@ spec:
         app: blue-pod
     spec:
       containers:
-      - name: blue-pod-container
+      - name: blue-pod
         image: bmeng/hello-openshift
         env:
         - name: RESPONSE
