@@ -1,19 +1,20 @@
-
----
-kind: Pod
-apiVersion: v1
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
-  name: iperf3-pod
-  labels:
-    name: iperf3-openshift
+  name: blue-pod
 spec:
-  containers:
-  - name: iperf3-pod-container
-    image: weliang/test-pod
-    command: ["/bin/bash", "-c", "sleep 2000000000000"]    
-    env:
-    - name: RESPONSE
-      value: Hello iperf3-pod
-    ports:
-    - containerPort: 8080
-    - containerPort: 443
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: blue-pod
+    spec:
+      containers:
+      - name: blue-pod-container
+        image: bmeng/hello-openshift
+        env:
+        - name: RESPONSE
+          value: Hello blue-pod
+        ports:
+        - containerPort: 8080
+        - containerPort: 443
