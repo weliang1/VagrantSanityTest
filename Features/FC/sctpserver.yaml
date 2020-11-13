@@ -19,6 +19,6 @@ spec:
         args:
           ["dnf install -y nc && sleep inf"]
         ports:
-          - containerPort: 30102
-            name: sctpserver
-            protocol: SCTP
+        - containerPort: 30102
+          name: sctpserver
+          protocol: SCTP
