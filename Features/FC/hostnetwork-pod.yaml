@@ -18,9 +18,9 @@ spec:
         ports:
         - containerPort: 8080
         - containerPort: 443
-      env:
-      - name: RESPONSE
-        value: hostnetwork-pod
+        env:
+        - name: RESPONSE
+          value: hostnetwork-pod
       securityContext:
       capabilities:
         add: ["NET_ADMIN"]
