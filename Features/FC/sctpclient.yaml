@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sctpserver
+  name: sctpclient
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: sctpserver
+      app: sctpclient
   template:
     metadata:
       labels:
-        app: sctpserver
+        app: sctpclient
     spec:
       containers:
-      - name: sctpserver
+      - name: sctpclient
         image: quay.io/openshifttest/hello-sdn@sha256:d5785550cf77b7932b090fcd1a2625472912fb3189d5973f177a5a2c347a1f95
