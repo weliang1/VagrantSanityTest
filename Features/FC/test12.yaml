@@ -1,16 +1,16 @@
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: externalip-pod
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: externalip-pod
+      name: externalip-pod
   template:
     metadata:
       labels:
-        app: externalip-pod
+        name: externalip-pod
     spec:
       containers:
       - name: externalip-pod
