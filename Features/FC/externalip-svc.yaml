@@ -1,9 +1,4 @@
 ---
-kind: List
-apiVersion: v1
-metadata:
-  name: externalip-svc
-items:
 - kind: Service
   apiVersion: v1
   metadata:
