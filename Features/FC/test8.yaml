@@ -2,8 +2,8 @@
   kind: ReplicationController
   metadata:
     labels:
-      name: externalip-pod
-    name: externalip-pod
+      name: externalippod
+    name: externalippod
   spec:
     replicas: 1
     template:
@@ -12,7 +12,7 @@
           name: externalip-pod
       spec:
         containers:
-        - name: externalip-pod
+        - name: externalippod
         image: quay.io/openshifttest/hello-sdn@sha256:d5785550cf77b7932b090fcd1a2625472912fb3189d5973f177a5a2c347a1f95
         ports:
         - containerPort: 8080
