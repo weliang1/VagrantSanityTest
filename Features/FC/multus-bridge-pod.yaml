@@ -6,13 +6,13 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: multus-bridge-pod
+      name: multus-bridge-pod
   template:
     metadata:
       annotations:
         k8s.v1.cni.cncf.io/networks: multus-bridge
       labels:
-        app: multus-bridge-pod
+        name: multus-bridge-pod
     spec:
       containers:
       - name: multus-bridge-pod
