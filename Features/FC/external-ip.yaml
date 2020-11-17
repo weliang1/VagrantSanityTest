@@ -2,15 +2,15 @@
 kind: List
 apiVersion: v1
 metadata:
-  name: hello-service-complete-example
+  name: external-ip
 items:
 - kind: Service
   apiVersion: v1
   metadata:
-    name: hello-service1
+    name: external-ip
   spec:
     selector:
-      name: hello-openshift
+      name: external-ip
     ports:
     - protocol: TCP
       port: 27018
