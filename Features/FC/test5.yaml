@@ -1,0 +1,13 @@
+  kind: Service
+  apiVersion: v1
+  metadata:
+    name: externalip-svc1
+  spec:
+    selector:
+      name: externalip-pod
+    ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+    externalIPs:
+    - 10.0.76.163
