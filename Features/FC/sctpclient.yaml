@@ -6,11 +6,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: sctpclient
+      name: sctpclient
   template:
     metadata:
       labels:
-        app: sctpclient
+        name: sctpclient
     spec:
       containers:
       - name: sctpclient
