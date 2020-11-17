@@ -6,13 +6,13 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: multus-macvlan-pod
+      name: multus-macvlan-pod
   template:
     metadata:
       annotations:
         k8s.v1.cni.cncf.io/networks: multus-macvlan
       labels:
-        app: multus-macvlan-pod
+        name: multus-macvlan-pod
     spec:
       containers:
       - name: multus-macvlan-pod
