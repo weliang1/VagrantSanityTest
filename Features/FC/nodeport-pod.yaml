@@ -6,11 +6,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nodeport-pod
+      name: nodeport-pod
   template:
     metadata:
       labels:
-        app: nodeport-pod
+        name: nodeport-pod
     spec:
       containers:
       - name: nodeport-pod
