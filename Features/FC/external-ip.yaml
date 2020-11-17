@@ -2,15 +2,15 @@
 kind: List
 apiVersion: v1
 metadata:
-  name: external-ip
+  name: externalip-svc
 items:
 - kind: Service
   apiVersion: v1
   metadata:
-    name: external-ip
+    name: externalip-svc
   spec:
     selector:
-      name: external-ip
+      name: externalip-pod
     ports:
     - protocol: TCP
       port: 27018
