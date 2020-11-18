@@ -1,7 +1,7 @@
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata: 
-  name: whereabouts-excludeIPv6
+  name: whereabouts-excludeipv6
 spec: 
   config: '{
       "cniVersion": "0.3.0",
@@ -10,7 +10,7 @@ spec:
       "mode": "bridge",
       "ipam": {
         "type": "whereabouts",
-        "range": "fd00:dead:beef:1::1-fd00:dead:beef:1::4/64"
+        "range": "fd00:dead:beef:1::1-fd00:dead:beef:1::4/64",
         "exclude": "fd00:dead:beef:1::1/64"
       }
 }'
