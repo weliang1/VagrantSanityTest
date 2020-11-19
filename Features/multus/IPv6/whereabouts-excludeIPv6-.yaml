@@ -11,6 +11,6 @@ spec:
       "ipam": {
         "type": "whereabouts",
         "range": "fd00:dead:beef:1::1-fd00:dead:beef:1::4/64",
-        "exclude": ["fd00:dead:beef:1::1/64"]
+        "exclude": ["fd00:dead:beef:1::1/128"]
       }
 }'
