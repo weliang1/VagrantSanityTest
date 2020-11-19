@@ -1,16 +1,21 @@
+# 192.168.10.0 / 29  HOST RANGE:192.168.10.1 – 192.168.10.6, Broadcast: 192.168.10.7
+# 192.168.10.0 / 30  HOST RANGE: 192.168.10.1 – 192.168.10.2, Broadcast:192.168.10.3
+# 192.168.10.6 / 32
+# Available IP assigned to pod will be: 192.168.10.4 and 192.168.10.5
+
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
-metadata:
-  name: ipam-l3
-spec:
+metadata: 
+  name: whereabouts-excludeip
+spec: 
   config: '{
       "cniVersion": "0.3.0",
-      "type": "ipvlan",
-      "master": "eno2",
+      "name": "whereabouts-excludeip",
+      "type": "macvlan",
+      "mode": "bridge",
       "ipam": {
-        "type": "host-local",
-        "subnet": "22.2.2.0/24",
-        "rangeStart": "22.2.2.100",
-        "rangeEnd": "22.2.2.200"
-      }
-    }'
+        "type": "whereabouts", 
+        "range": "192.168.10.0/29", 
+        "exclude": [ "192.168.10.6/32" ]
+   }
+}'
