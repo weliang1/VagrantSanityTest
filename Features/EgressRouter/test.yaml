@@ -9,7 +9,7 @@ metadata:
 spec:
   initContainers:
   - name: egress-router
-    image: registry.redhat.io/openshift4/ose-egress-router
+    image: registry.redhat.io/openshift4/ose-egress-router 
     imagePullPolicy:  IfNotPresent
     securityContext:
       privileged: true
