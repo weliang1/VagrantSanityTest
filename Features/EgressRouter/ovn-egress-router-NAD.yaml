@@ -1,13 +1,20 @@
-
-apiVersion: k8s.cni.cncf.io/v1
-kind: NetworkAttachmentDefinition
-metadata:
-  name: egress-router
-  namespace: test-egress-router
-spec:
-  config: '{
-          "type": "egress-router",
-          "ip": {
-             "addresses": ["10.10.10.230"]
-          }
-  }'
+---                                                                            
+apiVersion: "k8s.cni.cncf.io/v1"                                               
+kind: NetworkAttachmentDefinition                                              
+metadata:                                                                      
+  name: egress-router                                                          
+spec:                                                                             
+  config: '{                                                                      
+    "cniVersion": "0.4.0",                                                                                                                                 
+    "type": "egress-router",                                                      
+    "name": "egress-router",                                                      
+    "ip": {                                                                       
+      "addresses": [                                                              
+        "10.200.16.0/24"                                                          
+        ],                                                                        
+      "destinations": [                                                           
+        "10.100.3.0/32"                                                           
+      ],                                                                          
+      "gateway": "192.168.10.200"                                                 
+      }                                                                           
+    }'
