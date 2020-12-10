@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ovn-egressrouter-redirect-svc
+spec:
+  selector:
+    name: ovn-egressrouter-redirect-pod
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
