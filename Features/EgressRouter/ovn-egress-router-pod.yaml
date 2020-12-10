@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: egress-router-pod
+  labels:
+    name: egress-router-pod
+  annotations:
+    k8s.v1.cni.cncf.io/networks: egress-router
+spec:
+  containers:
+    - name: egress-router-pod
+      image: quay.io/openshifttest/hello-sdn@sha256:d5785550cf77b7932b090fcd1a2625472912fb3189d5973f177a5a2c347a1f95
+      securityContext:
+        privileged: true
