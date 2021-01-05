@@ -8,7 +8,7 @@ metadata:
     pod.network.openshift.io/assign-macvlan: "true"
 spec:
   initContainers:
-  - name: egress-router
+  - name: egressrouter-redirect-pod
     image: openshift3/ose-egress-router 
     imagePullPolicy:  IfNotPresent
     securityContext:
@@ -23,7 +23,7 @@ spec:
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
-  - name: egress-redirect-pod
+  - name: egressrouter-redirect-pod
     image: openshift3/ose-pod
     imagePullPolicy:  IfNotPresent
   nodeSelector:
