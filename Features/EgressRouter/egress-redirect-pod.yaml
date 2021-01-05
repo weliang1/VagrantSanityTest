@@ -23,7 +23,7 @@ spec:
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
-  - name: egress-pod
+  - name: egress-redirect-pod
     image: openshift3/ose-pod
     imagePullPolicy:  IfNotPresent
   nodeSelector:
