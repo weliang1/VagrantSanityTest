@@ -10,7 +10,7 @@ spec:
       "mode": "bridge",
       "ipam": {
         "type": "whereabouts",
-        "range": "fd00:dead:beef:1::1-fd00:dead:beef:1::9/64",
-        "exclude": ["fd00:dead:beef:1::5/128"]
+        "range": "fd00:dead:beef:1::1-fd00:dead:beef:1::4/64",
+        "exclude": ["fd00:dead:beef:1::2/128"]
       }
 }'
