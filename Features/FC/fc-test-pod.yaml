@@ -6,7 +6,7 @@ spec:
   replicas: 6
   selector:
     matchLabels:
-      name: test-pod
+      name: pod-label
   template:
     metadata:
       labels:
