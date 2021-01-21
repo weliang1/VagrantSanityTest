@@ -4,7 +4,7 @@
     name: test-svc
   spec:
     selector:
-      name: test-pod
+      name: pod-label
     ports:
     - protocol: TCP
       port: 8080
