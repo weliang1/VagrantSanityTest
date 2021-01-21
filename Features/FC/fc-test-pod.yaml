@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        name: test-pod
+        name: pod-label
     spec:
       containers:
       - name: test-pod
