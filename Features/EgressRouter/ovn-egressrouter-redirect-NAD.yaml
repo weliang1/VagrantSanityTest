@@ -10,11 +10,11 @@ spec:
     "name": "ovn-egressrouter-redirect",                                                      
     "ip": {                                                                       
        "addresses":[
-         "192.168.10.99/24"
+         "10.0.142.153/24"
       ],
       "destinations":[
-         "10.0.3.0/32"
+         "172.217.7.206/32"
       ],
-      "gateway":"192.168.10.254"                                                
+      "gateway":"172.217.7.206"                                                
       }                                                                           
     }'
