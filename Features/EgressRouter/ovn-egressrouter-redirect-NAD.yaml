@@ -9,12 +9,12 @@ spec:
     "type": "egress-router",                                                      
     "name": "ovn-egressrouter-redirect",                                                      
     "ip": {                                                                       
-      "addresses": [                                                              
-        "22.2.2.2/24"                                                          
-      ],                                                                        
-      "destinations": [                                                           
-        "172.217.7.206/32"                                                           
-      ],                                                                          
-      "gateway": "10.0.128.1"                                                 
+       "addresses":[
+         "192.168.10.99/24"
+      ],
+      "destinations":[
+         "10.0.3.0/32"
+      ],
+      "gateway":"192.168.10.254"                                                
       }                                                                           
     }'
