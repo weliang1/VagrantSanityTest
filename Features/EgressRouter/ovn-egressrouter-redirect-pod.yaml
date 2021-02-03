@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Pod
-metadata:
-  name: ovn-egressrouter-redirect-pod
-  labels:
-    name: ovn-egressrouter-redirect-pod
-  annotations:
+metadata: 
+  annotations: 
     k8s.v1.cni.cncf.io/networks: ovn-egressrouter-redirect
-spec:
-  containers:
-    - name: ovn-egressrouter-redirect-pod
-      image: quay.io/openshifttest/mcast-pod@sha256:d2497c6fe5226daf05f2a606fadb03d540cce8d0b49d5616440629ba939239ef
-      securityContext:
-        privileged: true
-  nodeSelector:
-    app:  ovn-egressrouter-redirect
+  labels: 
+    name: ovn-egressrouter-redirect-pod
+  name: ovn-egressrouter-redirect-pod
+spec: 
+  containers: 
+  - image: "quay.io/openshifttest/mcast-pod@sha256:d2497c6fe5226daf05f2a606fadb03d540cce8d0b49d5616440629ba939239ef"
+    name: ovn-egressrouter-redirect-pod
+    securityContext: 
+      privileged: true
+  nodeSelector: 
+    app: ovn-egressrouter-redirect
