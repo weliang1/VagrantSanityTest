@@ -32,6 +32,7 @@ items:
       - containerPort: 8080
       - containerPort: 443
       securityContext:
+        privileged: true
       capabilities:
         add: ["NET_ADMIN"]
     hostNetwork: true
@@ -52,6 +53,7 @@ items:
       - containerPort: 8080
       - containerPort: 443
       securityContext:
+        privileged: true
       capabilities:
         add: ["NET_ADMIN"]
     hostNetwork: true
