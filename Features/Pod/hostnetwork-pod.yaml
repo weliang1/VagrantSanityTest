@@ -24,7 +24,7 @@ items:
   spec:
     containers:
     - name: network-pod-1
-      image: bmeng/hello-openshift
+      image: quay.io/openshifttest/centos-network@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
       env:
       - name: RESPONSE
         value: network-pod-1
@@ -45,7 +45,7 @@ items:
   spec:
     containers:
     - name: network-pod-2
-      image: bmeng/hello-openshift
+      image: quay.io/openshifttest/centos-network@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
       env:
       - name: RESPONSE
         value: network-pod-2
