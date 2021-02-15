@@ -11,6 +11,7 @@ spec:
   - name: debug-network-pod1
     image: docker.io/bmeng/centos-network
     securityContext:
+      privileged: true
       capabilities:
         add: ["NET_ADMIN"]
   hostNetwork: true
