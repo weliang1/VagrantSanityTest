@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
   - name: debug-network-pod1
-    image: docker.io/bmeng/centos-network
+    image: quay.io/openshifttest/centos-network@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
     securityContext:
       privileged: true
       capabilities:
