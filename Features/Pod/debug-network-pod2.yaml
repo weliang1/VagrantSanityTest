@@ -20,6 +20,7 @@ items:
     - name: debug-network-pod2
       image: weliang/test-pod
       securityContext:
+        privileged: true
         capabilities:
           add: ["NET_ADMIN"]
       command: ['sh', '-c', 'echo Hello! && sleep 3600']
