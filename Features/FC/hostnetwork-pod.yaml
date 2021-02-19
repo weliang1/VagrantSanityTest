@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hostnetwork-pod
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: hostnetwork-pod
