@@ -1,0 +1,21 @@
+apiVersion: "k8s.cni.cncf.io/v1" 
+kind: NetworkAttachmentDefinition 
+metadata: 
+  name: ovn-egressrouter-redirect 
+spec: 
+  config: '{ 
+    "cniVersion": "0.4.0", 
+    "type": "egress-router", 
+    "name": "ovn-egressrouter-redirect", 
+    "ip": { 
+      "addresses": [ 
+        "10.0.0.0/8" 
+        ], 
+      "destinations": [ 
+        "80 udp 10.100.3.0/26",
+        "8080 tcp 203.0.113.26/30 80", 
+        "8443 tcp 203.0.113.26/30 443"
+      ], 
+      "gateway": "10.0.128.1" 
+      } 
+    }'
