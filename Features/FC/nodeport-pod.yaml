@@ -20,4 +20,4 @@ spec:
         - containerPort: 443
         env:
         - name: RESPONSE
-          value: nodeport-pod
+          value: Customer-Red Test externalip-pod
