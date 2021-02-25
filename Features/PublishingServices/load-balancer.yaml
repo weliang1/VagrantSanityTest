@@ -30,7 +30,7 @@ items:
       - containerPort: 443
       env:
       - name: RESPONSE
-        value: Customer-Green Test loadbalancer
+        value: Customer-Green Test Loadbalancer
 - kind: Pod
   apiVersion: v1
   metadata:
@@ -46,4 +46,4 @@ items:
       - containerPort: 443
       env:
       - name: RESPONSE
-        value: test-loadbalancer
+        value: Customer-Green Test Loadbalancer
