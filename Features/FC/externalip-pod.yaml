@@ -20,4 +20,4 @@ spec:
         - containerPort: 443
         env:
         - name: RESPONSE
-          value: externalip-pod
+          value: Customer-B Test externalip-pod
