@@ -1,26 +1,15 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: hostnetwork-pod
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      name: hostnetwork-pod
-  template:
-    metadata:
-      labels:
-        name: hostnetwork-pod
-    spec:
-      containers:
-      - name: hostnetwork-pod
-        image: quay.io/openshifttest/centos-network@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
-        ports:
-        - containerPort: 8080
-        - containerPort: 443
-        env:
-        - name: RESPONSE
-          value: hostnetwork-pod
-      securityContext:
-        privileged: true
-    hostNetwork: true
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata: 
+  name: macvlan-bridge-whereabouts-v6
+spec: 
+  config: '{
+      "cniVersion": "0.3.0",
+      "name": "whereabouts",
+      "type": "macvlan",
+      "mode": "bridge",
+      "ipam": {
+        "type": "whereabouts",
+        "range": "fd:dead:beef:1::1-fd:dead:beef:1::4/64"
+      }
+}'
