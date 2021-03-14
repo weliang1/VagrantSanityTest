@@ -1,0 +1,15 @@
+kind: Service
+  apiVersion: v1
+  metadata:
+    name: preferdualstack-v6v4-svc
+  spec:
+    ipFamilyPolicy: PreferDualStack
+    ipFamilies:
+    - IPv6
+    - IPv4
+    selector:
+      name: pod-label
+    ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
