@@ -3,6 +3,9 @@
   metadata:
     name: preferdualstack-v4-v6-svc
   spec:
+    ipFamilies:
+    - IPv4
+    - IPv6
     ipFamilyPolicy: PreferDualStack
     selector:
       name: pod-label
