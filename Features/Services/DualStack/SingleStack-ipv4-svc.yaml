@@ -1,7 +1,7 @@
   kind: Service
   apiVersion: v1
   metadata:
-    name: singlestack-ipv6-svc
+    name: singlestack-ipv4-svc
   spec:
     ipFamilyPolicy: SingleStack
     ipFamilies:
