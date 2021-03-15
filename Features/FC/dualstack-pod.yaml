@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dualstack-pod
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      name: pod-label
+  template:
+    metadata:
+      labels:
+        name: pod-label
+    spec:
+      containers:
+      - name: dualstack-pod
+        image: quay.io/openshifttest/centos-network@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
+        ports:
+        - containerPort: 8080
+        - containerPort: 443
+        env:
+        - name: RESPONSE
+          value: dualstack-pod
