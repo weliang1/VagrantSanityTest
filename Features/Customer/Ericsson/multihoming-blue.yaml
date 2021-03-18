@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multihoming-blue
+  annotations:
+    k8s.v1.cni.cncf.io/networks: testmacvlan1, testmacvlan1
+spec:
+  containers:
+  - name: multihoming-blue
+    image: quay.io/openshifttest/centos-network@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
+  nodeSelector: 
+    name: blue
