@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: mvlanp1-blue
   annotations:
-    k8s.v1.cni.cncf.io/networks: testmacvlan1
+    k8s.v1.cni.cncf.io/networks: testmacvlan1-a, testmacvlan1-b, testmacvlan1-c
 spec:
   containers:
   - name: mvlanp1-blue
