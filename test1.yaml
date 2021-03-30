@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: test-pod
 spec:
-  replicas: 500
+  replicas: 100
   selector:
     matchLabels:
       name: pod-label
