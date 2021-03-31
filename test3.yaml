@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-name
+  annotations:
+    k8s.v1.cni.cncf.io/networks: net-attach-def,net-attach-def
+spec:
+  containers:
+  - name: pod-name
+    image: quay.io/openshifttest/multus-pod@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
