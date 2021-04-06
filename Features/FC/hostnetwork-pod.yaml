@@ -13,7 +13,7 @@ spec:
         name: hostnetwork-pod
     spec:
       containers:
-      - name: network-pod-1
+      - name: hostnetwork-pod
         image: quay.io/openshifttest/centos-network@sha256:48da37205f9b43424e0983d4c5e7e07f77b7ba1504bbe35e2f264c75dcb4cd15
         env:
         - name: RESPONSE
