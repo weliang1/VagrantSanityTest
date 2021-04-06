@@ -21,6 +21,3 @@ spec:
         env:
         - name: RESPONSE
           value: test-pod
-        securityContext:
-          privileged: true
-      hostNetwork: true
