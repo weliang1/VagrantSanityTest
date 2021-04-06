@@ -21,8 +21,8 @@ spec:
         env:
         - name: RESPONSE
           value: hostnetwork-pod
-      securityContext:
-        privileged: true
-      capabilities:
-        add: ["NET_ADMIN"]
-    hostNetwork: true
+        securityContext:
+          privileged: true
+        capabilities:
+          add: ["NET_ADMIN"]
+      hostNetwork: true
