@@ -23,6 +23,4 @@ spec:
           value: test-pod
         securityContext:
           privileged: true
-        capabilities:
-          add: ["NET_ADMIN"]
       hostNetwork: true
