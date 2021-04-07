@@ -1,10 +1,9 @@
-# policy specifies “the only traffic allowed is from any red pod in namespace labeled with
-# user:alice to the pod labeled with name: red-openshift
-
-kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
+apiVersion: k8s.cni.cncf.io/v1beta1
+kind: MultiNetworkPolicy
 metadata:
   name: allow-podselector-and-namespaceselector
+  annotations:
+    k8s.v1.cni.cncf.io/policy-for: macvlan-net1
 spec:
   podSelector: 
     matchLabels:
