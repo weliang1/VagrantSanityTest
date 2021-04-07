@@ -1,7 +1,7 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name:  Ingress-allow-same-podSelector-with-same-namespaceSelector
+  name:  ingress-allow-same-podselector-with-same-namespaceselector
 spec:
   podSelector: 
     matchLabels:
