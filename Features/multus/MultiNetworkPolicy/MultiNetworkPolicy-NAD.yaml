@@ -9,6 +9,6 @@ spec:
       "mode": "bridge",
       "ipam": {
         "type": "whereabouts",
-        "range": "192.168.22.100/30"
+        "range": "192.168.22.100/24"
       }
     }'
