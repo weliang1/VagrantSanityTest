@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: red-pod-3
+  labels:
+    name: red-openshift
+  annotations:
+    k8s.v1.cni.cncf.io/networks: macvlan-net1
+spec:
+  containers:
+  - name: red-pod-container
+    image: quay.io/openshifttest/hello-sdn@sha256:d5785550cf77b7932b090fcd1a2625472912fb3189d5973f177a5a2c347a1f95
+    env:
+    - name: RESPONSE
+      value: Hello Red Pod-3 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
