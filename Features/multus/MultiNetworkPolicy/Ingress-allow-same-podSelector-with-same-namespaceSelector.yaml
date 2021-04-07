@@ -1,13 +1,16 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: allow-from-red-to-blue
+  name:  Ingress-allow-same-podSelector-with-same-namespaceSelector
 spec:
   podSelector: 
     matchLabels:
       name: blue-openshift
   ingress:
     - from:
-      - podSelector:
+      - namespaceSelector:     
           matchLabels:
-            name: red-openshift
+            user: projecta
+        podSelector:
+          matchLabels:
+            name: blue-openshift 
