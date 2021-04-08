@@ -1,4 +1,4 @@
-apiVersion: k8s.cni.cncf.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: MultiNetworkPolicy
 metadata:
   name:  ingress-allow-same-podselector-with-same-namespaceselector
