@@ -5,7 +5,7 @@ metadata:
   labels:
     name: red-openshift
   annotations:
-    k8s.v1.cni.cncf.io/networks: macvlan-net1
+    k8s.v1.cni.cncf.io/networks: macvlan-net3
 spec:
   containers:
   - name: red-pod-container
