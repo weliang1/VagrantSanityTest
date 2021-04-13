@@ -1,0 +1,18 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata: 
+  name: macvlan-bridge-whereabouts-v6
+spec: 
+  config: '{
+      "cniVersion": "0.3.1",
+      "name": "whereabouts",
+      "type": "macvlan",
+      "mode": "bridge",
+      "ipam": {
+        "type": "whereabouts",
+        "range": "fd:100:200:30:371::/112",
+        "range_start": "fd:100:200:30:371::0",
+        "range_end": "fd:100:200:30:371::ffff",
+        "gateway": "fd:100:200:30:371::1"
+      }
+}'
