@@ -1,0 +1,18 @@
+apiVersion: k8s.cni.cncf.io/v1beta1
+kind: MultiNetworkPolicy
+metadata:
+  name:  egress-allow-same-podSelector-with-same-namespaceSelector
+  annotations:
+    k8s.v1.cni.cncf.io/policy-for: macvlan-net1
+spec:
+  podSelector: 
+    matchLabels:
+      name: blue-openshift
+  egress:
+    - to:
+      - namespaceSelector:     
+          matchLabels:
+            user: projecta
+        podSelector:
+          matchLabels:
+            name: blue-openshift
