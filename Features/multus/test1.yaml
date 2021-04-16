@@ -10,9 +10,6 @@ spec:
       "mode": "bridge",
       "ipam": {
         "type": "whereabouts",
-        "range": "fd:100:200:30:371::/112",
-        "range_start": "fd:100:200:30:371::0",
-        "range_end": "fd:100:200:30:371::ffff",
-        "gateway": "fd:100:200:30:371::1"
+        "range": "fd:dead:beef:1::1-fd:dead:beef:1::14/64"
       }
 }'
