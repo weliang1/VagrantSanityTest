@@ -7,6 +7,7 @@ spec:
       "cniVersion": "0.3.1",
       "type": "macvlan",
       "mode": "bridge",
+      "master": "eno2",
       "ipam": {
         "type": "whereabouts",
         "range": "192.168.44.0/24"
