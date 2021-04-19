@@ -5,7 +5,7 @@ metadata:
 spec:
   addresses: [
     {
-      ip: "192.168.3.10",
+      ip: "192.168.3.10/24",
       gateway: "192.168.3.1",
     },
   ]
@@ -13,21 +13,21 @@ spec:
   redirect: {
     redirectRules: [
       {
-        destinationIP: "203.0.113.25",
+        destinationIP: "203.0.113.25/24",
         port: 65,
         protocol: TCP,
         targetPort: 75
       },
       {
-        destinationIP: "203.0.113.26",
+        destinationIP: "203.0.113.26/24",
         port: 65535,
         protocol: SCTP,
       },
       {
-        destinationIP: "203.0.113.27",
+        destinationIP: "203.0.113.27/24",
         port: 65534,
         protocol: UDP,
       },
     ],
-    fallbackIP: "203.0.113.28"
+    fallbackIP: "203.0.113.28/24"
   }
