@@ -1,30 +1,24 @@
-apiVersion: v1
-kind: Pod
+---
+apiVersion: network.operator.openshift.io/v1
+kind: EgressRouter
 metadata:
-  name: egressrouter-redirect-pod
-  labels:
-    name: egressrouter-redirect-pod
-  annotations:
-    pod.network.openshift.io/assign-macvlan: "true"
+  name: egress-router-1111
 spec:
-  initContainers:
-  - name: egress-router
-    image: registry.redhat.io/openshift4/ose-egress-router 
-    imagePullPolicy:  IfNotPresent
-    securityContext:
-      privileged: true
-    env:
-    - name: EGRESS_SOURCE
-      value: 172.31.249.146
-    - name: EGRESS_GATEWAY
-      value: 172.31.248.1
-    - name: EGRESS_DESTINATION 
-      value:  172.217.7.142
-    - name: EGRESS_ROUTER_MODE
-      value: init
-  containers:
-  - name: egress-pod
-    image: registry.redhat.io/openshift4/ose-pod
-    imagePullPolicy:  IfNotPresent
-  nodeSelector:
-    app:  egressrouter
+  addresses: [
+    {
+      ip: "192.168.3.10/24",
+      gateway: "192.168.3.1",
+    },
+  ]
+  allowedDestinations: [
+    {
+      srcPort: 65,
+      destinationCIDR: "203.0.113.25/30",
+      protocol: "TCP",
+      dstPort: 75,
+    },
+    {
+      destinationCIDR: "203.0.113.26/30",
+      srcPort: 65535,
+    },
+  ]
