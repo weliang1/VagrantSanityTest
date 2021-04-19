@@ -5,6 +5,8 @@ metadata:
   annotations:
     k8s.v1.cni.cncf.io/policy-for: macvlan-net1
 spec:
+  policyTypes:
+  - Ingress
   podSelector: 
     matchLabels:
       name: blue-openshift
