@@ -8,6 +8,8 @@ spec:
   podSelector: 
     matchLabels:
       name: blue-openshift
+  policyTypes:
+  - Ingress
   ingress:
     - from:
       - namespaceSelector:     
