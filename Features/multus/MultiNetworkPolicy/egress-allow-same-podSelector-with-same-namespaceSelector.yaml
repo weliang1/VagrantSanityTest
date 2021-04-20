@@ -1,7 +1,7 @@
 apiVersion: k8s.cni.cncf.io/v1beta1
 kind: MultiNetworkPolicy
 metadata:
-  name:  egress-allow-same-podSelector-with-same-namespaceSelector
+  name:  egress-allow-same-podselector-with-same-namespaceselector
   annotations:
     k8s.v1.cni.cncf.io/policy-for: macvlan-net1
 spec:
