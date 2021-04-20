@@ -9,7 +9,7 @@ spec:
     matchLabels:
       name: blue-openshift
   policyTypes:
-  - egress
+  - Egress
   egress:
     - to:
       - namespaceSelector:     
