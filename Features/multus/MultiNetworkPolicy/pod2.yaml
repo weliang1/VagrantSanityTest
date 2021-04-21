@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: blue-pod-1
+  labels:
+    name: blue-openshift
+  annotations:
+    k8s.v1.cni.cncf.io/networks: macvlan-net5
+spec:
+  containers:
+  - name: blue-pod-container
+    image: quay.io/openshifttest/hello-sdn@sha256:d5785550cf77b7932b090fcd1a2625472912fb3189d5973f177a5a2c347a1f95
+    env:
+    - name: RESPONSE
+      value: Hello Blue Pod-1 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
