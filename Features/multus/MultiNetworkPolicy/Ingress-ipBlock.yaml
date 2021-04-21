@@ -3,7 +3,7 @@ kind: MultiNetworkPolicy
 metadata:
   name:  ingress-allow-same-podselector-with-same-namespaceselector
   annotations:
-    k8s.v1.cni.cncf.io/policy-for: macvlan-net4
+    k8s.v1.cni.cncf.io/policy-for: ipblock-net
 spec:
   podSelector: 
     matchLabels:
@@ -11,6 +11,6 @@ spec:
   policyTypes:
   - Ingress
   ingress:
-    - from:
-      - ipBlock:
+  - from:
+    - ipBlock:
         cidr: 192.168.10.0/29
