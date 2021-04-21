@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: test-pod
 spec:
-  replicas: 16
+  replicas: 14
   selector:
     matchLabels:
       name: blue-openshift
