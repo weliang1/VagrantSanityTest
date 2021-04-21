@@ -1,7 +1,7 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: blue-pod-1
+  name: blue-pod-2
   labels:
     name: blue-openshift
   annotations:
@@ -12,7 +12,7 @@ spec:
     image: quay.io/openshifttest/hello-sdn@sha256:d5785550cf77b7932b090fcd1a2625472912fb3189d5973f177a5a2c347a1f95
     env:
     - name: RESPONSE
-      value: Hello Blue Pod-1 Example
+      value: Hello Blue Pod-2 Example
     ports:
     - containerPort: 8080
     - containerPort: 443
