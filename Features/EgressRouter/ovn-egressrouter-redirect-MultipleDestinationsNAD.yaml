@@ -1,21 +1,34 @@
-apiVersion: "k8s.cni.cncf.io/v1" 
-kind: NetworkAttachmentDefinition 
-metadata: 
-  name: ovn-egressrouter-redirect 
-spec: 
-  config: '{ 
-    "cniVersion": "0.4.0", 
-    "type": "egress-router", 
-    "name": "ovn-egressrouter-redirect", 
-    "ip": { 
-      "addresses": [ 
-        "10.0.0.0/8" 
-        ], 
-      "destinations": [ 
-        "80 udp 10.100.3.0/26",
-        "8080 tcp 203.0.113.26/30 80", 
-        "8443 tcp 203.0.113.26/30 443"
-      ], 
-      "gateway": "10.0.128.1" 
-      } 
-    }'
+---
+apiVersion: network.operator.openshift.io/v1
+kind: EgressRouter
+metadata:
+  name: egress-router-test
+spec:
+  addresses: [
+    {
+      ip: "192.168.3.10",
+      gateway: "192.168.3.1",
+    },
+  ]
+  mode: Redirect
+  redirect: {
+    redirectRules: [
+      {
+        destinationIP: "10.100.3.0",
+        port: 80,
+        protocol: UDP,
+      },
+      {
+        destinationIP: "203.0.113.26",
+        port: 8080,
+        protocol: TCP,
+        targetPort: 80
+      },
+      {
+        destinationIP: "203.0.113.27",
+        port: 8443,
+        protocol: TCP,
+        targetPort: 443
+      },
+    ]
+  }
