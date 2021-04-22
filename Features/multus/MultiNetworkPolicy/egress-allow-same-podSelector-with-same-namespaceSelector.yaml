@@ -14,7 +14,7 @@ spec:
     - to:
       - namespaceSelector:     
           matchLabels:
-            user: projecta
+            user: projectb
         podSelector:
           matchLabels:
             name: blue-openshift
