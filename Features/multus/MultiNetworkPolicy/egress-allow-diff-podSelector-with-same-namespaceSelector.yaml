@@ -17,4 +17,4 @@ spec:
             user: projectb
         podSelector:
           matchLabels:
-            name: blue-openshift 
+            name: red-openshift 
