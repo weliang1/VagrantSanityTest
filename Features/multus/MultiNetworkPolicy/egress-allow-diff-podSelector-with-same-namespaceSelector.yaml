@@ -14,7 +14,7 @@ spec:
     - to:
       - namespaceSelector:     
           matchLabels:
-            user: projectb
+            user: projecta
         podSelector:
           matchLabels:
             name: red-openshift 
