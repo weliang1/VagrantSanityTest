@@ -11,10 +11,10 @@ spec:
   policyTypes:
   - Ingress
   ingress:
-    - from:
-      - namespaceSelector:     
-          matchLabels:
-            user: projecta
-        podSelector:
-          matchLabels:
-            name: red-openshift 
+  - from:
+    - namespaceSelector:     
+        matchLabels:
+          user: projecta
+      podSelector:
+        matchLabels:
+          name: red-openshift 
