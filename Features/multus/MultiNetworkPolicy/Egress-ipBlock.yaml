@@ -10,7 +10,7 @@ spec:
       name: blue-openshift
   policyTypes:
   - Egress
-  ingress:
+  egress:
   - from:
     - ipBlock:
         cidr: 192.168.10.0/29
