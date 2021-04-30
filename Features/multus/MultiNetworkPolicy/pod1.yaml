@@ -15,4 +15,4 @@ spec:
       value: Hello Blue Pod-1 Example
     ports:
     - containerPort: 8080
-    - containerPort: 443
+    - containerPort: 5978
