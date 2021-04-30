@@ -9,7 +9,7 @@ spec:
     matchLabels:
       name: blue-openshift
   policyTypes:
-  - Ingress
+  - Egress
   ingress:
   - from:
     - ipBlock:
