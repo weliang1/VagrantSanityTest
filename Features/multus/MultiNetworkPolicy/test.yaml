@@ -18,6 +18,6 @@ spec:
       podSelector:
         matchLabels:
           name: blue-openshift 
-  ports:
-  - protocol: TCP
-    port: 5978
+    ports:
+    - protocol: TCP
+      port: 5978
