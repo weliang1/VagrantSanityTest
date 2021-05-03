@@ -4,6 +4,8 @@ metadata:
   name: tcp-port-pod
   labels:
     name: blue-openshift
+  annotations:
+    k8s.v1.cni.cncf.io/networks: macvlan-net1
 spec:
   containers:
   - name: tcp-port-pod-container
