@@ -3,7 +3,7 @@ kind: MultiNetworkPolicy
 metadata:
   name:  tcp-port
   annotations:
-    k8s.v1.cni.cncf.io/policy-for: tcp-port
+    k8s.v1.cni.cncf.io/policy-for: macvlan-net1
 spec:
   podSelector: 
     matchLabels:
