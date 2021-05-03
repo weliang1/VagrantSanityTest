@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: tcp-port-pod
+  labels:
+    name: blue-openshift
+spec:
+  containers:
+  - name: tcp-port-pod-container
+    image: quay.io/openshifttest/hello-sdn@sha256:d5785550cf77b7932b090fcd1a2625472912fb3189d5973f177a5a2c347a1f95
+    env:
+    - name: RESPONSE
+      value: Hello TCP POD
+    ports:
+    - containerPort: 8888
+      protocol: TCP
