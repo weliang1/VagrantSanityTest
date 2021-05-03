@@ -7,7 +7,7 @@ metadata:
 spec:
   podSelector: 
     matchLabels:
-      name: blue-openshift
+      name: red-openshift
   policyTypes:
   - Ingress
   ingress:
