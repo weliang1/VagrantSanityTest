@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: MultiNetworkPolicy
+metadata:
+  name:  tcp-port
+  annotations:
+    k8s.v1.cni.cncf.io/policy-for: tcp-port
+spec:
+  podSelector: 
+    matchLabels:
+      name: blue-openshift
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    ports:
+    - protocol: TCP
+      port: 8888
