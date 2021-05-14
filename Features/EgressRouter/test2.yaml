@@ -1,33 +1,33 @@
 apiVersion: network.operator.openshift.io/v1
 kind: EgressRouter
 metadata:
-  name: egress-router-1
+  name: egress-router-test
 spec:
   addresses: [
     {
-      ip: "192.168.3.10/24",
-      gateway: "192.168.3.1"
+      ip: "192.168.3.10",
+      gateway: "192.168.3.1",
     },
   ]
   mode: Redirect
   redirect: {
     redirectRules: [
       {
-        destinationIP: "203.0.113.25/30",
+        destinationIP: "203.0.113.25",
         port: 65,
         protocol: TCP,
         targetPort: 75
       },
       {
-        destinationIP: "203.0.113.26/30",
+        destinationIP: "203.0.113.26",
         port: 65535,
-        protocol: SCTP
+        protocol: SCTP,
       },
       {
-        destinationIP: "203.0.113.27/30",
+        destinationIP: "203.0.113.27",
         port: 65534,
-        protocol: UDP
+        protocol: UDP,
       },
     ],
-    fallbackIP: "203.0.113.28/30"
+    fallbackIP: "203.0.113.28"
   }
