@@ -1,19 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+---
+kind: Pod
+apiVersion: v1
 metadata:
-  name: hello-openshift
+  name: blue-pod-1
+  labels:
+    name: blue-openshift
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: hello-openshift
-  template:
-    metadata:
-      labels:
-        app: hello-openshift
-    spec:
-      containers:
-      - name: hello-openshift
-        image: openshift/hello-openshift:latest
-        ports:
-        - containerPort: 80
+  containers:
+  - name: blue-pod-container
+    image: quay.io/openshifttest/nonexist
+    env:
+    - name: RESPONSE
+      value: Hello Blue Pod-1 Example
+    ports:
+    - containerPort: 8080
+    - containerPort: 443
