@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: blue-pod-container
-    image: quay.io/openshifttest/nonexist
+    image: quay.io/openshifttest/newone
     env:
     - name: RESPONSE
       value: Hello Blue Pod-1 Example
