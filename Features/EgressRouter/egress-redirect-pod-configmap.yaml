@@ -21,7 +21,7 @@ spec:
     - name: EGRESS_DESTINATION 
       valueFrom:
         configMapKeyRef:
-          name: egress-routes
+          name: egress-router
           key: destination
     - name: EGRESS_ROUTER_MODE
       value: init
