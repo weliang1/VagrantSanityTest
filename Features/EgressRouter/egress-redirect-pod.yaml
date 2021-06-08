@@ -9,7 +9,7 @@ metadata:
 spec:
   initContainers:
   - name: egressrouter-redirectpod
-    image: openshift3/ose-egress-router 
+    image: registry.redhat.io/openshift4/ose-egress-router 
     imagePullPolicy:  IfNotPresent
     securityContext:
       privileged: true
@@ -23,7 +23,7 @@ spec:
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
-  - name: egressrouter-redirect-pod
+  - name: registry.redhat.io/openshift4/ose-pod
     image: openshift3/ose-pod
     imagePullPolicy:  IfNotPresent
   nodeSelector:
