@@ -19,7 +19,10 @@ spec:
     - name: EGRESS_GATEWAY
       value: 172.31.248.1
     - name: EGRESS_DESTINATION 
-      value:  216.58.217.46
+      valueFrom:
+        configMapKeyRef:
+          name: egress-routes
+          key: destination
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
