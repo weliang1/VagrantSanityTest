@@ -23,8 +23,8 @@ spec:
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
-  - name: registry.redhat.io/openshift4/ose-pod
-    image: openshift3/ose-pod
+  - name: egressrouter-redirect-pod
+    image: registry.redhat.io/openshift4/ose-pod
     imagePullPolicy:  IfNotPresent
   nodeSelector:
     app:  egressrouter
