@@ -21,13 +21,13 @@ spec:
     - name: EGRESS_DESTINATION 
       valueFrom:
         configMapKeyRef:
-          name: egress-router
+          name: egress-routes
           key: destination
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
-  - name: egressrouter-redirect-pod
-    image: registry.redhat.io/openshift4/ose-pod
+  - name: registry.redhat.io/openshift4/ose-pod
+    image: openshift3/ose-pod
     imagePullPolicy:  IfNotPresent
   nodeSelector:
     app:  egressrouter
