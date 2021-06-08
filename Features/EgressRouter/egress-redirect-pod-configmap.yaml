@@ -18,16 +18,16 @@ spec:
       value: 172.31.249.212
     - name: EGRESS_GATEWAY
       value: 172.31.248.1
+    - name: EGRESS_DESTINATION 
+      valueFrom:
+        configMapKeyRef:
+          name: egress-routes
+          key: destination
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
   - name: egressrouter-redirect-pod
     image: registry.redhat.io/openshift4/ose-pod
     imagePullPolicy:  IfNotPresent
-  - name: EGRESS_DESTINATION 
-    valueFrom:
-      configMapKeyRef:
-        name: egress-routes
-        key: destination
   nodeSelector:
     app:  egressrouter
