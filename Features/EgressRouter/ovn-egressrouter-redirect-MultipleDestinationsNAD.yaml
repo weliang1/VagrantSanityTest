@@ -1,12 +1,12 @@
----
 apiVersion: network.operator.openshift.io/v1
 kind: EgressRouter
 metadata:
   name: egress-router-test
+  namespaces: test
 spec:
   addresses: [
     {
-      ip: "192.168.3.10",
+      ip: "192.168.3.10/24",
       gateway: "192.168.3.1",
     },
   ]
