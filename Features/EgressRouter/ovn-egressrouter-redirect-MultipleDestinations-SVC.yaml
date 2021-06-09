@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ovn-egressrouter-redirect-svc
+  name: ovn-MultipleDestinations-svc
 spec:
   selector:
     app: egress-router-cni
