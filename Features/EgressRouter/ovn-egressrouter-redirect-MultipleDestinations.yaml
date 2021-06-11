@@ -19,16 +19,16 @@ spec:
         protocol: TCP,
       },
       {
-        destinationIP: "203.0.113.26",
+        destinationIP: "23.218.161.207",
         port: 8080,
         protocol: TCP,
         targetPort: 80
       },
       {
-        destinationIP: "203.0.113.27",
-        port: 8443,
+        destinationIP: "209.82.215.211",
+        port: 8888,
         protocol: TCP,
-        targetPort: 443
+        targetPort: 80
       },
     ]
   }
