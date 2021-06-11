@@ -2,7 +2,6 @@ apiVersion: network.operator.openshift.io/v1
 kind: EgressRouter
 metadata:
   name: egress-router-test
-  namespaces: test
 spec:
   addresses: [
     {
