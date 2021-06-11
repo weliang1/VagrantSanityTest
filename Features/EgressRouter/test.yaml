@@ -15,5 +15,7 @@ spec:
         "142.250.81.206" 
       ], 
       "gateway": "10.73.117.254" 
-      } 
-    }'
+      },
+      "log_file": "/tmp/egress-router-log", 
+      "log_level": "debug"  
+  }'
