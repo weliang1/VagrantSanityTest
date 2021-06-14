@@ -1,0 +1,33 @@
+apiVersion: network.operator.openshift.io/v1
+kind: EgressRouter
+metadata:
+  name: egress-router-test
+spec:
+  addresses: [
+    {
+      ip: "10.0.162.253/19",
+      gateway: "10.0.160.1",
+    },
+  ]
+  mode: Redirect
+  redirect: {
+    redirectRules: [
+      {
+        destinationIP: "142.250.81.206",
+        port: 80,
+        protocol: TCP,
+      },
+      {
+        destinationIP: "142.250.81.206",
+        port: 8080,
+        protocol: TCP,
+        targetPort: 80
+      },
+      {
+        destinationIP: "142.250.81.206",
+        port: 8888,
+        protocol: TCP,
+        targetPort: 80
+      },
+    ]
+  }
