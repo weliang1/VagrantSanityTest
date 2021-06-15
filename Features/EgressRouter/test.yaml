@@ -1,21 +1,33 @@
-apiVersion: "k8s.cni.cncf.io/v1" 
-kind: NetworkAttachmentDefinition 
-metadata: 
-  name: ovn-egressrouter-redirect 
-spec: 
-  config: '{ 
-    "cniVersion": "0.4.0", 
-    "type": "egress-router", 
-    "name": "ovn-egressrouter-redirect", 
-    "ip": { 
-      "addresses": [ 
-        "10.73.116.60/8" 
-        ], 
-      "destinations": [ 
-        "142.250.81.206" 
-      ], 
-      "gateway": "10.73.117.254" 
-      },
-      "log_file": "/tmp/egress-router-log", 
-      "log_level": "debug"  
-  }'
+apiVersion: v1
+kind: Pod
+metadata:
+  name: egressrouter-redirect-pod
+  labels:
+    name: egressrouter-redirect-pod
+  annotations:
+    pod.network.openshift.io/assign-macvlan: "true"
+spec:
+  initContainers:
+  - name: egressrouter-redirectpod
+    image: registry.redhat.io/openshift4/ose-egress-router 
+    imagePullPolicy:  IfNotPresent
+    securityContext:
+      privileged: true
+    env:
+    - name: EGRESS_SOURCE
+      value: SOURCEIP
+    - name: EGRESS_GATEWAY
+      value: GATEWAYIP
+    - name: EGRESS_DESTINATION
+      value: |
+        80 tcp 172.217.12.228
+        8888 tcp 172.217.12.228 80
+        8080 tcp 172.217.12.228 80
+    - name: EGRESS_ROUTER_MODE
+      value: init
+  containers:
+  - name: egressrouter-redirect-pod
+    image: registry.redhat.io/openshift4/ose-pod
+    imagePullPolicy:  IfNotPresent
+  nodeSelector:
+    app:  egressrouter
