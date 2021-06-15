@@ -5,8 +5,8 @@ metadata:
 spec:
   addresses: [
     {
-      ip: "10.73.116.64/23",
-      gateway: "10.73.117.254",
+      ip: "192.168.123.134/24",
+      gateway: "192.168.123.1",
     },
   ]
   mode: Redirect
