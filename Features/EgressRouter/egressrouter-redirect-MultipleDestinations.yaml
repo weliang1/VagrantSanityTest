@@ -21,8 +21,8 @@ spec:
     - name: EGRESS_DESTINATION
       value: |
         80 tcp 172.217.12.228
-        8888 tcp 172.217.12.228
-        8080 tcp 172.217.12.228
+        8888 tcp 172.217.12.228 80
+        8080 tcp 172.217.12.228 80
     - name: EGRESS_ROUTER_MODE
       value: init
   containers:
