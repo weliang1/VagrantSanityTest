@@ -6,15 +6,6 @@ spec:
   selector:
     name: ovn-egressrouter-redirect-pod
   ports:
-  - name: con1
-    protocol: TCP
+  - protocol: TCP
     port: 80
     targetPort: 80
-  - name: con2
-    protocol: TCP
-    port: 5000
-    targetPort: 8080
-  - name: con3
-    protocol: TCP
-    port: 6000
-    targetPort: 8888
