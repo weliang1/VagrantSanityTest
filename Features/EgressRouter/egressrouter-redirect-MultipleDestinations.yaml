@@ -15,9 +15,9 @@ spec:
       privileged: true
     env:
     - name: EGRESS_SOURCE
-      value: 10.0.142.141
+      value: SOURCEIP
     - name: EGRESS_GATEWAY
-      value: 10.0.128.1
+      value: GATEWAYIP
     - name: EGRESS_DESTINATION
       value: |
         80 tcp 172.217.12.228
