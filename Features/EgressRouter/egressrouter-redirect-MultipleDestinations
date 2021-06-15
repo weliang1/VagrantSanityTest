@@ -19,7 +19,7 @@ spec:
     - name: EGRESS_GATEWAY
       value: 10.0.128.1
     - name: EGRESS_DESTINATION
-      value:
+      value: |
         80 tcp 172.217.12.228
         8888 tcp 172.217.12.228
         8080 tcp 172.217.12.228
